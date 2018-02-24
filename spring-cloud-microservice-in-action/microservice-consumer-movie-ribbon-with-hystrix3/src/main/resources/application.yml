@@ -1,0 +1,19 @@
+management: # spring-boot-starter-acturator
+  port: 8081
+spring:
+  application:
+    name: microservice-consumer-movie-ribbon-with-hystrix3
+server:
+  port: 8010
+  context-path: /ribbon
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://user:password123@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    metadata-map:
+      management.port: 8081
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
