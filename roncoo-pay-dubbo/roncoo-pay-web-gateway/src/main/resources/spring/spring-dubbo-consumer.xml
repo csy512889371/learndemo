@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://code.alibabatech.com/schema/dubbo  
+            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- ==================================================================== -->
+	<!-- 龙果学院 (www.roncoo.com) 超级教程系列 -->
+	<!-- 《微服务架构的分布式事务解决方案》视频教程 -->
+	<!-- 讲师：吴水成（水到渠成），840765167@qq.com -->
+	<!-- 课程地址：http://www.roncoo.com/course/view/7ae3d7eddc4742f78b0548aa8bd9ccdb -->
+	<!-- ==================================================================== -->           
+            
+    <!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
+	<dubbo:application name="roncoo-pay-web-gateway" />
+
+	<!-- 使用zookeeper注册中心暴露发现服务地址 -->
+	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" />
+            
+	<!-- 用户 -->
+	<dubbo:reference interface="com.roncoo.pay.service.user.api.RpUserInfoService" id="rpUserInfoService" check="false" />
+	<dubbo:reference interface="com.roncoo.pay.service.user.api.RpUserPayInfoService" id="rpUserPayInfoService" check="false" />
+	<dubbo:reference interface="com.roncoo.pay.service.user.api.RpUserPayConfigService" id="rpUserPayConfigService" check="false" />
+	<dubbo:reference interface="com.roncoo.pay.service.user.api.RpPayWayService" id="rpPayWayService" check="false" />
+	<dubbo:reference interface="com.roncoo.pay.service.user.api.RpPayProductService" id="rpPayProductService" check="false" />
+	
+		
+	<!-- 交易 -->
+	<dubbo:reference interface="com.roncoo.pay.service.trade.api.RpTradePaymentQueryService" id="rpTradePaymentQueryService" check="false" />
+	<dubbo:reference interface="com.roncoo.pay.service.trade.api.RpTradePaymentManagerService" id="rpTradePaymentManagerService" check="false" />
+		
+	<!-- 消息 -->
+	<dubbo:reference interface="com.roncoo.pay.service.message.api.RpTransactionMessageService" id="rpTransactionMessageService" check="false" />
+</beans>  

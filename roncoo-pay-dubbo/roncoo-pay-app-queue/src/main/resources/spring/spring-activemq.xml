@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.0.xsd">
+
+	<!-- ==================================================================== -->
+	<!-- 龙果学院（ http://www.roncoo.com ）超级教程系列 -->
+	<!-- 《微服务架构的分布式事务解决方案》视频教程 -->
+	<!-- 讲师：吴水成（水到渠成），840765167@qq.com -->
+	<!-- 课程地址：http://www.roncoo.com/course/view/7ae3d7eddc4742f78b0548aa8bd9ccdb -->
+	<!-- ==================================================================== -->
+
+	<!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供 -->
+	<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="${roncoo.pay.mq.brokerURL}"></property>
+		<property name="userName" value="${roncoo.pay.mq.userName}"></property>
+		<property name="password" value="${roncoo.pay.mq.password}"></property>
+	</bean>
+
+
+	<!-- Spring用于管理真正的ConnectionFactory的ConnectionFactory -->
+	<bean id="connectionFactory"
+		class="org.springframework.jms.connection.SingleConnectionFactory">
+		<!-- 目标ConnectionFactory对应真实的可以产生JMS Connection的ConnectionFactory -->
+		<property name="targetConnectionFactory" ref="targetConnectionFactory" />
+	</bean>
+
+	<bean id="notifyJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<!-- 这个connectionFactory对应的是我们定义的Spring提供的那个ConnectionFactory对象 -->
+		<property name="connectionFactory" ref="connectionFactory" />
+	</bean>
+
+	<bean id="bankMessageBiz" class="com.roncoo.pay.app.queue.bankmessage.biz.BankMessageBiz"></bean>
+	
+	<bean id="bankMessageListener" class="com.roncoo.pay.app.queue.BankMessageListener">
+		<property name="notifyJmsTemplate" ref="notifyJmsTemplate" />
+		<property name="bankMessageBiz" ref="bankMessageBiz" />
+	</bean>
+	
+	<bean id="accountingMessageListener" class="com.roncoo.pay.app.queue.AccountingMessageListener">
+		<property name="notifyJmsTemplate" ref="notifyJmsTemplate" />
+		<property name="rpAccountingVoucherService" ref="rpAccountingVoucherService" />
+	</bean>
+
+	<jms:listener-container concurrency="2"> 
+		<!-- concurrency指定最多可并发开启2个监听器 -->
+		<jms:listener id="accountinglistener" destination="ACCOUNTING_NOTIFY" ref="accountingMessageListener" />
+		<jms:listener id="bankListener" destination="BANK_NOTIFY" ref="bankMessageListener" />
+	</jms:listener-container>
+
+</beans>

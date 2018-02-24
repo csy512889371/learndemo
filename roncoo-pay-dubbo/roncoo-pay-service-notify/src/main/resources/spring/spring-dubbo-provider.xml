@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://code.alibabatech.com/schema/dubbo  
+            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- ==================================================================== -->
+	<!-- 龙果学院（ http://www.roncoo.com ）超级教程系列 -->
+	<!-- 《微服务架构的分布式事务解决方案》视频教程 -->
+	<!-- 讲师：吴水成（水到渠成），840765167@qq.com -->
+	<!-- 课程地址：http://www.roncoo.com/course/view/7ae3d7eddc4742f78b0548aa8bd9ccdb -->
+	<!-- ==================================================================== -->
+
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="roncoo-pay-service-notify" />
+
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" />
+
+	<!-- 用dubbo协议在20900端口暴露服务 -->
+	<dubbo:protocol name="dubbo" port="20883" />
+	
+	<!-- 当ProtocolConfig和ServiceConfig某属性没有配置时,采用此缺省值 -->
+	<dubbo:provider timeout="30000" threadpool="fixed" threads="500" accepts="1000" />
+
+	<!-- 声明需要暴露的账户服务接口 -->
+
+	<dubbo:service retries="0" interface="com.roncoo.pay.service.notify.aip.RpNotifyService" ref="rpNotifyService" />
+	
+</beans>  

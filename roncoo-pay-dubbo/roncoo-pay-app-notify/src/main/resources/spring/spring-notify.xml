@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    ">
+
+	<!-- ==================================================================== -->
+	<!-- 龙果学院（ http://www.roncoo.com ）超级教程系列 -->
+	<!-- 《微服务架构的分布式事务解决方案》视频教程 -->
+	<!-- 讲师：吴水成（水到渠成），840765167@qq.com -->
+	<!-- 课程地址：http://www.roncoo.com/course/view/7ae3d7eddc4742f78b0548aa8bd9ccdb -->
+	<!-- ==================================================================== -->
+
+	<!-- 配置线程池 -->
+	<bean id="threadPool" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<!-- 线程池维护线程的最少数量 -->
+		<property name="corePoolSize" value="5" />
+		<!-- 线程池维护线程所允许的空闲时间 -->
+		<property name="keepAliveSeconds" value="30000" />
+		<!-- 线程池维护线程的最大数量 -->
+		<property name="maxPoolSize" value="20" />
+		<!-- 线程池所使用的缓冲队列 -->
+		<property name="queueCapacity" value="100" />
+	</bean>
+
+	<!-- 配置通知参数（通知规则）, 时间单位分 -->
+	<bean id="notifyParam" class="com.roncoo.pay.app.notify.param.NotifyParam">
+		<property name="notifyParams">
+			<map>
+				<entry key="1" value="0" />
+				<entry key="2" value="1" />
+				<entry key="3" value="2" />
+				<entry key="4" value="3" />
+				<entry key="5" value="4" />
+			</map>
+		</property>
+		<property name="successValue" value="success" />
+	</bean>
+
+</beans>

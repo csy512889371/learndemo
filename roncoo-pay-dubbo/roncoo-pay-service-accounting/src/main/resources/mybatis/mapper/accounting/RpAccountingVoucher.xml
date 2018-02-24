@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.roncoo.pay.service.accounting.dao.impl.RpAccountingVoucherDaoImpl">
+
+	<!-- ==================================================================== -->
+	<!-- 龙果学院（ http://www.roncoo.com ）超级教程系列 -->
+	<!-- 《微服务架构的分布式事务解决方案》视频教程 -->
+	<!-- 讲师：吴水成（水到渠成），840765167@qq.com -->
+	<!-- 课程地址：http://www.roncoo.com/course/view/7ae3d7eddc4742f78b0548aa8bd9ccdb -->
+	<!-- ==================================================================== -->
+	
+	<!-- 表名 -->
+	<sql id="table"> rp_accounting_voucher </sql>
+	
+	<resultMap id="beanMap" type="com.roncoo.pay.service.accounting.entity.RpAccountingVoucher">
+		<id column="ID" property="id" />
+		
+		<result column="entry_type" property="entryType" />
+		<result column="request_no" property="requestNo" />
+		<result column="from_system" property="fromSystem" />
+		<result column="voucher_no" property="voucherNo" />
+		<result column="accounting_date" property="accountingDate" />
+		
+		
+		<result column="bank_change_amount" property="bankChangeAmount" />
+		<result column="payer_account_no" property="payerAccountNo" />
+		<result column="receiver_account_no" property="receiverAccountNo" />
+		<result column="bank_account" property="bankAccount" />
+		<result column="bank_channel_code" property="bankChannelCode" />
+		
+		<result column="payer_change_amount" property="payerChangeAmount" />
+		<result column="receiver_change_amount" property="receiverChangeAmount" />
+		<result column="edit_time" property="editTime" />
+		<result column="profit" property="profit" />
+		<result column="income" property="income" />
+		
+		<result column="cost" property="cost" />
+		<result column="remark" property="remark" />
+		<result column="bank_order_no" property="bankOrderNo" />
+		<result column="receiver_account_type" property="receiverAccountType" />
+		<result column="pay_amount" property="payAmount" />
+		
+		<result column="payer_account_type" property="payerAccountType" />
+		<result column="payer_fee" property="payerFee" />
+		<result column="receiver_fee" property="receiverFee" />
+		<result column="create_time" property="createTime" />
+		
+	</resultMap>
+
+	<insert id="insert" parameterType="com.roncoo.pay.service.accounting.entity.RpAccountingVoucher" keyProperty="id" useGeneratedKeys="true">
+		INSERT INTO
+		<include refid="table" />
+		(
+		entry_type,
+		request_no,
+		from_system,
+		voucher_no,
+		accounting_date,
+		
+		bank_change_amount,
+		payer_account_no,
+		receiver_account_no,
+		bank_account,
+		bank_channel_code,
+		
+		payer_change_amount,
+		receiver_change_amount,
+		edit_time,
+		profit,
+		income,
+		
+		cost,
+		remark,
+		bank_order_no,
+		receiver_account_type,
+		pay_amount,
+		
+		payer_account_type,
+		payer_fee,
+		receiver_fee,
+		create_time
+		
+		) VALUES
+		(
+		#{entryType},
+		#{requestNo,jdbcType=VARCHAR},
+		#{fromSystem},
+		#{voucherNo,jdbcType=VARCHAR},
+		#{accountingDate,jdbcType=TIMESTAMP},
+		#{bankChangeAmount},
+		#{payerAccountNo},
+		#{receiverAccountNo},
+		#{bankAccount},
+		#{bankChannelCode,jdbcType=VARCHAR},
+		#{payerChangeAmount},
+		#{receiverChangeAmount},
+		#{editTime,jdbcType=TIMESTAMP},
+		#{profit},
+		#{income},
+		#{cost},
+		#{remark,jdbcType=VARCHAR},
+		#{bankOrderNo},
+		#{receiverAccountType},
+		#{payAmount},
+		#{payerAccountType},
+		#{payerFee},
+		#{receiverFee},
+		FUN_NOW()
+		)
+	</insert>
+	
+	<update id="update" parameterType="com.roncoo.pay.service.accounting.entity.RpAccountingVoucher">
+		UPDATE
+		<include refid="table" />
+		<set>
+			entry_type = #{entryType},
+			request_no = #{requestNo,jdbcType=VARCHAR},
+			from_system = #{fromSystem},
+			voucher_no = #{voucherNo,jdbcType=VARCHAR},
+			accounting_date = #{accountingDate,jdbcType=TIMESTAMP},
+			bank_change_amount = #{bankChangeAmount},
+			payer_account_no = #{payerAccountNo},
+			receiver_account_no = #{receiverAccountNo},
+			bank_account = #{bankAccount},
+			bank_channel_code = #{bankChannelCode,jdbcType=VARCHAR},
+			payer_change_amount = #{payerChangeAmount},
+			receiver_change_amount = #{receiverChangeAmount},
+			edit_time = #{editTime,jdbcType=TIMESTAMP},
+			profit = #{profit},
+			income = #{income},
+			cost = #{cost},
+			remark = #{remark,jdbcType=VARCHAR},
+			bank_order_no = #{bankOrderNo},
+			receiver_account_type = #{receiverAccountType},
+			pay_amount = #{payAmount},
+			payer_account_type = #{payerAccountType},
+			payer_fee = #{payerFee},
+			receiver_fee = #{receiverFee}
+		</set>
+		WHERE ID = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="java.util.Map">
+		DELETE FROM rp_accounting_voucher WHERE ID = #{id}
+	</delete>
+	
+	<select id="getById" parameterType="string" resultMap="beanMap">
+		SELECT * FROM
+		<include refid="table" />
+		WHERE ID = #{id}
+	</select>
+	
+	<select id="buildAccountingVoucherNo" resultType="string">
+		SELECT FUN_SEQ('ACCOUNTING_REQUEST_NO_SEQ')
+	</select>
+	
+	<select id="listPage" parameterType="java.util.Map" resultMap="beanMap">
+		select * from
+		<include refid="table" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+		<![CDATA[ order by ID desc]]>
+	</select>
+	
+	<select id="listPageCount" parameterType="java.util.Map" resultType="long">
+		SELECT COUNT(1) FROM
+		<include refid="table" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+	</select>
+
+	<select id="getByRequestNo" parameterType="string" resultMap="beanMap">
+		SELECT * FROM
+		<include refid="table" />
+		WHERE request_no = #{requestNo}
+	</select>
+
+	<sql id="condition_sql">
+		<if test="requestNo != null and requestNo != ''"> and request_no = #{requestNo} </if>
+		<if test="voucherNo != null and voucherNo != ''"> and voucher_no = #{voucherNo} </if>
+		<if test="bankOrderNo != null and bankOrderNo != ''"> and bank_order_no = #{bankOrderNo} </if>
+		<if test="accountingDate != null and accountingDate != ''"> and accounting_date = #{accountingDate} </if>
+		<if test="bankChannelCode != null and bankChannelCode != ''"> and bank_channel_code = #{bankChannelCode} </if>
+		<if test="beginDate != null and beginDate != '' and endDate != null and endDate != ''">
+			and accounting_date between #{beginDate} and CONCAT(#{endDate}, ' 23:59:59')
+		</if>
+		<!-- 此处foreach中的条件用于分页查询，要用${item},不用#{item} -->
+		<if test="inTradeCode != null and inTradeCode != ''">
+			and entry_type in
+			<foreach item="item" index="index" collection="inTradeCode" open="(" separator="," close=")">${item}</foreach>
+		</if>
+		<if test="entryType != null and entryType != ''"> and entry_type = #{entryType} </if>
+	</sql>
+
+	<select id="listBy" parameterType="java.util.Map" resultMap="beanMap">
+		select * from
+		<include refid="table" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+	</select>
+
+	<select id="listMapBy" parameterType="java.util.Map" resultType="java.util.Map">
+		select * from
+		<include refid="table" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+	</select>
+
+</mapper>

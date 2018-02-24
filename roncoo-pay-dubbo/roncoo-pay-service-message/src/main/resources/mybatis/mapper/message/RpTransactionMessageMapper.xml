@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.roncoo.pay.service.message.dao.impl.RpTransactionMessageDaoImpl">
+
+	<!-- ==================================================================== -->
+	<!-- 龙果学院（ http://www.roncoo.com ）超级教程系列 -->
+	<!-- 《微服务架构的分布式事务解决方案》视频教程 -->
+	<!-- 讲师：吴水成（水到渠成），840765167@qq.com -->
+	<!-- 课程地址：http://www.roncoo.com/details/7ae3d7eddc4742f78b0548aa8bd9ccdb -->
+	<!-- ==================================================================== -->
+	
+	<sql id="table_name"> rp_transaction_message </sql>
+
+	<resultMap id="BaseResultMap" type="com.roncoo.pay.service.message.entity.RpTransactionMessage">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="version" property="version" jdbcType="SMALLINT" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="editor" property="editor" jdbcType="VARCHAR" />
+		<result column="creater" property="creater" jdbcType="VARCHAR" />
+		<result column="edit_time" property="editTime" jdbcType="TIMESTAMP" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="message_id" property="messageId" jdbcType="VARCHAR" />
+		<result column="message_body" property="messageBody" jdbcType="VARCHAR" />
+		<result column="message_data_type" property="messageDataType" jdbcType="VARCHAR" />
+		<result column="consumer_queue" property="consumerQueue" jdbcType="VARCHAR" />
+		<result column="message_send_times" property="messageSendTimes" jdbcType="SMALLINT" />
+		<result column="areadly_dead" property="areadlyDead" jdbcType="VARCHAR" />
+		<result column="field1" property="field1" jdbcType="VARCHAR" />
+		<result column="field2" property="field2" jdbcType="VARCHAR" />
+		<result column="field3" property="field3" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id, version, create_time, editor, creater, edit_time, status,remark,
+		message_id,message_body,message_data_type,consumer_queue,message_send_times,areadly_dead,
+		field1,field2,field3
+
+	</sql>
+
+	<insert id="insert" parameterType="com.roncoo.pay.service.message.entity.RpTransactionMessage">
+		insert into
+		<include refid="table_name" />
+		(id, version, create_time,
+		editor, creater, edit_time,
+		status,remark,message_id,
+		message_body,message_data_type,
+		consumer_queue,message_send_times,areadly_dead,
+		field1,field2,field3
+		)
+		values (#{id,jdbcType=VARCHAR}, 0, #{createTime,jdbcType=TIMESTAMP},
+		#{editor,jdbcType=VARCHAR}, #{creater,jdbcType=VARCHAR}, #{editTime,jdbcType=TIMESTAMP},
+		#{status,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},#{messageId,jdbcType=VARCHAR},
+		#{messageBody,jdbcType=VARCHAR},#{messageDataType,jdbcType=VARCHAR},
+		#{consumerQueue,jdbcType=VARCHAR},#{messageSendTimes,jdbcType=SMALLINT},#{areadlyDead,jdbcType=VARCHAR},
+		#{field1,jdbcType=VARCHAR},#{field2,jdbcType=VARCHAR},#{field3,jdbcType=VARCHAR}
+		)
+	</insert>
+
+	<update id="updateByPrimaryKey" parameterType="com.roncoo.pay.service.message.entity.RpTransactionMessage">
+		update
+		<include refid="table_name" />
+		set version = #{version,jdbcType=SMALLINT}+1,
+		create_time = #{createTime,jdbcType=TIMESTAMP},
+		editor = #{editor,jdbcType=VARCHAR},
+		creater = #{creater,jdbcType=VARCHAR},
+		edit_time = #{editTime,jdbcType=TIMESTAMP},
+		status = #{status,jdbcType=VARCHAR},
+		remark = #{remark,jdbcType=VARCHAR},
+		message_id = #{messageId,jdbcType=VARCHAR},
+		message_body = #{messageBody,jdbcType=VARCHAR},
+		message_data_type = #{messageDataType,jdbcType=DECIMAL},
+		consumer_queue = #{consumerQueue,jdbcType=VARCHAR},
+		message_send_times = #{messageSendTimes,jdbcType=VARCHAR},
+		areadly_dead = #{areadlyDead,jdbcType=VARCHAR},
+		field1 = #{field1,jdbcType=VARCHAR},
+		field2 = #{field2,jdbcType=VARCHAR},
+		field3 = #{field3,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=VARCHAR} and
+		version = #{version,jdbcType=SMALLINT}
+	</update>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="table_name" />
+		where id = #{id,jdbcType=VARCHAR}
+	</select>
+
+	<select id="listBy" resultMap="BaseResultMap" parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="table_name" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+		
+	</select>
+
+	<delete id="batchDeleteByColumn" parameterType="string">
+		delete from
+		<include refid="table_name" />
+		where message_id = #{messageId,jdbcType=VARCHAR}
+	</delete>
+
+	<sql id="condition_sql">
+		<if test="messageId != null and messageId != ''"> and message_id = #{messageId,jdbcType=VARCHAR}</if>
+		<if test="status != null and status != ''"> and status = #{status,jdbcType=VARCHAR}</if>
+		<if test="areadlyDead != null and areadlyDead != ''"> and areadly_dead = #{areadlyDead,jdbcType=VARCHAR}</if>
+		<if test="consumerQueue != null and consumerQueue != ''"> and consumer_queue = #{consumerQueue,jdbcType=VARCHAR}</if>
+		<if test="createTimeBefore != null and createTimeBefore != ''">  <![CDATA[ and create_time < #{createTimeBefore,jdbcType=VARCHAR}]]></if>
+	</sql>
+
+	<select id="listPage" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List" /> from <include refid="table_name" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+		<![CDATA[ order by create_time ]]>
+		<if test="listPageSortType == 'ASC'"> asc </if>
+		<if test="listPageSortType != 'ASC'"> desc </if>
+		<![CDATA[ limit #{pageFirst}, #{pageSize}]]>
+	</select>
+
+	<select id="listPageCount" parameterType="java.util.Map" resultType="long">
+		select count(1) from <include refid="table_name" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+	</select>
+	
+	<!-- 
+	<select id="listByPage" resultMap="BaseResultMap" parameterType="java.util.Map">
+		select <include refid="Base_Column_List" /> from <include refid="table_name" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+		<![CDATA[ order by edit_time asc limit #{pageFirst}, #{pageSize}]]>
+	</select>
+	-->
+
+
+</mapper>

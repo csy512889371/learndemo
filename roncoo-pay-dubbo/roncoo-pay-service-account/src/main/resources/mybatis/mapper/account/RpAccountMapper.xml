@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.roncoo.pay.service.account.dao.impl.RpAccountDaoImpl" >
+	<!-- ==================================================================== -->
+	<!-- 龙果学院（ http://www.roncoo.com ）超级教程系列 -->
+	<!-- 《微服务架构的分布式事务解决方案》视频教程 -->
+	<!-- 讲师：吴水成（水到渠成），840765167@qq.com -->
+	<!-- 课程地址：http://www.roncoo.com/course/view/7ae3d7eddc4742f78b0548aa8bd9ccdb -->
+	<!-- ==================================================================== -->
+  <resultMap id="BaseResultMap" type="com.roncoo.pay.service.account.entity.RpAccount" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="edit_time" property="editTime" jdbcType="TIMESTAMP" />
+    <result column="version" property="version" jdbcType="BIGINT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="account_no" property="accountNo" jdbcType="VARCHAR" />
+    <result column="balance" property="balance" jdbcType="DECIMAL" />
+    <result column="unbalance" property="unbalance" jdbcType="DECIMAL" />
+    <result column="security_money" property="securityMoney" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="total_income" property="totalIncome" jdbcType="DECIMAL" />
+    <result column="total_expend" property="totalExpend" jdbcType="DECIMAL" />
+    <result column="today_income" property="todayIncome" jdbcType="DECIMAL" />
+    <result column="today_expend" property="todayExpend" jdbcType="DECIMAL" />
+    <result column="account_type" property="accountType" jdbcType="VARCHAR" />
+    <result column="sett_amount" property="settAmount" jdbcType="DECIMAL" />
+    <result column="user_no" property="userNo" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="table_name">  rp_account </sql>
+  
+  <sql id="Base_Column_List" >
+    id, create_time, edit_time, version, remark, account_no, balance, unbalance, security_money, 
+    status, total_income, total_expend, today_income, today_expend, account_type, sett_amount, 
+    user_no
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from rp_account
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from rp_account
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.roncoo.pay.service.account.entity.RpAccount" >
+    insert into rp_account (id, create_time, edit_time, 
+      version, remark, account_no, 
+      balance, unbalance, security_money, 
+      status, total_income, total_expend, 
+      today_income, today_expend, account_type, 
+      sett_amount, user_no)
+    values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{editTime,jdbcType=TIMESTAMP}, 
+      #{version,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, #{accountNo,jdbcType=VARCHAR}, 
+      #{balance,jdbcType=DECIMAL}, #{unbalance,jdbcType=DECIMAL}, #{securityMoney,jdbcType=DECIMAL}, 
+      #{status,jdbcType=VARCHAR}, #{totalIncome,jdbcType=DECIMAL}, #{totalExpend,jdbcType=DECIMAL}, 
+      #{todayIncome,jdbcType=DECIMAL}, #{todayExpend,jdbcType=DECIMAL}, #{accountType,jdbcType=VARCHAR}, 
+      #{settAmount,jdbcType=DECIMAL}, #{userNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.roncoo.pay.service.account.entity.RpAccount" >
+    insert into rp_account
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="editTime != null" >
+        edit_time,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="accountNo != null" >
+        account_no,
+      </if>
+      <if test="balance != null" >
+        balance,
+      </if>
+      <if test="unbalance != null" >
+        unbalance,
+      </if>
+      <if test="securityMoney != null" >
+        security_money,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="totalIncome != null" >
+        total_income,
+      </if>
+      <if test="totalExpend != null" >
+        total_expend,
+      </if>
+      <if test="todayIncome != null" >
+        today_income,
+      </if>
+      <if test="todayExpend != null" >
+        today_expend,
+      </if>
+      <if test="accountType != null" >
+        account_type,
+      </if>
+      <if test="settAmount != null" >
+        sett_amount,
+      </if>
+      <if test="userNo != null" >
+        user_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editTime != null" >
+        #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="unbalance != null" >
+        #{unbalance,jdbcType=DECIMAL},
+      </if>
+      <if test="securityMoney != null" >
+        #{securityMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="totalIncome != null" >
+        #{totalIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="totalExpend != null" >
+        #{totalExpend,jdbcType=DECIMAL},
+      </if>
+      <if test="todayIncome != null" >
+        #{todayIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="todayExpend != null" >
+        #{todayExpend,jdbcType=DECIMAL},
+      </if>
+      <if test="accountType != null" >
+        #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="settAmount != null" >
+        #{settAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="userNo != null" >
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.roncoo.pay.service.account.entity.RpAccount" >
+    update rp_account
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editTime != null" >
+        edit_time = #{editTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="accountNo != null" >
+        account_no = #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="unbalance != null" >
+        unbalance = #{unbalance,jdbcType=DECIMAL},
+      </if>
+      <if test="securityMoney != null" >
+        security_money = #{securityMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="totalIncome != null" >
+        total_income = #{totalIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="totalExpend != null" >
+        total_expend = #{totalExpend,jdbcType=DECIMAL},
+      </if>
+      <if test="todayIncome != null" >
+        today_income = #{todayIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="todayExpend != null" >
+        today_expend = #{todayExpend,jdbcType=DECIMAL},
+      </if>
+      <if test="accountType != null" >
+        account_type = #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="settAmount != null" >
+        sett_amount = #{settAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="userNo != null" >
+        user_no = #{userNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.roncoo.pay.service.account.entity.RpAccount" >
+    update rp_account
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      edit_time = #{editTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=BIGINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      account_no = #{accountNo,jdbcType=VARCHAR},
+      balance = #{balance,jdbcType=DECIMAL},
+      unbalance = #{unbalance,jdbcType=DECIMAL},
+      security_money = #{securityMoney,jdbcType=DECIMAL},
+      status = #{status,jdbcType=VARCHAR},
+      total_income = #{totalIncome,jdbcType=DECIMAL},
+      total_expend = #{totalExpend,jdbcType=DECIMAL},
+      today_income = #{todayIncome,jdbcType=DECIMAL},
+      today_expend = #{todayExpend,jdbcType=DECIMAL},
+      account_type = #{accountType,jdbcType=VARCHAR},
+      sett_amount = #{settAmount,jdbcType=DECIMAL},
+      user_no = #{userNo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <!-- 根据搜索条件获取数据 -->
+	<sql id="condition_sql">
+		<!-- Equal query -->
+		<if
+			test="beginDate != null and endDate != null and endDate !='' and beginDate != ''">
+			and create_time_ between #{beginDate} AND CONCAT(#{endDate},'
+			23:59:59')
+		</if>
+		<if test="accountNo != null and accountNo !='' "> and account_no_ = #{accountNo}</if>
+		<if test="status != null and status !='' "> and status = #{status}</if>
+		<if test="userNo != null and userNo !='' "> and user_no = #{userNo}</if>
+		<if test="accountType != null and accountType !='' "> and account_type_ = #{accountType}</if>
+		<if test="userNoNotIn != null and userNoNotIn != '' " >
+			and user_no not in
+			<foreach collection="userNoNotIn" separator="," open="(" close=")" item="userNo">
+				#{userNo}
+			</foreach>
+		</if>
+		<!-- 是否行锁，要放在查询条件最后 -->
+		<if test="isPessimist != null and isPessimist == true "> for update</if>
+
+		
+	</sql>
+
+
+	<select id="listBy" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select * from
+		<include refid="table_name" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+		order by create_time desc
+	</select>
+
+	<!-- 分页查询 -->
+	<select id="listPage" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select * from
+		<include refid="table_name" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+		order by create_time desc limit #{pageFirst}, #{pageSize}
+	</select>
+
+	<!-- 分页查询时要用到的总数统计 -->
+	<select id="listPageCount" parameterType="java.util.Map"
+		resultType="java.lang.Long">
+		select count(1) from
+		<include refid="table_name" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+	</select>
+	
+	<select id="getByUserNo" resultMap="BaseResultMap"
+		parameterType="java.util.Map">
+		select
+		<include refid="Base_Column_List" />
+		from
+		<include refid="table_name" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+	</select>
+</mapper>
