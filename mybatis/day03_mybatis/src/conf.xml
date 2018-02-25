@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<properties resource="db.properties"/>
+	
+	<!-- 配置实体类的别名 -->
+	<typeAliases>
+		<!-- <typeAlias type="com.atguigu.day03_mybaits.test1.User" alias="_User"/> -->
+		<package name="com.atguigu.day03_mybaits.bean"/>
+	</typeAliases>
+<!-- 
+	development : 开发模式
+	work : 工作模式
+ -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${name}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="com/atguigu/day03_mybaits/test1/userMapper.xml"/>
+		<mapper resource="com/atguigu/day03_mybaits/test2/userMapper.xml"/>
+		<mapper class="com.atguigu.day03_mybaits.test3.UserMapper"/>
+		<mapper resource="com/atguigu/day03_mybaits/test4/orderMapper.xml"/>
+		<mapper resource="com/atguigu/day03_mybaits/test5/ClassMapper.xml"/>
+		<mapper resource="com/atguigu/day03_mybaits/test6/ClassMapper.xml"/>
+		<mapper resource="com/atguigu/day03_mybaits/test7/userMapper.xml"/>
+		<mapper resource="com/atguigu/day03_mybaits/test8/userMapper.xml"/>
+		<mapper resource="com/atguigu/day03_mybaits/test9/userMapper.xml"/>
+	</mappers>
+</configuration>

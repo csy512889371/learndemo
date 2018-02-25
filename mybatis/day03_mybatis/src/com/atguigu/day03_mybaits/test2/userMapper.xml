@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.day03_mybaits.test2.userMapper">
+	<!-- 
+		CRUD操作
+	 -->
+	 <insert id="addUser" parameterType="User">
+	 	insert into users(name, age) values(#{name}, #{age})
+	 </insert>
+	 
+	 <delete id="deleteUser" parameterType="int">
+	 	delete from users where id=#{id}
+	 </delete>
+	 
+	 <update id="updateUser" parameterType="User">
+	 	update users set name=#{name},age=#{age} where id=#{id}
+	 </update>
+	 
+	 <select id="getUser" parameterType="int" resultType="User">
+	 	select * from users where id=#{id}
+	 </select>
+	
+	 <select id="getAllUsers" resultType="User">
+	 	select * from users
+	 </select>
+</mapper>

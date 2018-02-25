@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.day03_mybaits.test7.userMapper">
+	<!-- 
+	实现多条件查询用户(姓名模糊匹配, 年龄在指定的最小值到最大值之间)
+	 -->
+	 
+	 
+	<select id="getUser" parameterType="ConditionUser" resultType="User">
+		select * from d_user where 
+		
+		<if test='name != "%null%"'>
+			 name like #{name} and 
+		</if>
+		
+		age between #{minAge} and #{maxAge}
+	</select>
+</mapper>
