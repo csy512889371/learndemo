@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="dubbo-learn-web-service:war">
+    <output-path>$PROJECT_DIR$/dubbo-learn-web-service/target</output-path>
+    <root id="archive" name="xxxx-web-service.war">
+      <element id="artifact" artifact-name="dubbo-learn-web-service:war exploded" />
+    </root>
+  </artifact>
+</component>

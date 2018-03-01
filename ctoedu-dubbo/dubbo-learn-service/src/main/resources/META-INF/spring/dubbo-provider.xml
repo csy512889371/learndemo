@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://code.alibabatech.com/schema/dubbo  
+            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">  
+   
+   <!-- 只订阅 -->
+   <!--<dubbo:registry address="10.20.153.10:9090" register="false" /> -->
+   
+
+   <!-- 只注册 -->
+   <!-- 如果有两个镜像环境，两个注册中心，有一个服务只在其中一个注册中心有部署，另一个注册中心还没来得及部署，
+   而两个注册中心的其它应用都需要依赖此服务。这个时候，可以让服务提供者方只注册服务到另一注册中心，而不从另一注册中心订阅服务。-->
+   <!-- <dubbo:registry id="hzRegistry" address="10.20.153.10:9090" />
+        <dubbo:registry id="qdRegistry" address="10.20.141.150:9090" subscribe="false" /> -->
+    <dubbo:service interface="com.ctoedu.learn.repo.IEnterpriseService" ref="enterpriseService"  protocol="dubbo"/>
+    <dubbo:service interface="com.ctoedu.learn.repo.IProductService" ref="productService"  protocol="dubbo"/>
+    <dubbo:service interface="com.ctoedu.learn.repo.IEnterpriseMongoService" ref="enterpriseMongoService"  protocol="dubbo"/>
+    <dubbo:service interface="com.ctoedu.learn.repo.IProductMongoService" ref="productMongoService"  protocol="dubbo"/>
+
+ <!-- ****************协议选择讲解***************************************** -->
+ 
+  <!-- dubbo://
+   	Dubbo缺省协议采用单一长连接和NIO异步通讯，适合于小数据量大并发的服务调用，以及服务消费者机器数远大于服务提供者机器数的情况。
+	Dubbo缺省协议不适合传送大数据量的服务，比如传文件，传视频等，除非请求量很低。
+	<dubbo:protocol name="dubbo" port="20884" />
+	连接个数：单连接
+    连接方式：长连接
+    传输协议：TCP
+    传输方式：NIO异步传输
+    序列化：Hessian二进制序列化
+    适用范围：传入传出参数数据包较小（建议小于100K），消费者比提供者个数多，单一消费者无法压满提供者，尽量不要用dubbo协议传输大文件或超大字符串。
+    适用场景：常规远程服务方法调用
+   -->
+  <!--rmi://
+     RMI协议采用JDK标准的java.rmi.*实现，采用阻塞式短连接和JDK标准序列化方式。
+     <dubbo:protocol name="rmi"port="1099"/>  
+     连接个数：多连接
+     连接方式：短连接
+     传输协议：TCP
+     传输方式：同步传输
+     序列化：Java标准二进制序列化
+     适用范围：传入传出参数数据包大小混合，消费者与提供者个数差不多，可传文件。
+     适用场景：常规远程服务方法调用，与原生RMI服务互操作
+    -->
+  <!-- hessian:// 
+     Hessian协议用于集成Hessian的服务，Hessian底层采用Http通讯，采用Servlet暴露服务，Dubbo缺省内嵌Jetty作为服务器实现。
+     <dubbo:protocol name="hessian" port="8080" server="jetty"/>  
+     连接个数：多连接
+     连接方式：短连接
+     传输协议：HTTP
+     传输方式：同步传输
+     序列化：Hessian二进制序列化
+     适用范围：传入传出参数数据包较大，提供者比消费者个数多，提供者压力较大，可传文件。
+     适用场景：页面传输，文件传输，或与原生hessian服务互操作
+     
+     依赖：
+     <dependency>  
+       <groupId>com.caucho</groupId>  
+        <artifactId>hessian</artifactId>  
+        <version>4.0.7</version>  
+     </dependency>  
+     web.xml配置：如果使用server="servlet"如要做配置
+     <servlet>  
+         <servlet-name>dubbo</servlet-name>  
+         <servlet-class>com.alibaba.dubbo.remoting.http.servlet.DispatcherServlet</servlet-class>  
+         <load-on-startup>1</load-on-startup>  
+       </servlet>  
+        <servlet-mapping>  
+            <servlet-name>dubbo</servlet-name>  
+             <url-pattern>/*</url-pattern>   
+        </servlet-mapping>  
+   -->
+  <!--http://
+     采用Spring的HttpInvoker实现
+     <dubbo:protocol name="http" port="8080"/>  
+     连接个数：多连接
+     连接方式：短连接
+     传输协议：HTTP
+     传输方式：同步传输
+     序列化：表单序列化
+     适用范围：传入传出参数数据包大小混合，提供者比消费者个数多，可用浏览器查看，可用表单或URL传入参数，暂不支持传文件。
+     适用场景：需同时给应用程序和浏览器JS使用的服务。    
+    -->
+  <!-- webservice://
+  	2.3.0以上版本支持。
+	基于CXF的frontend-simple和transports-http实现。
+    <dubbo:protocol name="webservice"port="8080"server="jetty"/>  
+    依赖：
+    <dependency>  
+      <groupId>org.apache.cxf</groupId>  
+      <artifactId>cxf-rt-frontend-simple</artifactId>  
+      <version>2.6.1</version>  
+    </dependency>  
+   <dependency>  
+      <groupId>org.apache.cxf</groupId>  
+      <artifactId>cxf-rt-transports-http</artifactId>  
+      <version>2.6.1</version>  
+    </dependency>  
+    连接个数：多连接
+    连接方式：短连接
+    传输协议：HTTP
+    传输方式：同步传输
+    序列化：SOAP文本序列化
+    适用场景：系统集成，跨语言调用。
+   -->
+   
+   <!-- thrift://
+   	Thrift说明:Thrift是Facebook捐给Apache的一个RPC框架
+   	依赖：
+   	<dependency>  
+      <groupId>org.apache.thrift</groupId>  
+       <artifactId>libthrift</artifactId>  
+       <version>0.8.0</version>  
+    </dependency  
+    
+   	<dubbo:protocol name="thrift"port="3030"/>  
+    -->
+    
+    <!-- memcached://
+    	Memcached说明:Memcached是一个高效的KV缓存服务器
+     -->
+    <!-- redis://
+        Redis说明:Redis是一个高效的KV存储服务器
+     -->
+</beans>

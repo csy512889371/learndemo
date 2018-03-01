@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctoedu.learn.mybatis.IDao.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.ctoedu.learn.mybatis.domain.Product">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="enterpriseid" jdbcType="INTEGER" property="enterpriseid" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="productinfo" jdbcType="VARCHAR" property="productinfo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, enterpriseid, productname, productinfo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from product
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ctoedu.learn.mybatis.domain.Product">
+    insert into product (id, enterpriseid, productname, 
+      productinfo)
+    values (#{id,jdbcType=INTEGER}, #{enterpriseid,jdbcType=INTEGER}, #{productname,jdbcType=VARCHAR}, 
+      #{productinfo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ctoedu.learn.mybatis.domain.Product">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="enterpriseid != null">
+        enterpriseid,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="productinfo != null">
+        productinfo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="enterpriseid != null">
+        #{enterpriseid,jdbcType=INTEGER},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="productinfo != null">
+        #{productinfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ctoedu.learn.mybatis.domain.Product">
+    update product
+    <set>
+      <if test="enterpriseid != null">
+        enterpriseid = #{enterpriseid,jdbcType=INTEGER},
+      </if>
+      <if test="productname != null">
+        productname = #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="productinfo != null">
+        productinfo = #{productinfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ctoedu.learn.mybatis.domain.Product">
+    update product
+    set enterpriseid = #{enterpriseid,jdbcType=INTEGER},
+      productname = #{productname,jdbcType=VARCHAR},
+      productinfo = #{productinfo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

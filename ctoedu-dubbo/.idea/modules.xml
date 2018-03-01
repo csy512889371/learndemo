@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ctoedu-dubbo.iml" filepath="$PROJECT_DIR$/ctoedu-dubbo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-learn-config/dubbo-learn-config.iml" filepath="$PROJECT_DIR$/dubbo-learn-config/dubbo-learn-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-learn-facade/dubbo-learn-facade.iml" filepath="$PROJECT_DIR$/dubbo-learn-facade/dubbo-learn-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-learn-oauth/dubbo-learn-oauth.iml" filepath="$PROJECT_DIR$/dubbo-learn-oauth/dubbo-learn-oauth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-learn-parent/dubbo-learn-parent.iml" filepath="$PROJECT_DIR$/dubbo-learn-parent/dubbo-learn-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-learn-service/dubbo-learn-service.iml" filepath="$PROJECT_DIR$/dubbo-learn-service/dubbo-learn-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dubbo-learn-web-service/dubbo-learn-web-service.iml" filepath="$PROJECT_DIR$/dubbo-learn-web-service/dubbo-learn-web-service.iml" />
+    </modules>
+  </component>
+</project>

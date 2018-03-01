@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="dubbo-learn-config" />
+        <module name="dubbo-learn-facade" />
+        <module name="dubbo-learn-oauth" />
+        <module name="dubbo-learn-service" />
+        <module name="dubbo-learn-web-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ctoedu-dubbo" target="1.5" />
+      <module name="dubbo-learn-config" target="1.5" />
+      <module name="dubbo-learn-facade" target="1.5" />
+      <module name="dubbo-learn-oauth" target="1.5" />
+      <module name="dubbo-learn-parent" target="1.5" />
+      <module name="dubbo-learn-service" target="1.5" />
+      <module name="dubbo-learn-web-service" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
