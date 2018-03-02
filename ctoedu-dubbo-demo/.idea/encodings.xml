@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/ctoedu-api-demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ctoedu-common-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ctoedu-common-utils" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ctoedu-component-redis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ctoedu-component-security" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ctoedu-config-demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ctoedu-demo-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ctoedu-facade-demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ctoedu-service-demo" charset="UTF-8" />
+  </component>
+</project>

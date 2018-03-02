@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ctoedu-demo-parent</artifactId>
+        <groupId>com.ctoedu</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../ctoedu-demo-parent/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+
+    <artifactId>ctoedu-config-demo</artifactId>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>${profiles.activation}/*</include>
+                    <include>resources.properties</include>
+                    <include>messages.properties</include>
+                </includes>
+                <!-- <excludes>
+                    <exclude>test/*</exclude>
+                    <exclude>prod/*</exclude>
+                    <exclude>dev/*</exclude>
+                </excludes>  -->
+            </resource>
+            <!-- <resource>
+                <directory>src/main/resources/${profiles.activation}</directory>
+            </resource> -->
+        </resources>
+    </build>
+    <profiles>
+        <profile>
+            <!--开发环境 -->
+            <id>dev</id>
+            <properties>
+                <profiles.activation>dev</profiles.activation>
+                <log.dir>D:\ctoedu\dubbo\logs</log.dir>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <!--测试环境 -->
+            <id>test</id>
+            <properties>
+                <log.dir>/home/com/rjsoft/ctoedu/service/demo/logs</log.dir>
+                <profiles.activation>test</profiles.activation>
+            </properties>
+        </profile>
+        <profile>
+            <!--生产环境 -->
+            <id>prod</id>
+            <properties>
+                <log.dir>/home/com/rjsoft/ctoedu/service/demo/logs</log.dir>
+                <profiles.activation>prod</profiles.activation>
+            </properties>
+        </profile>
+    </profiles>
+</project>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ctoedu-api-demo" />
+        <module name="ctoedu-common-core" />
+        <module name="ctoedu-common-utils" />
+        <module name="ctoedu-component-redis" />
+        <module name="ctoedu-component-security" />
+        <module name="ctoedu-config-demo" />
+        <module name="ctoedu-facade-demo" />
+        <module name="ctoedu-service-demo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ctoedu-api-demo" target="1.8" />
+      <module name="ctoedu-common-core" target="1.8" />
+      <module name="ctoedu-common-utils" target="1.8" />
+      <module name="ctoedu-component-redis" target="1.8" />
+      <module name="ctoedu-component-security" target="1.8" />
+      <module name="ctoedu-config-demo" target="1.8" />
+      <module name="ctoedu-demo-parent" target="1.5" />
+      <module name="ctoedu-dubbo-demo" target="1.5" />
+      <module name="ctoedu-facade-demo" target="1.8" />
+      <module name="ctoedu-service-demo" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

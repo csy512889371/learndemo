@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ctoedu-api-demo/ctoedu-api-demo.iml" filepath="$PROJECT_DIR$/ctoedu-api-demo/ctoedu-api-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctoedu-common-core/ctoedu-common-core.iml" filepath="$PROJECT_DIR$/ctoedu-common-core/ctoedu-common-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctoedu-common-utils/ctoedu-common-utils.iml" filepath="$PROJECT_DIR$/ctoedu-common-utils/ctoedu-common-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctoedu-component-redis/ctoedu-component-redis.iml" filepath="$PROJECT_DIR$/ctoedu-component-redis/ctoedu-component-redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctoedu-component-security/ctoedu-component-security.iml" filepath="$PROJECT_DIR$/ctoedu-component-security/ctoedu-component-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctoedu-config-demo/ctoedu-config-demo.iml" filepath="$PROJECT_DIR$/ctoedu-config-demo/ctoedu-config-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctoedu-demo-parent/ctoedu-demo-parent.iml" filepath="$PROJECT_DIR$/ctoedu-demo-parent/ctoedu-demo-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctoedu-dubbo-demo.iml" filepath="$PROJECT_DIR$/ctoedu-dubbo-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctoedu-facade-demo/ctoedu-facade-demo.iml" filepath="$PROJECT_DIR$/ctoedu-facade-demo/ctoedu-facade-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ctoedu-service-demo/ctoedu-service-demo.iml" filepath="$PROJECT_DIR$/ctoedu-service-demo/ctoedu-service-demo.iml" />
+    </modules>
+  </component>
+</project>

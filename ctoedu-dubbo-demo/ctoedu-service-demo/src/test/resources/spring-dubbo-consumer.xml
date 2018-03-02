@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://code.alibabatech.com/schema/dubbo  
+            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="uums-consumer" />
+	<bean id="springUtils" class="com.ctoedu.common.utils.SpringUtils"/>
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<dubbo:registry  protocol="zookeeper" address="zookeeper://192.168.210.192:2181?backup=192.168.210.193:2181,192.168.210.194:2181">
+		<dubbo:parameter key="client" value="curator"/>
+	</dubbo:registry>
+
+	<!--<dubbo:registry address="N/A" ></dubbo:registry>-->
+
+	<!--<dubbo:registry address="multicast://224.5.6.7:1234?unicast=false" />-->
+
+	<!-- 监控中心配置，protocol="registry"，表示从注册中心发现监控中心地址
+	<dubbo:monitor protocol="registry"/>-->
+	
+	<!-- 要引用的服务 -->
+	<dubbo:reference interface="com.ctoedu.demo.facade.app.service.UmsAppFacade" id="umsAppFacade"/>
+	<dubbo:reference interface="com.ctoedu.demo.facade.group.service.UmsGroupFacade" id="umsGroupFacade"/>
+	<dubbo:reference interface="com.ctoedu.demo.facade.org.service.UmsOrgFacade" id="umsOrgFacade"/>
+	<dubbo:reference interface="com.ctoedu.demo.facade.position.service.UmsPositionFacade" id="umsPositionFacade"/>
+	<dubbo:reference interface="com.ctoedu.demo.facade.auth.service.UmsAuthFacade" id="umsAuthFacade"/>
+	<dubbo:reference interface="com.ctoedu.demo.facade.role.service.UmsRoleFacade" id="umsRoleFacade"/>
+	<dubbo:reference interface="com.ctoedu.demo.facade.resource.service.UmsMenuResFacade" id="umsMenuResFacade"/>
+	<dubbo:reference interface="com.ctoedu.demo.facade.resource.service.UmsControllerResFacade" id="umsControllerResFacade"/>
+	<dubbo:reference interface="com.ctoedu.demo.facade.user.service.UmsUserFacade" id="umsUserFacade"/>
+</beans>  
