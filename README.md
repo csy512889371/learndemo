@@ -2,4 +2,5 @@
 2) spring-cloud-microservice-in-action spring cloud 例子
 3) ctoedu-dubbo dubbo rest 
 4) ctoedu-dubbo-demo 使用dubbo注解方式
-4) mybatis 简单的mybatis例子
+5) mybatis 简单的mybatis例子
+6) ctoedu-ldap 基于ldap实现

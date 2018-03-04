@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ctoedu-ldap.iml" filepath="$PROJECT_DIR$/ctoedu-ldap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ldap-common-config/ldap-common-config.iml" filepath="$PROJECT_DIR$/ldap-common-config/ldap-common-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ldap-common-parent/ldap-common-parent.iml" filepath="$PROJECT_DIR$/ldap-common-parent/ldap-common-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ldap-facade/ldap-facade.iml" filepath="$PROJECT_DIR$/ldap-facade/ldap-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ldap-service/ldap-service.iml" filepath="$PROJECT_DIR$/ldap-service/ldap-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ldap-web/ldap-web.iml" filepath="$PROJECT_DIR$/ldap-web/ldap-web.iml" />
+    </modules>
+  </component>
+</project>

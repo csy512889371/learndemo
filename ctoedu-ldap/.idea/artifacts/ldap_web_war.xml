@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ldap-web:war">
+    <output-path>$PROJECT_DIR$/ldap-web/target</output-path>
+    <root id="archive" name="ldap-web.war">
+      <element id="artifact" artifact-name="ldap-web:war exploded" />
+    </root>
+  </artifact>
+</component>

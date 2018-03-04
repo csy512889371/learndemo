@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://code.alibabatech.com/schema/dubbo  
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<dubbo:application name="ldap-web" />
+	
+   <!--  <dubbo:monitor protocol="registry" address="172.18.0.4:6060" /> 
+ -->
+	<dubbo:registry protocol="zookeeper" address="10.211.55.8:2181" />
+
+	 <dubbo:reference interface="com.ldap.service.OrganizationService" id="organizationService" timeout="5000" check="false" />
+     <dubbo:reference interface="com.ldap.service.OUService" id="oUService" timeout="5000" check="false" />
+       <dubbo:reference interface="com.ldap.service.OUPersonService" id="oUPersonService" timeout="5000" check="false" />
+   </beans>
