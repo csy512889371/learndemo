@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="initial-value-generator" />
+        <module name="many-to-many" />
+        <module name="many-to-many-extra-columns" />
+        <module name="one-to-many" />
+        <module name="one-to-one-foreignkey" />
+        <module name="one-to-one-primarykey" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ctoedu-jap-example" target="1.5" />
+      <module name="initial-value-generator" target="1.8" />
+      <module name="many-to-many" target="1.8" />
+      <module name="many-to-many-extra-columns" target="1.8" />
+      <module name="one-to-many" target="1.8" />
+      <module name="one-to-one-foreignkey" target="1.8" />
+      <module name="one-to-one-primarykey" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

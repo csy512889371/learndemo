@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ctoedu-jap-example.iml" filepath="$PROJECT_DIR$/ctoedu-jap-example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/initial-value-generator/initial-value-generator.iml" filepath="$PROJECT_DIR$/initial-value-generator/initial-value-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/many-to-many/many-to-many.iml" filepath="$PROJECT_DIR$/many-to-many/many-to-many.iml" />
+      <module fileurl="file://$PROJECT_DIR$/many-to-many-extra-columns/many-to-many-extra-columns.iml" filepath="$PROJECT_DIR$/many-to-many-extra-columns/many-to-many-extra-columns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/one-to-many/one-to-many.iml" filepath="$PROJECT_DIR$/one-to-many/one-to-many.iml" />
+      <module fileurl="file://$PROJECT_DIR$/one-to-one-foreignkey/one-to-one-foreignkey.iml" filepath="$PROJECT_DIR$/one-to-one-foreignkey/one-to-one-foreignkey.iml" />
+      <module fileurl="file://$PROJECT_DIR$/one-to-one-primarykey/one-to-one-primarykey.iml" filepath="$PROJECT_DIR$/one-to-one-primarykey/one-to-one-primarykey.iml" />
+    </modules>
+  </component>
+</project>
