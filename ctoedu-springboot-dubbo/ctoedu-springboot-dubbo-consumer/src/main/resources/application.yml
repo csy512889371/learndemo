@@ -1,0 +1,10 @@
+server:
+  port: 8010
+#ZooKeeper
+dubbo:
+  registry:
+    address: localhost:2181
+logging:
+  level:
+    root: INFO
+
