@@ -7,3 +7,4 @@
 7) ctoedu-jap-example jpa 多对多 一对多等映射例子
 8) ctoedu-oauth spring security oauth2 实现认证
 9) cto-edu-springboot-demo-two 例子：缓存（redis ehcache）/ 发送邮件 /spring security /rabbitmq
+10) ctoedu-ThreadPool-TaskExecutor 线程池异步阻塞调用
