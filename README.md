@@ -8,3 +8,5 @@
 8) ctoedu-oauth spring security oauth2 实现认证
 9) cto-edu-springboot-demo-two 例子：缓存（redis ehcache）/ 发送邮件 /spring security /rabbitmq
 10) ctoedu-ThreadPool-TaskExecutor 线程池异步阻塞调用
+11) ctoedu-redis redis 线程池 管道
+
