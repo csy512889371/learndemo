@@ -9,4 +9,6 @@
 9) cto-edu-springboot-demo-two 例子：缓存（redis ehcache）/ 发送邮件 /spring security /rabbitmq
 10) ctoedu-ThreadPool-TaskExecutor 线程池异步阻塞调用
 11) ctoedu-redis redis 线程池 管道
+12) ctoedu-rabitmq rabitmq 使用
+
 
