@@ -1,0 +1,18 @@
+sudo: required
+jdk:
+  - oraclejdk8
+install: true
+script:
+  - sudo apt-get update && sudo apt-get install oracle-java8-installer
+  - java -version
+language: java
+script: mvn clean package
+deploy:
+  provider: releases
+  api_key:
+    secure: llxJZlRYBIWINl5XI42RpEe+jTxlmSP6MX+oTNZa4oFjEeN9Kdd1G8+S3HSIhCc31RoF/2zeNsM9OehRi1O6bweNSQ9vjlKZQPD8FYcHaHpYW0U7h/OMbEeC794fAghm9ZsmOTNymdvbAXL14nJTrwOW9W8VqoZT9Jx7Ejad63Y=
+  file: target/releases/elasticsearch-analysis-ik-*.zip
+  file_glob: true
+  on:
+    repo: medcl/elasticsearch-analysis-ik
+    tags: true
