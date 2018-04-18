@@ -12,3 +12,21 @@
 12) ctoedu-rabitmq rabitmq 使用
 13) elasticsearch-analysis-ik-5.2.0 ik分词器支持乐加载
 14) p3test python 接口测试
+
+## 15 miaosha 秒杀
+
+* spring boot
+* redis 集成
+* mq集成
+* 后台参数校验
+* 全局异常
+* 两次md5加密
+* 分布式session
+* 缓存
+* jmeter 测试
+* 限流
+* 隐藏接口
+* 验证码 34 +9
+* 异步处理（mq）秒杀等
+
+
