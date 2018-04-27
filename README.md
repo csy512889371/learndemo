@@ -30,3 +30,21 @@
 * 异步处理（mq）秒杀等
 
 
+## 16 xunxu-project
+
+* spring boot
+* spring security 用户认证
+* jpa
+* junit test h2
+* 文件上传、上传到七牛云存储
+* 阿里云短信配置
+* elastic search
+* ELK 
+* kafka
+* Thymeleaf
+* email邮件
+
+## 17 kafka
+
+kafka/Jkafka 基于java的kafka消费者和生产者实例
+kafka/Pykafka 基于python的kafka消费者和生产者实例

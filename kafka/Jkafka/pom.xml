@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.jike.kafkatest</groupId>
+  <artifactId>JikeKafka</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+
+  <name>JikeKafka</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka_2.9.2</artifactId>
+      <version>0.8.1.1</version>
+      <exclusions>
+       <exclusion>
+        <artifactId>jmxri</artifactId>
+        <groupId>com.sun.jmx</groupId>
+       </exclusion>
+       <exclusion>
+        <artifactId>jms</artifactId>
+        <groupId>javax.jms</groupId>
+       </exclusion>
+       <exclusion>
+        <artifactId>jmxtools</artifactId>
+        <groupId>com.sun.jdmk</groupId>
+       </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.avro</groupId>
+        <artifactId>avro</artifactId>
+        <version>1.7.3</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.avro</groupId>
+        <artifactId>avro-ipc</artifactId>
+        <version>1.7.3</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+    <plugins>
+      <!--
+        Bind the maven-assembly-plugin to the package phase
+        this will create a jar file without the storm dependencies
+        suitable for deployment to a cluster.
+       -->
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass></mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+    </plugin>  
+    </plugins>
+  </build> 
+</project>
