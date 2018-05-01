@@ -11,6 +11,7 @@
 11) ctoedu-redis redis 线程池 管道
 12) ctoedu-rabitmq rabitmq 使用
 13) elasticsearch-analysis-ik-5.2.0 ik分词器支持乐加载
+
 14) p3test python 接口测试
 
 ## 15 miaosha 秒杀
@@ -30,7 +31,7 @@
 * 异步处理（mq）秒杀等
 
 
-## 16 xunxu-project
+## 16 xunxu-project :elastic 实战
 
 * spring boot
 * spring security 用户认证
@@ -48,3 +49,13 @@
 
 kafka/Jkafka 基于java的kafka消费者和生产者实例
 kafka/Pykafka 基于python的kafka消费者和生产者实例
+
+
+## 18 kafka-storm-log
+
+flume kafka storm redis 整合
+参照博客 https://blog.csdn.net/qq_27384769/article/details/80158968
+
+
+
+
