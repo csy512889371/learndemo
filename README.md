@@ -31,7 +31,7 @@
 * 异步处理（mq）秒杀等
 
 
-## 16 xunxu-project :elastic 实战
+## 16 soufang 搜房 :elastic 实战
 
 * spring boot
 * spring security 用户认证
@@ -40,6 +40,12 @@
 * 文件上传、上传到七牛云存储
 * 阿里云短信配置
 * elastic search
+** 异步创建索引
+** 搜索提示
+** 聚合统计
+** 结合百度地图点聚合
+** 百度LBS 
+
 * ELK 
 * kafka
 * Thymeleaf
