@@ -64,4 +64,10 @@ flume kafka storm redis 整合
 
 
 
+## 19 spark-streaming-kafka
 
+实时项目统计
+
+javaweb log -> flume -> kafka -> sparkStreaming -> Hbase -> Spring boot -> echart
+
+参考博客 https://blog.csdn.net/qq_27384769/article/details/80220626
