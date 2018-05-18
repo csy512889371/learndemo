@@ -1,0 +1,24 @@
+a {
+  color: #003569;
+}
+/*清除浮动*/
+.clearfix:after,
+.clearfix:before {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    display: block;
+    zoom: 1;
+}
+.more-info {
+    border: none;
+    background: url(../../images/img/icons2.png) no-repeat -228px 0px;
+    background-size: 299px 291px;
+    height: 44px;
+    width: 44px;
+    text-indent: -9999em;
+}

@@ -1,0 +1,16 @@
+/* layout */
+.container {
+    position: relative;
+    height: auto;
+    min-height: 100%;
+    background-color:#fafafa
+}
+.main {
+    background-color:#fafafa;
+}
+
+.page-main {
+    margin: 0 auto;
+    width: 960px;
+    padding: 20px 20px 120px;
+}

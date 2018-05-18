@@ -1,0 +1,125 @@
+@import url(../common/reset.css);
+@import url(../common/base.css);
+@import url(../common/layout.css);
+@import url(../common/header.css);
+@import url(../common/footer.css);
+
+.pic-wrapper {
+    max-width: 600px;
+    float: left;
+    text-align: center;
+    background: #f7f7f7;
+}
+.pic-wrapper img {
+    display: block;
+    width: 600px;
+    height: 600px;
+}
+
+.pic-discuss {
+    float: left;
+    width: 320px;
+    background: #fff;
+    border: 1px solid #eeefef;
+    border-left: 0;
+    border-radius: 0 3px 3px 0;
+    padding: 20px;
+    min-height: 600px;
+    position: relative;
+}
+
+.discuss-hd {
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.avatar {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    vertical-align: middle;
+    overflow: hidden;
+    border: 1px solid #dbdbdb;
+    margin-right: 5px;
+}
+.avatar img {
+    width: 40px;
+}
+.profile-info {
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+}
+.profile-info a {
+    color: #333;
+}
+
+.like-item {
+    margin-bottom: 20px;
+}
+
+.like-names {
+    margin-right: 50px;
+}
+.like-names a {
+    color: #333;
+    font-weight: bold;
+}
+.discuss-time {
+    float: right;
+    color: #888;
+}
+
+.discuss-list {
+    margin-bottom: 20px;
+}
+
+.discuss-list li {
+    line-height: 1.8;
+    position: relative;
+    padding-right: 20px;
+}
+
+.discuss-list li a {
+    margin-right: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.discuss-list li .icon-remove {
+    position: absolute;
+    right: 0;
+    color: #aaa;
+    top: 3px;
+    font-size: 14px;
+}
+
+.discuss-edit {
+    border-top: 1px solid #efefef;
+    padding: 10px 0;
+    margin: 0 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 280px;
+}
+
+.icon-heart-empty {
+    display: inline-block;
+    vertical-align: middle;
+    color: #aaa;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.discuss-edit form {
+    display: inline-block;
+    vertical-align: middle;
+}
+.discuss-edit input {
+    font-size: 15px;
+    line-height: 18px;
+    border: none;
+    width: 200px;
+}

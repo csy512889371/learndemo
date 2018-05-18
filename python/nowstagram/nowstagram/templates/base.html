@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="Keywords" content="">
+
+    <title>{% block title %}{% endblock%}</title>
+    <link rel="stylesheet" href="{% block css %}{% endblock%}">
+</head>
+<body>
+    <div class="container">
+        <section>
+            <header class="header">
+                <div class="header-cont">
+                    <a class="logo" href="/">logo</a>
+                    <div class="web-menu">
+                        <a class="profile-ico">个人主页</a>
+                    </div>
+                </div>
+            </header>
+            {% block content %}{% endblock%}
+
+            <footer class="footer">
+                <div class="footer-cont" style="max-width:935px;">
+                    <nav>
+                        <ul class="footer-items">
+                            <li>
+                                <a href="#">关于我们</a>
+                            </li>
+                            <li>
+                                <a href="#">支持</a>
+                            </li>
+                            <li>
+                                <a href="#">博客</a>
+                            </li>
+                            <li>
+                                <a href="#">新闻中心</a>
+                            </li>
+                            <li>
+                                <a href="#">API</a>
+                            </li>
+                            <li>
+                                <a href="#">工作信息</a>
+                            </li>
+                            <li>
+                                <a href="#">隐私</a>
+                            </li>
+                            <li>
+                                <a href="#">条款</a>
+                            </li>
+                            <li>
+                                <a href="#">语言</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <span class="copy-right">© 2016 nowcoder</span>
+                </div>
+            </footer>
+        </section>
+    </div>
+</body>
+</html>

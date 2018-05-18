@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}个人主页{% endblock%}
+{% block css %}/static/styles/pages/profile.css{% endblock%}
+{% block content %}
+<div class="page-main clearfix">
+    <article>
+        <header class="profile-detail clearfix">
+            <div class="profile-avatar">
+                <img class="_8gpiy _r43r5 _f2b2t" src="{{user.head_url}}">
+            </div>
+            <div class="profile-content">
+                <div class="profile-info-main" data-reactid=".0.1.0.0:0.1.0">
+                    <h1 class="name" title="taylorswift">{{user.username}}</h1>
+                    <span class="verified" title="已验证">已验证</span>
+                    <span class="_jxp6f _e616g">
+                        <button class="btn-success">上传图片</button>
+                    </span>
+                    <button class="more-info">选项</button>
+                </div>
+                <!--
+                <div class="profile-info-sub">
+                    <h2>Taylor Swift</h2>
+                    <span class="birth">Born in 1989.</span>
+                </div>
+                <ul class="status-list clearfix">
+                    <li>
+                        <span class="s-title">已发帖 </span>
+                        <span class="s-num">909</span>
+                    </li>
+                    <li>
+                        <span class="s-num">909</span>
+                        <span class="s-title">人关注 </span>
+                    </li>
+                    <li>
+                        <span class="s-title">已关注 </span>
+                        <span class="s-num">909万</span>
+                    </li>
+                </ul>
+            -->
+            </div>
+        </header>
+        <div class="list-mod">
+            <div class="list clearfix">
+                {% for image in user.images: %}
+                <a class="item" href="/image/{{image.id}}">
+                    <div class="img-box">
+                        <img src="{{ image.url }}">
+                    </div>
+                    <!-- <span class="ico-video">视频</span> -->
+                    <div class="img-mask"></div>
+                    <div class="interaction-wrap">
+                        <div class="interaction-item"><i class="icon-comment"></i>{{image.comments|length}}</div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            <div class="more-content">
+                <a class="_oidfu" href="/taylorswift/?max_id=1229190628132188945">更多</a>
+            </div>
+        </div>
+    </article>
+</div>
+{% endblock%}

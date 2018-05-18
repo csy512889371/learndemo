@@ -1,0 +1,166 @@
+@import url(../common/reset.css);
+@import url(../common/base.css);
+@import url(../common/layout.css);
+@import url(../common/header.css);
+@import url(../common/footer.css);
+
+.page-main {
+    width: 970px;
+}
+.profile-detail {
+    margin-bottom: 20px;
+}
+
+.profile-avatar {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    float: left;
+    margin: 0 30px;
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+}
+.profile-avatar img {
+    display: block;
+    width: 150px;
+}
+
+.profile-content {
+    float: left;
+}
+
+.profile-info-main {
+    margin-bottom: 10px;
+}
+.profile-info-main .name {
+    font-size: 34px;
+    line-height: 40px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.verified {
+    display: inline-block;
+    vertical-align: middle;
+    text-indent: -9999em;
+    background: url(../../images/img/icons2.png) no-repeat -256px -253px;
+    height: 18px;
+    width: 18px;
+    background-size: 299px 291px;
+}
+
+.btn-success {
+    border-radius: 3px;
+    border: 1px solid #70c050;
+    font-weight: 600;
+    font-size: 16px;
+    outline: none;
+
+    background: #70c050;
+    color: #fff;
+    cursor: pointer;
+
+    line-height: 30px;
+    padding: 0 10px;
+    margin-left: 20px;
+}
+
+.profile-info-sub  {
+    margin-bottom: 10px;
+}
+.profile-info-sub h2 {
+    margin-right: 5px;
+    display: inline-block;
+}
+.birth {
+    font-size: 16px;
+}
+
+.status-list li {
+    font-size: 16px;
+    margin-right: 40px;
+    float: left;
+}
+.s-title {
+    margin-right: 5px;
+}
+.s-num {
+    font-weight: bold;
+}
+.list {
+    margin-right: -20px;
+}
+.list .item {
+    width: 290px;
+    height: 290px;
+    float: left;
+    margin: 0 20px 20px 0;
+    background: #edeeee;
+    position: relative;
+}
+.img-box {
+    width: 290px;
+    height: 290px;
+    overflow: hidden;
+}
+.list .item img {
+    width: 290px;
+}
+.ico-video {
+    background: url(../../images/img/icons2.png) no-repeat -172px -100px;
+    background-size: 299px 291px;
+    height: 48px;
+    width: 48px;
+    position: absolute;
+    right: 3px;
+    top: -1px;
+    text-indent: -9999em;
+}
+
+.img-mask {
+    display: none;
+    position: absolute;
+    background: rgba(0,0,0,.3);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.list .item:hover .img-mask,
+.list .item:hover .interaction-wrap {
+    display: block;
+}
+
+.interaction-wrap {
+    display: none;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    z-index: 10;
+    top: 45%;
+    left: 0;
+    width: 100%;
+}
+.interaction-item {
+    font-size: 16px;
+    display: inline-block;
+    margin-right: 20px;
+}
+.interaction-item i {
+    margin-right: 5px;
+}
+.more-content {
+    margin: 50px auto 20px;
+    height: 120px;
+    width: 120px;
+    text-align: center;
+    line-height: 120px;
+    border-radius: 50%;
+    border: 2px solid #3897f0;
+}
+.more-content a {
+    color: #3897f0;
+    font-size: 14px;
+}

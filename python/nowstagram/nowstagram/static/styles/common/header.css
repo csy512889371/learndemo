@@ -1,0 +1,40 @@
+/* header */
+.header {
+    padding: 0 20px;
+    height: 70px;
+    border-bottom: 1px solid #dbdbdb;
+    background: #fff;
+}
+
+.header-cont {
+    margin: 0 auto;
+    max-width: 1010px;
+    width: 100%;
+    padding: 0 40px;
+}
+
+.logo {
+    float: left;
+    background: url(../../images/res/nk.png) no-repeat;
+    height: 46px;
+    width: 46px;
+    text-indent: -9999em;
+    margin-top: 10px;
+}
+
+.web-menu {
+    float: right;
+    margin-top: 20px;
+}
+.profile-ico {
+    background-image: url(../../images/img/icons.png);
+    background-repeat: no-repeat;
+    background-size: 352px 157px;
+    background-position: -107px -52px;
+    height: 24px;
+    width: 24px;
+    display: block;
+    overflow: hidden;
+    text-indent: 110%;
+    white-space: nowrap;
+}

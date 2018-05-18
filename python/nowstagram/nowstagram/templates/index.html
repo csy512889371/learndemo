@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}首页{% endblock%}
+{% block css %}/static/styles/pages/index.css{% endblock%}
+{% block content %}
+<div class="page-main clearfix">
+{% for image in images: %}
+    <article class="mod">
+        <header class="mod-hd">
+            <time class="time">{{ image.created_date }}</time>
+            <a href="/profile/{{image.user.id}}" class="avatar">
+                <img src="{{image.user.head_url}}">
+            </a>
+            <div class="profile-info">
+                <a title="{{image.user.username}}" href="/profile/{{image.user.id}}">{{image.user.username}}</a>
+            </div>
+        </header>
+        <div class="mod-bd">
+            <div class="img-box">
+                <a href="/image/{{image.id}}">
+                    <img src="{{image.url}}">
+                </a>
+            </div>
+        </div>
+        <div class="mod-ft">
+            <ul class="discuss-list">
+                <li class="more-discuss">
+                    <a>
+                        <span>全部 </span><span class="">{{image.comments|length}}</span>
+                        <span> 条评论</span></a>
+                </li>
+                {% for comment in image.comments: %}
+                {% if loop.index > 2 %} {% break %} {% endif %}
+                <li>
+                    <!-- <a class=" icon-remove" title="删除评论"></a> -->
+                    <a class="_4zhc5 _iqaka" title="zjuyxy" href="/profile/{{comment.user_id}}" data-reactid=".0.1.0.0.0.2.1.2:$comment-17856951190001917.1">{{comment.user.username}}</a>
+                    <span>
+                        <span>{{comment.content}}</span>
+                    </span>
+                </li>
+                {%endfor%}
+            </ul>
+            <section class="discuss-edit">
+                <form>
+                    <input placeholder="添加评论..." type="text">
+                </form>
+                <button class="more-info">提交</button>
+            </section>
+        </div>
+    </article>
+{% endfor %}
+</div>
+{% endblock%}

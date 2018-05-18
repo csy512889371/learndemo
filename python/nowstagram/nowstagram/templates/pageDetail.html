@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}详情页{% endblock%}
+{% block css %}/static/styles/pages/detail.css{% endblock%}
+{% block content %}
+<div class="page-main clearfix">
+    <article>
+        <div class="pic-wrapper">
+            <img src="{{image.url}}">
+        </div>
+        <div class="pic-discuss">
+            <header class="discuss-hd">
+                <a href="/profile/{{image.user.id}}" class="avatar">
+                    <img src="{{image.user.head_url}}">
+                </a>
+                <div class="profile-info">
+                    <a title="{{image.user.username}}" href="/profile/{{image.user.id}}">{{image.user.username}}</a>
+                </div>
+            </header>
+            <!--
+            <section class="like-item">
+                <time class="discuss-time" datetime="2016-05-07T02:21:41.000Z" title="2016年5月7日" data-reactid=".0.1.0.0.0.2.0.1.0">2 周</time>
+                <div class="like-names">
+                    <a class="_4zhc5 _lx2l2" title="redmadqueen" href="/redmadqueen/">redmadqueen</a>、
+                    <a class="_4zhc5 _lx2l2" title="chuan.hehe" href="/chuan.hehe/" data-reactid=".0.1.0.0.0.2.0.0.3">chuan.hehe</a>、
+                    <a class="_4zhc5 _lx2l2" title="relationshipinspire" href="/relationshipinspire/" data-reactid=".0.1.0.0.0.2.0.0.5">relationshipinspire</a>、
+                    <a class="_4zhc5 _lx2l2" title="archisdy" href="/archisdy/" data-reactid=".0.1.0.0.0.2.0.0.7">archisdy</a>、
+                    <a class="_4zhc5 _lx2l2" title="scottiecosmos" href="/scottiecosmos/" data-reactid=".0.1.0.0.0.2.0.0.9">scottiecosmos</a>
+                    <span data-reactid=".0.1.0.0.0.2.0.0.a"> 赞了</span>
+                </div>
+            </section>
+            -->
+            {% for comment in image.comments %}
+            {% if loop.index > 10 %}{% break %}{% endif %}
+            <ul class="discuss-list">
+                <li>
+                    <!-- <a class=" icon-remove" title="删除评论"></a> -->
+                    <a class="_4zhc5 _iqaka" title="{{comment.user.username}}" href="/profile/{{comment.user.id}}" data-reactid="{{comment.id}}">{{comment.user.username}}</a>
+                    <span>
+                        <span>{{comment.content}}</span>
+                    </span>
+                </li>
+            </ul>
+            {% endfor %}
+            <section class="discuss-edit">
+                <a class="icon-heart-empty"></a>
+                <form>
+                    <input placeholder="添加评论..." type="text">
+                </form>
+                <button class="more-info">更多选项</button>
+            </section>
+        </div>
+    </article>
+</div>
+{% endblock%}

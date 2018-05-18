@@ -71,3 +71,8 @@ flume kafka storm redis 整合
 javaweb log -> flume -> kafka -> sparkStreaming -> Hbase -> Spring boot -> echart
 
 参考博客 https://blog.csdn.net/qq_27384769/article/details/80220626
+
+
+## 20 python/nowstagram
+
+flask 简单例子 包含 数据库持久层框架flask_sqlalchemy

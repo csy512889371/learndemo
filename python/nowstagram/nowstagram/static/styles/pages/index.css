@@ -1,0 +1,140 @@
+@import url(../common/reset.css);
+@import url(../common/base.css);
+@import url(../common/layout.css);
+@import url(../common/header.css);
+@import url(../common/footer.css);
+.page-main {
+    width: 642px;
+    margin: 0 auto;
+}
+
+.mod {
+    margin-top: 60px;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #efefef;
+}
+.mod-hd {
+    border-bottom: 1px solid #efefef;
+    padding: 15px 20px;
+}
+.mod-bd {
+    position: relative;
+}
+.mod-bd .icon-play {
+    display: none;
+    color: #fff;
+    font-size: 70px;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    text-shadow: 0 0px 6px rgba(0,0,0,0.4);
+}
+.mod-bd:hover .icon-play {
+    display: block;
+}
+.img-box {
+    width: 600px;
+    overflow: hidden;
+}
+.img-box img {
+    width: 600px;
+}
+.avatar {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    vertical-align: middle;
+    overflow: hidden;
+    border: 1px solid #dbdbdb;
+    margin-right: 5px;
+}
+.avatar img {
+    width: 40px;
+}
+.profile-info {
+    font-weight: bold;
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+}
+.profile-info a {
+    color: #333;
+}
+.time {
+    float: right;
+    color: #888;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.mod-ft {
+    padding: 10px 20px 0;
+}
+.times {
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.discuss-list {
+    margin-bottom: 15px;
+}
+
+.discuss-list li {
+    line-height: 1.6;
+    position: relative;
+    padding-right: 20px;
+    margin-bottom: 3px;
+}
+
+.discuss-list li a {
+    margin-right: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.discuss-list li .icon-remove {
+    position: absolute;
+    right: 0;
+    color: #aaa;
+    top: 3px;
+    font-size: 14px;
+}
+.more-discuss {
+    font-size: 14px;
+}
+.discuss-list li.more-discuss a {
+    color: #888;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* 评论输入框 */
+.discuss-edit {
+    border-top: 1px solid #efefef;
+    padding: 5px 0;
+    width: 100%;
+}
+
+.icon-heart-empty,
+.icon-heart {
+    display: inline-block;
+    vertical-align: middle;
+    color: #aaa;
+    font-size: 20px;
+    margin-right: 5px;
+}
+.icon-heart {
+    color: #ED4956;
+}
+
+.discuss-edit form {
+    display: inline-block;
+    vertical-align: middle;
+}
+.discuss-edit input {
+    font-size: 15px;
+    line-height: 18px;
+    border: none;
+    width: 484px;
+}

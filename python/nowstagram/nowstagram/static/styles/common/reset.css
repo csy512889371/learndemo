@@ -1,0 +1,267 @@
+/* styles/common/reset.css */
+@import url(./font-awesome.min.css);
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+    color:#333;
+    background:#fff;
+    -webkit-text-size-adjust:100%;
+    -ms-text-size-adjust:100%;
+    text-rendering:optimizelegibility;
+    -moz-osx-font-smoothing: grayscale;
+    direction: ltr;
+}
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    margin:0;
+    padding:0;
+    font-weight: normal;
+}
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+body {
+    font: 12px/1.5 arial,STHeiti,'Microsoft YaHei',\5b8b\4f53;
+    word-wrap: break-word;
+}
+strong {
+    font-weight: bold;
+}
+em {
+    font-style: italic;
+}
+
+p {
+    line-height: 1.4em;
+}
+p img, li img, dd img {
+    vertical-align: middle;
+}
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+  display:block;
+}
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio, canvas, video {
+  display:inline-block;
+  *display:inline;
+  *zoom:1;
+}
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+input, button, textarea, select, optgroup, option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+/* 去除 IE6 input/button 多余的空白 */
+button, input {
+  *width:auto;
+  *overflow:visible;
+  /* 让 input 和 button 一样高 */
+  line-height:normal;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding:0;
+  border:0;
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+/* 去掉各Table cell 的边距并让其边重合 */
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+/* IE bug fixed: th 不继承 text-align */
+th {
+  text-align:inherit;
+}
+
+/* 去除默认边框 */
+fieldset, img {
+  border:0;
+}
+
+/* 解决 IE6-7 图片缩放锯齿问题 */
+img {
+  -ms-interpolation-mode:bicubic;
+}
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe {
+  display:block;
+}
+
+/* 块/段落引用 */
+blockquote, q {
+    quotes: none;
+}
+blockquote {
+  position:relative;
+  color: #999;
+  font-weight:300;
+  font-family:Avenir, 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', sans-serif;
+  border-left:2px solid #1abc9c;
+  /*padding-left:1em;
+  margin:1em 3em 1em 2em;*/
+  padding: 10px 0 10px 10px;
+  margin: .8em 0;
+}
+pre{
+    font-size: 14px;
+    position: relative;
+    border-left: 2px solid #1abc9c;
+    padding: 10px 0 10px 10px;
+    margin: .8em 0;
+    background: #fefefe;
+    word-break:break-all;
+}
+acronym, abbr {
+  border:none 0;
+  font-variant:normal;
+}
+/* 一致的 del 样式 */
+del {
+  text-decoration:line-through;
+}
+address, caption, cite, code, dfn, em, th, var {
+  font-style:normal;
+  font-weight:400;
+}
+
+/* 去掉列表前的标识, li 会继承，大部分网站通常用列表来很多内容，所以应该当去 */
+ul, ol {
+  list-style:none;
+}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption, th {
+  text-align:left;
+}
+
+q:before, q:after{
+  content:'';
+}
+
+/* 统一上标和下标 */
+sub, sup {
+  font-size:75%;
+  line-height:0;
+  position:relative;
+}
+
+:root sub, :root sup {
+  vertical-align:baseline; /* for ie9 and other modern browsers */
+}
+
+sup {
+  top:-0.5em;
+}
+
+sub {
+  bottom:-0.25em;
+}
+
+/* 默认不显示下划线，保持页面简洁 */
+ins, a {
+  text-decoration:none;
+}
+/* 标记，类似于手写的荧光笔的作用 */
+mark {
+  background:#fffdd1;
+  border-bottom:1px solid #ffedce;
+  padding:2px;margin:0 5px;
+}
+
+/* 代码片断 */
+pre, code {
+  font-family:Courier, 'Courier New', monospace;
+  white-space:pre-wrap;
+  word-wrap:break-word;
+}
+/* 一致化 horizontal rule */
+hr {
+  border:none;
+  border-bottom:1px solid #cfcfcf;
+  margin-bottom:10px;
+  *color:pink; *filter:chroma(color=pink);
+  height:10px;
+  *margin:-7px 0 2px;
+}
+
+/* 底部印刷体、版本等标记 */
+small,
+/* 图片说明 */
+figcaption {
+  font-size:0.9em;
+  color:#888;
+}
+
+strong, b {
+    /*font-weight:inherit;*/
+    color:#000;
+}
+
+/* 可拖动文件添加拖动手势 */
+[draggable] {
+  cursor:move;
+}
+/* 保证块/段落之间的空白隔行 */
+blockquote {
+  margin-bottom:1.8em;
+}
+/* 高亮选中 */
+::-moz-selection {
+  background:#08c;
+  color:#fff;
+}
+
+::selection {
+  background:#08c;
+  color:#fff;
+}
+
+legend, caption {
+  color:#000;
+  font-weight:inherit;
+}
+
+a {
+  color: #003569;
+}
+/*清除浮动*/
+.clearfix:after,
+.clearfix:before {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    display: block;
+    zoom: 1;
+}
+.more-info {
+    border: none;
+    background: url(../../images/img/icons2.png) no-repeat -228px 0px;
+    background-size: 299px 291px;
+    height: 44px;
+    width: 44px;
+    text-indent: -9999em;
+}
+/*reset end*/
