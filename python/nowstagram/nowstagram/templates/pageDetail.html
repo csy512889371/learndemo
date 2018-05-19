@@ -5,7 +5,7 @@
 <div class="page-main clearfix">
     <article>
         <div class="pic-wrapper">
-            <img src="{{image.url}}">
+            <img src="{{image.url}}?imageView/1/w/600/h/600">
         </div>
         <div class="pic-discuss">
             <header class="discuss-hd">
@@ -29,26 +29,46 @@
                 </div>
             </section>
             -->
-            {% for comment in image.comments %}
-            {% if loop.index > 10 %}{% break %}{% endif %}
-            <ul class="discuss-list">
+            <ul class="discuss-list js-discuss-list">
+                <!--
+                <li>
+                    <h1>
+                        <a>toutvadisparaitre</a>
+                        <span data-reactid=".0.1.0.0.0.2.1.0.0.1">
+                            <span data-reactid=".0.1.0.0.0.2.1.0.0.1.0">和朋友吐一吐是解忧最佳</span>
+                        </span>
+                    </h1>
+                </li>
+                <li>
+                    <a>scottiecosmos</a>
+                    <span>
+                        <span>That's what i call "awesomeness"</span>
+                    </span>
+                </li>
+                -->
+                {% for comment in comments%}
                 <li>
                     <!-- <a class=" icon-remove" title="删除评论"></a> -->
-                    <a class="_4zhc5 _iqaka" title="{{comment.user.username}}" href="/profile/{{comment.user.id}}" data-reactid="{{comment.id}}">{{comment.user.username}}</a>
+                    <a class="_4zhc5 _iqaka" title="{{comment.user.username}}" href="/profile/{{comment.user.id}}">{{comment.user.username}}</a>
                     <span>
                         <span>{{comment.content}}</span>
                     </span>
                 </li>
+                {% endfor %}
             </ul>
-            {% endfor %}
             <section class="discuss-edit">
                 <a class="icon-heart-empty"></a>
-                <form>
-                    <input placeholder="添加评论..." type="text">
-                </form>
-                <button class="more-info">更多选项</button>
+                <input placeholder="添加评论..." id="jsCmt" type="text">
+                <button class="more-info" id="jsSubmit">更多选项</button>
             </section>
         </div>
     </article>
 </div>
+{% endblock%}
+{% block js %}
+<script type="text/javascript">
+    window.imageId ={{image.id}};
+</script>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/detail.js"></script>
 {% endblock%}

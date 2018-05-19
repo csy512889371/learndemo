@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% block title %}首页{% endblock%}
+{% block title %}首页-{{current_user.username}}{% endblock%}
 {% block css %}/static/styles/pages/index.css{% endblock%}
 {% block content %}
 <div class="page-main clearfix">
-{% for image in images: %}
+    {% for image in images%}
     <article class="mod">
         <header class="mod-hd">
-            <time class="time">{{ image.created_date }}</time>
+            <time class="time">{{image.created_date}}</time>
             <a href="/profile/{{image.user.id}}" class="avatar">
                 <img src="{{image.user.head_url}}">
             </a>
@@ -22,31 +22,58 @@
             </div>
         </div>
         <div class="mod-ft">
+            <!--
+            <section class="times">
+                <span></span>
+                <span>6.2百万</span>
+                <span> 次播放</span>
+            </section>
+            -->
             <ul class="discuss-list">
+                <!--
+                <li>
+                    <h1>
+                        <a>toutvadisparaitre</a>
+                        <span data-reactid=".0.1.0.0.0.2.1.0.0.1">
+                            <span data-reactid=".0.1.0.0.0.2.1.0.0.1.0">和朋友吐一吐是解忧最佳</span>
+                        </span>
+                    </h1>
+                </li>
+                <li>
+                    <a>scottiecosmos</a>
+                    <span>
+                        <span>That's what i call "awesomeness"</span>
+                    </span>
+                </li>
+                -->
                 <li class="more-discuss">
                     <a>
                         <span>全部 </span><span class="">{{image.comments|length}}</span>
                         <span> 条评论</span></a>
                 </li>
-                {% for comment in image.comments: %}
-                {% if loop.index > 2 %} {% break %} {% endif %}
+                {% for comment in image.comments %}
+                {% if loop.index > 2 %}{% break %} {% endif %}
                 <li>
-                    <!-- <a class=" icon-remove" title="删除评论"></a> -->
-                    <a class="_4zhc5 _iqaka" title="zjuyxy" href="/profile/{{comment.user_id}}" data-reactid=".0.1.0.0.0.2.1.2:$comment-17856951190001917.1">{{comment.user.username}}</a>
+                    <!--
+                    <a class=" icon-remove" title="删除评论"></a>
+                    -->
+                    <a class="_4zhc5 _iqaka" title="{{comment.user.username}}" href="/profile/{{comment.user.id}}" data-reactid=".0.1.0.0.0.2.1.2:$comment-17856951190001917.1">{{comment.user.username}}</a>
                     <span>
                         <span>{{comment.content}}</span>
                     </span>
                 </li>
-                {%endfor%}
+                {% endfor %}
             </ul>
+
             <section class="discuss-edit">
+                <a class="icon-heart"></a>
                 <form>
                     <input placeholder="添加评论..." type="text">
                 </form>
-                <button class="more-info">提交</button>
+                <button class="more-info">更多选项</button>
             </section>
         </div>
     </article>
-{% endfor %}
+    {% endfor %}
 </div>
 {% endblock%}

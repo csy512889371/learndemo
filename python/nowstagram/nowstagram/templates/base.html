@@ -5,8 +5,8 @@
     <meta name="description" content="">
     <meta name="Keywords" content="">
 
-    <title>{% block title %}{% endblock%}</title>
-    <link rel="stylesheet" href="{% block css %}{% endblock%}">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% block css %}{% endblock %}">
 </head>
 <body>
     <div class="container">
@@ -15,42 +15,78 @@
                 <div class="header-cont">
                     <a class="logo" href="/">logo</a>
                     <div class="web-menu">
-                        <a class="profile-ico">个人主页</a>
+                        {% if current_user.is_authenticated %}
+                        <a class="profile-ico" href="/profile/{{current_user.id}}">{{current_user.username}}</a>
+                        {% else %}
+                        <a class="profile-ico" href="/regloginpage/">登陆/注册</a>
+                        {% endif %}
                     </div>
                 </div>
             </header>
-            {% block content %}{% endblock%}
+
+            {% block content %}{% endblock %}
 
             <footer class="footer">
                 <div class="footer-cont" style="max-width:935px;">
                     <nav>
                         <ul class="footer-items">
                             <li>
-                                <a href="#">关于我们</a>
+                                <a href="/about/us/">关于我们</a>
                             </li>
                             <li>
-                                <a href="#">支持</a>
+                                <a href="https://help.nowcoder.com/">支持</a>
                             </li>
                             <li>
-                                <a href="#">博客</a>
+                                <a href="http://blog.nowcoder.com/">博客</a>
                             </li>
                             <li>
-                                <a href="#">新闻中心</a>
+                                <a href="/press/">新闻中心</a>
                             </li>
                             <li>
-                                <a href="#">API</a>
+                                <a href="/developer/">API</a>
                             </li>
                             <li>
-                                <a href="#">工作信息</a>
+                                <a href="/about/jobs/">工作信息</a>
                             </li>
                             <li>
-                                <a href="#">隐私</a>
+                                <a href="/legal/privacy/">隐私</a>
                             </li>
                             <li>
-                                <a href="#">条款</a>
+                                <a href="/legal/terms/">条款</a>
                             </li>
                             <li>
-                                <a href="#">语言</a>
+                                <span class="language-wrapper">
+                                    <span>语言</span>
+                                    <select class="ui-select">
+                                        <option value="af">南非荷兰语</option>
+                                        <option value="cs">捷克语</option>
+                                        <option value="da">丹麦语</option>
+                                        <option value="de">德语</option>
+                                        <option value="el">希腊语</option>
+                                        <option value="en">英语</option>
+                                        <option value="es">西班牙语</option>
+                                        <option value="fi">芬兰语</option>
+                                        <option value="fr">法语</option>
+                                        <option value="hi">印地语</option>
+                                        <option value="id">印度尼西亚语</option>
+                                        <option value="it">意大利语</option>
+                                        <option value="ja">日语</option>
+                                        <option value="ko">韩语</option>
+                                        <option value="ms">马来语</option>
+                                        <option value="nb">挪威语</option>
+                                        <option value="nl">荷兰语</option>
+                                        <option value="pl">波兰语</option>
+                                        <option value="pt">葡萄牙语（葡萄牙）</option>
+                                        <option value="pt-br">葡萄牙语</option>
+                                        <option value="ru">俄语</option>
+                                        <option value="sv">瑞典语</option>
+                                        <option value="th">泰语</option>
+                                        <option value="tl">塔加洛语/菲律宾语</option>
+                                        <option value="tr">土耳其语</option>
+                                        <option selected="" value="zh-cn">中文（简体）</option>
+                                        <option value="zh-tw">中文（繁体）</option>
+                                    </select>
+                                </span>
                             </li>
                         </ul>
                     </nav>
@@ -60,4 +96,6 @@
         </section>
     </div>
 </body>
+{% block js %}{% endblock %}
 </html>
+

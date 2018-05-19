@@ -1,123 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="Keywords" content="">
-
-    <title>牛牛网-登录</title>
-    <link rel="stylesheet" href="/static/styles/pages/login.css">
-</head>
-<body>
-    <section class="container">
-        <header class="header">
-            <div class="header-cont">
-                <a class="logo">logo</a>
-                <div class="web-menu">
-                    <a class="profile-ico">个人主页</a>
-                </div>
-            </div>
-        </header>
-        <main class="main login-main" role="main">
-            <article class="login-cont clearfix">
-                <div class="login-pic-box">
-                    <img src="/static/images/res/nkFamily.jpg">
-                </div>
-                <div class="login-wrapper">
-                    <div class="login-box">
-                        <form>
-                            <h2 class="login-hd">注册 牛牛</h2>
-                            <div class="form-item">
-                                <input class="input-txt"  aria-label="用户名" aria-required="true" autocapitalize="off" autocorrect="off" maxlength="30" name="username" placeholder="用户名" value="" type="text" data-reactid=".0.1.0.1.0.1.0.5.0">
-                            </div>
-                            <div class="form-item">
-                                <input class="input-txt" aria-describedby="" aria-label="密码" aria-required="true" autocapitalize="off" autocorrect="off" name="password" placeholder="密码" type="password" value="" data-reactid=".0.1.0.1.0.1.0.6.0">
-                            </div>
-                            <div class="btn-wrapper">
-                                <button class="btn-primary">注册</button>
-                                <button class="btn-primary">登录</button>
-                            </div>
-                            <p class="agreenment">
-                                <span>注册即表示你同意我们的 </span>
-                                <a class="agreenment-link" href="/legal/terms/" target="_blank">条款</a>
-                                <span data-reactid=".0.1.0.1.0.1.0.9.2"> 和 </span>
-                                <a class="agreenment-link" href="/legal/privacy/" target="_blank">隐私权政策</a>
-                                <span> 。</span>
-                            </p>
-                        </form>
+{% extends "base.html" %}
+{% block title %}登陆注册{% endblock%}
+{% block css %}/static/styles/pages/login.css{% endblock%}
+{% block content %}
+<main class="main login-main" role="main">
+    <article class="login-cont clearfix">
+        <div class="login-pic-box">
+            <img src="/static/images/res/nkFamily.jpg">
+        </div>
+        <div class="login-wrapper">
+            <div class="login-box">
+                <form method="post" id="regloginform">
+                    <h2 class="login-hd">
+                        {% if (msg | length) > 0 %}
+                        <b>{{msg}}</b>
+                        {% else %}
+                        注册 牛牛
+                        {% endif %}
+                    </h2>
+                    <div class="form-item">
+                        <input class="input-txt"  aria-label="用户名" aria-required="true" autocapitalize="off" autocorrect="off" maxlength="30" name="username" placeholder="用户名" value="" type="text" data-reactid=".0.1.0.1.0.1.0.5.0">
                     </div>
-                </div>
-            </article>
-        </main>
-        <footer class="footer">
-            <div class="footer-cont">
-                <nav>
-                    <ul class="footer-items">
-                        <li>
-                            <a href="/about/us/">关于我们</a>
-                        </li>
-                        <li>
-                            <a href="https://help.nowcoder.com/">支持</a>
-                        </li>
-                        <li>
-                            <a href="http://blog.nowcoder.com/">博客</a>
-                        </li>
-                        <li>
-                            <a href="/press/">新闻中心</a>
-                        </li>
-                        <li>
-                            <a href="/developer/">API</a>
-                        </li>
-                        <li>
-                            <a href="/about/jobs/">工作信息</a>
-                        </li>
-                        <li>
-                            <a href="/legal/privacy/">隐私</a>
-                        </li>
-                        <li>
-                            <a href="/legal/terms/">条款</a>
-                        </li>
-                        <li>
-                            <span class="language-wrapper">
-                                <span>语言</span>
-                                <select class="ui-select">
-                                    <option value="af">南非荷兰语</option>
-                                    <option value="cs">捷克语</option>
-                                    <option value="da">丹麦语</option>
-                                    <option value="de">德语</option>
-                                    <option value="el">希腊语</option>
-                                    <option value="en">英语</option>
-                                    <option value="es">西班牙语</option>
-                                    <option value="fi">芬兰语</option>
-                                    <option value="fr">法语</option>
-                                    <option value="hi">印地语</option>
-                                    <option value="id">印度尼西亚语</option>
-                                    <option value="it">意大利语</option>
-                                    <option value="ja">日语</option>
-                                    <option value="ko">韩语</option>
-                                    <option value="ms">马来语</option>
-                                    <option value="nb">挪威语</option>
-                                    <option value="nl">荷兰语</option>
-                                    <option value="pl">波兰语</option>
-                                    <option value="pt">葡萄牙语（葡萄牙）</option>
-                                    <option value="pt-br">葡萄牙语</option>
-                                    <option value="ru">俄语</option>
-                                    <option value="sv">瑞典语</option>
-                                    <option value="th">泰语</option>
-                                    <option value="tl">塔加洛语/菲律宾语</option>
-                                    <option value="tr">土耳其语</option>
-                                    <option selected="" value="zh-cn">中文（简体）</option>
-                                    <option value="zh-tw">中文（繁体）</option>
-                                </select>
-                            </span>
-                        </li>
-                    </ul>
-                    <span class="copy-right">© 2016 nowcoder</span>
-
-                </nav>
+                    <div class="form-item">
+                        <input class="input-txt" aria-describedby="" aria-label="密码" aria-required="true" autocapitalize="off" autocorrect="off" name="password" placeholder="密码" type="password" value="" data-reactid=".0.1.0.1.0.1.0.6.0">
+                    </div>
+                    <input type="hidden" name="next" value="{{next}}"/>
+                    <div class="btn-wrapper">
+                        <button class="btn-primary" onclick="form=document.getElementById('regloginform');form.action='/reg/';">注册</button>
+                        <button class="btn-primary" onclick="form=document.getElementById('regloginform');form.action='/login/';">登录</button>
+                    </div>
+                    <p class="agreenment">
+                        <span>注册即表示你同意我们的 </span>
+                        <a class="agreenment-link" href="/legal/terms/" target="_blank">条款</a>
+                        <span data-reactid=".0.1.0.1.0.1.0.9.2"> 和 </span>
+                        <a class="agreenment-link" href="/legal/privacy/" target="_blank">隐私权政策</a>
+                        <span> 。</span>
+                    </p>
+                </form>
             </div>
-        </footer>
-    </section>
-
-</body>
-</html>
+        </div>
+    </article>
+</main>
+{% endblock%}

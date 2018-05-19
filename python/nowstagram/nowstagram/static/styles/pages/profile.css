@@ -105,6 +105,12 @@
     height: 290px;
     overflow: hidden;
 }
+
+.img-box img {
+    width: 290px;
+    height: 290px;
+    overflow: hidden;
+}
 .list .item img {
     width: 290px;
 }
