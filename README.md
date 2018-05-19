@@ -76,3 +76,44 @@ javaweb log -> flume -> kafka -> sparkStreaming -> Hbase -> Spring boot -> echar
 ## 20 python/nowstagram
 
 flask 简单例子 包含 数据库持久层框架flask_sqlalchemy
+
+部署
+
+> 服务器
+```
+apt-get install nginx mysql-server gunicorn python-flask libmysqlclient-dev python-dev
+```
+
+> 依赖包
+```
+pip install Flask-Script Flask-SQLAlchemy Flask-Login qiniu Flask-MySQLdb
+```
+
+Nginx 配置 /etc/nginx/sites-enabled/c1
+
+```
+server {
+	listen 80;
+	server_name c1.nowcoder.com;
+	location / {
+		proxy_pass http://127.0.0.1:8000;
+	}
+}
+```
+
+启动服务器：
+
+```
+gunicorn –D –w 2*core+1 –b 127.0.0.1:8000 nowstagram:app
+```
+
+## 21 wenda 问答
+
+* spring boot 
+* mybatis
+* 敏感词过滤 敏感词树/中文分词
+
+
+
+
+
