@@ -112,6 +112,16 @@ gunicorn –D –w 2*core+1 –b 127.0.0.1:8000 nowstagram:app
 * spring boot 
 * mybatis
 * 敏感词过滤 敏感词树/中文分词
+* 关注、收藏、通知
+* redis 事务
+* JedisAdapter JedisPool zrange zscore zcard exec multi
+* timeline 推 拉 推/拉 （活跃 在线）
+* 算分算法
+
+
+## 22 scala/ScalaInAction
+
+ScalaInAction scala 的基础demo
 
 
 
