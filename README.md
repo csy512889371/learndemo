@@ -124,6 +124,18 @@ gunicorn –D –w 2*core+1 –b 127.0.0.1:8000 nowstagram:app
 ScalaInAction scala 的基础demo
 
 
+## 23 netty
+
+IOServer NIO简单例子
+
+NettyHello Netty hello 例子 包括服务端和客户端
+
+NIONetty netty 的核心代码解析。将netty 基于nio基础上加上多线程对nio进行优化。
+
+
+
+
+
 
 
 

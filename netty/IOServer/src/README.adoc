@@ -1,0 +1,15 @@
+== 传统Socket
+> 阻塞点
+
+. 1
+
+```
+final Socket socket = server.accept()
+```
+
+. 2
+```
+InputStream inputStream = socket.getInputStream();
+int read = inputStream.read(bytes);
+```
+
