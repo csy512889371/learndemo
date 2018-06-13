@@ -126,14 +126,11 @@ ScalaInAction scala 的基础demo
 
 ## 23 netty
 
-IOServer NIO简单例子
-
-NettyHello Netty3 hello 例子 包括服务端和客户端
-
-NIONetty netty3 的核心代码解析。将netty 基于nio基础上加上多线程对nio进行优化。
-
-nettySource netty3源码
-
+. IOServer NIO简单例子
+. NettyHello Netty3 hello 例子 包括服务端和客户端
+. NIONetty netty3 的核心代码解析。将netty 基于nio基础上加上多线程对nio进行优化。
+. nettySource netty3源码
+. Netty5 的例子
 
 
 
