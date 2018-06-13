@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.eclipse.jetty.npn:npn-api:1.1.0.v20120525">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/npn/npn-api/1.1.0.v20120525/npn-api-1.1.0.v20120525.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/npn/npn-api/1.1.0.v20120525/npn-api-1.1.0.v20120525-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/jetty/npn/npn-api/1.1.0.v20120525/npn-api-1.1.0.v20120525-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

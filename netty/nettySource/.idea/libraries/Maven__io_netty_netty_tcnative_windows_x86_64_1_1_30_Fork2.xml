@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: io.netty:netty-tcnative:windows-x86_64:1.1.30.Fork2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative/1.1.30.Fork2/netty-tcnative-1.1.30.Fork2-windows-x86_64.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative/1.1.30.Fork2/netty-tcnative-1.1.30.Fork2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/netty/netty-tcnative/1.1.30.Fork2/netty-tcnative-1.1.30.Fork2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
