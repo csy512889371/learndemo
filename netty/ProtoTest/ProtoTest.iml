@@ -2,6 +2,7 @@
 <module type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
     <libelement value="jar://$MODULE_DIR$/libs/protobuf-java-2.4.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/libs/netty-3.10.5.Final.jar!/" />
     <src_description expected_position="0">
       <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
     </src_description>
@@ -18,6 +19,17 @@
       <library name="protobuf-java-2.4.1.jar">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/libs/protobuf-java-2.4.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/libs/protobuf-java-2.4.1-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="netty-3.10.5.Final.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/netty-3.10.5.Final.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
