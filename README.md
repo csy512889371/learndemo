@@ -133,7 +133,9 @@ ScalaInAction scala 的基础demo
 . Netty5 的例子 + 简单rpc
 . netty心跳 netty3heart netty5heart
 . ProtoTest 序列化与反序化  与java 序列化反序列化
-
+* chat_netty3 基于netty3
+* chat_netty4 基于netty4
+* chat_protobuf 序列化协议 使用protobuf
 
 
 
