@@ -1,0 +1,22 @@
+option java_package = "com.cn.common.module.player.proto" ;
+option java_outer_classname = "PlayerModule" ;
+
+//登录请求
+message LoginRequest{
+	required string playerName = 1 ;
+	required string passward = 2;
+}
+
+//注册请求
+message RegisterRequest{
+	required string playerName = 1 ;
+	required string passward = 2;
+}
+
+//玩家信息
+message PlayerResponse{
+	required int64 playerId = 1;
+	required string playerName = 2;
+	required int32 level = 3;
+	required int32 exp = 4;
+}

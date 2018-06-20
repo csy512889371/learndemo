@@ -1,0 +1,28 @@
+option java_package = "com.cn.common.module.chat.proto" ;
+option java_outer_classname = "ChatModule" ;
+
+//私聊请求
+message PrivateChatRequest{
+	required int64 targetPlayerId = 1 ;
+	required string context = 2;
+}
+
+//广播消息
+message PublicChatRequest{
+	required string context = 1 ;
+}
+
+//聊天类型
+enum ChatType {
+	PRIVATE = 0;
+	PUBLIC = 1 ;
+}
+
+//聊天消息
+message ChatResponse{
+	required int64 sendPlayerId = 1;
+	required string sendPlayerName = 2;
+	optional string targetPlayerName = 3 [default = ""];
+	required ChatType chatType = 4 [default = PUBLIC];
+	required string message = 5;
+}
