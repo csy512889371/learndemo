@@ -137,8 +137,13 @@ ScalaInAction scala 的基础demo
 * chat_netty4 基于netty4
 * chat_protobuf 序列化协议 使用protobuf
 
+## 24 opencv-tensorflow
+
+python/opencv-tensorflow 基于anaconda jupyter编写的例子代码
 
 
+
+image::https://github.com/csy512889371/learnDoc/blob/master/image/2018/fz/44.png?raw=true[ctoedu,800,450]
 
 
 
