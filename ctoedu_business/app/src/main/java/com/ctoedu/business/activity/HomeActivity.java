@@ -16,9 +16,14 @@ import com.ctoedu.business.view.fragment.home.HomeFragment;
 import com.ctoedu.business.view.fragment.home.MessageFragment;
 import com.ctoedu.business.view.fragment.home.MineFragment;
 
+/**
+ * 创建首页所有的fragment
+ */
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
-
+    /**
+     * fragment 相关
+     */
     private FragmentManager fm;
     private HomeFragment mHomeFragment;
     private Fragment mCommonFragmentOne;
@@ -26,6 +31,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private MineFragment mMineFragment;
     private Fragment mCurrent;
 
+    /**
+     * UI
+     */
     private RelativeLayout mHomeLayout;
     private RelativeLayout mPondLayout;
     private RelativeLayout mMessageLayout;
@@ -42,13 +50,17 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.activity_home_layout);
         //启动后台产品服务更新
         startAllService();
+
+        //初始化页面中所有的控件
         initView();
 
+        //添加默认要显示的fragment
         mHomeFragment = new HomeFragment();
         fm = getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.content_layout, mHomeFragment);
         fragmentTransaction.commit();
+
     }
 
     private void startAllService() {
@@ -73,6 +85,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         mHomeView.setBackgroundResource(R.drawable.comui_tab_home_selected);
     }
 
+    /**
+     * 用来隐藏具体的fragment
+     */
     private void hideFragment(Fragment fragment, FragmentTransaction ft) {
         if (fragment != null) {
             ft.hide(fragment);
@@ -93,6 +108,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 hideFragment(mCommonFragmentOne, fragmentTransaction);
                 hideFragment(mMessageFragment, fragmentTransaction);
                 hideFragment(mMineFragment, fragmentTransaction);
+
+                //将HomeFragment 显示出来
                 if (mHomeFragment == null) {
                     mHomeFragment = new HomeFragment();
                     fragmentTransaction.add(R.id.content_layout, mHomeFragment);

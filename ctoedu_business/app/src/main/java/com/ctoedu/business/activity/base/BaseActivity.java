@@ -14,11 +14,18 @@ import com.ctoedu.business.util.StatusBarUtil;
  */
 
 public class BaseActivity extends AppCompatActivity {
+
+    /**
+     * 输出日志，所需tag
+     */
     public String TAG;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        TAG = getComponentName().getShortClassName();
+
         Log.w(TAG, "#### onCreate: ");
     }
 
