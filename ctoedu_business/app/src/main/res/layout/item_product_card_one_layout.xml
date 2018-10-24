@@ -1,0 +1,124 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/item_logo_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/default_user_avatar"
+    />
+
+    <TextView
+        android:id="@+id/item_title_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/item_logo_view"
+        android:layout_toRightOf="@id/item_logo_view"
+        android:text="微微一笑很优酷"
+        android:textColor="@color/color_333333"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/item_price_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/item_title_view"
+        android:layout_marginRight="15dp"
+        android:text="$123"
+        android:textColor="@color/color_ffff4444"
+        android:textSize="18sp"
+    />
+
+    <TextView
+        android:id="@+id/item_info_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/item_logo_view"
+        android:layout_toRightOf="@id/item_logo_view"
+        android:text="@string/video"
+        android:textColor="@color/result_view"
+        android:textSize="16sp"
+    />
+
+    <HorizontalScrollView
+        android:id="@+id/item_product_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/item_logo_view"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="5dp"
+        android:scrollbars="none"
+    >
+
+        <LinearLayout
+            android:id="@+id/product_photo_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+        >
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/item_footer_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_product_layout"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
+        android:ellipsize="end"
+        android:lines="2"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="杨洋郑爽“聊”破次元盛,甜蜜演绎《微微一笑很优酷》优酷独家热播中"
+        android:textColor="@color/color_333333"
+        android:textSize="16sp"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/item_footer_view"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/color_d0d0d0"
+    />
+
+    <TextView
+        android:id="@+id/item_from_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="12dp"
+        android:text="来自北京"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="15sp"
+    />
+
+    <TextView
+        android:id="@+id/item_zan_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/divider"
+        android:layout_marginBottom="12dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="12dp"
+        android:text="来自北京"
+        android:textColor="@color/color_bfbfbf"
+        android:textSize="15sp"
+    />
+</RelativeLayout>
+

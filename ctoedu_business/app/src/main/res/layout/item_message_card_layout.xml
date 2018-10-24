@@ -1,0 +1,104 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+>
+
+    <TextView
+        android:id="@+id/time_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_time_text"
+        android:paddingBottom="4dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="4dp"
+        android:text="12天前"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+    />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/item_logo_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/time_view"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+    />
+
+    <TextView
+        android:id="@+id/site_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/item_logo_view"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/item_logo_view"
+        android:text="架构师"
+        android:textColor="@color/color_999999"
+    />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/site_view"
+        android:layout_below="@id/site_view"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_home_edittext"
+    >
+
+        <TextView
+            android:id="@+id/title_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="架构师攻略"
+            android:textColor="@color/color_333333"
+            android:textSize="18sp"
+        />
+
+        <TextView
+            android:id="@+id/info_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_view"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="快速来吧"
+            android:textColor="@color/color_999999"
+            android:textSize="14sp"
+        />
+
+        <TextView
+            android:id="@+id/xiangqing_viw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/info_view"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:text="查看详情"
+            android:textColor="@color/color_ff33b5e5"
+            android:textSize="14sp"
+        />
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/xiangqing_viw"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:scaleType="fitXY"
+        />
+    </RelativeLayout>
+</RelativeLayout>
+

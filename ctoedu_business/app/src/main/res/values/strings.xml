@@ -1,0 +1,193 @@
+<resources>
+    <string name="app_name">ctoedu_business</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main_list">MainListActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="home_image_view_text">首页</string>
+    <string name="pond_image_view_text">鱼塘</string>
+    <string name="message_image_view_text">消息</string>
+    <string name="mine_image_view_text">我的</string>
+    <string name="home_edittext_hint">请输入宝贝关键字</string>
+    <string name="cancel">取消</string>
+    <string name="search_history">搜索历史</string>
+    <string name="cpay_keyboard_clear">清除</string>
+    <string name="search_no_title">"抱歉,没有找到与 \""</string>
+    <string name="search_no_end">"\" 相关的宝贝"</string>
+    <string name="search_tip">您可以输入宝贝代码，简称或者拼音首字母开始查找</string>
+    <string name="share_weixin">微信</string>
+    <string name="share_weixin_moment">朋友圈</string>
+    <string name="share_qq">QQ</string>
+    <string name="share_qzone">QQ空间</string>
+    <string name="account">帐号:</string>
+    <string name="password">密码:</string>
+    <string name="login">登 陆</string>
+    <string name="unlogin">您还未登陆哦.</string>
+    <string name="login_now">马上登陆</string>
+    <string name="video_play_setting">视频播放设置</string>
+    <string name="auto_player_always">3G/4G和Wifi</string>
+    <string name="auto_player_only_wifi">仅Wifi</string>
+    <string name="auto_player_never">关闭</string>
+    <string name="video_setting">视频播放环境条件</string>
+    <string name="share_imooc">分享给朋友</string>
+    <string name="my_qrcode">我的二维码</string>
+    <string name="please_wait">加载中...</string>
+    <string name="personal_info">的个人主页</string>
+    <string name="message">消息</string>
+    <string name="unread_message">留言</string>
+    <string name="unread_message_info">还没有收到留言.</string>
+    <string name="zan_message">收到的赞</string>
+    <string name="zan_message_info">还没有收到的赞.</string>
+    <string name="imooc_message">架构师的成长之路</string>
+    <string name="imooc_message_info">再不学习.</string>
+    <string name="update_info">版本更新</string>
+    <string name="jpush_message_type">消息类型:</string>
+    <string name="jpush_message_content">消息内容:</string>
+    <string name="jpush_message_title">推送消息</string>
+    <string name="video">视频</string>
+    <string name="xitong_message">系统消息</string>
+    <string name="receive_zan_message">收到的赞</string>
+    <string name="liuyan_message">留言</string>
+    <string name="chart_with_me">与我交谈</string>
+    <string name="scan_detail">查看详情</string>
+    <string name="download">下载</string>
+    <string name="download_success">下载成功</string>
+    <string name="download_failed">下载失败</string>
+    <string name="imooc">架构师的成长之路</string>
+    <string name="imooc_site">http://www.ctoedu.com</string>
+    <string name="today_zuixing">------------&#062;&#062;今日最新&#060;&#060;------------</string>
+    <string name="course_detail">课程详情</string>
+    <string name="danbao_trade">担保交易</string>
+    <string name="last_week_visti">最近一周课程查看人数:</string>
+    <string name="owner">主人</string>
+    <string name="guess_you_like">猜你喜欢</string>
+    <string name="send">发送</string>
+    <string name="input_comment">请输入留言</string>
+    <string name="comment_hint_head">回复@</string>
+    <string name="comment_hint_footer">:</string>
+
+    <!-- QR_Code -->
+    <string name="button_ok">OK</string>
+    <string name="msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the
+        device.
+    </string>
+    <string name="msg_bulk_mode_scanned">Bulk mode: barcode scanned and saved</string>
+    <string name="scan_text">放入框中即可进行二维码扫描</string>
+    <string name="contents_contact">Contact info</string>
+    <string name="contents_email">Email address</string>
+    <string name="contents_location">Geographic coordinates</string>
+    <string name="contents_phone">Phone number</string>
+    <string name="contents_sms">SMS address</string>
+    <string name="contents_text">Plain text</string>
+    <string name="preferences_vibrate">preferences_vibrate</string>
+    <string name="preferences_play_beep">preferences_play_beep</string>
+    <string name="preferences_actions_title">When a barcode is found\u2026</string>
+    <string name="preferences_copy_to_clipboard_title">Copy to clipboard</string>
+    <string name="preferences_decode_1D_title">1D barcodes</string>
+    <string name="preferences_decode_Data_Matrix_title">Data Matrix</string>
+    <string name="preferences_decode_QR_title">QR Codes</string>
+    <string name="preferences_play_beep_title">Beep</string>
+    <string name="preferences_remember_duplicates_summary">Store multiple scans of the same barcode in History</string>
+    <string name="preferences_remember_duplicates_title">Remember duplicates</string>
+    <string name="preferences_scanning_title">When scanning for barcodes, decode\u2026</string>
+    <string name="preferences_supplemental_summary">Try to retrieve more information about the barcode contents</string>
+    <string name="preferences_supplemental_title">Retrieve more info</string>
+    <string name="preferences_vibrate_title">Vibrate</string>
+    <string name="preview_msg">&#160;preview pages available,click Download for more.</string>
+
+    <!--update模块-->
+    <string name="update_title">快下载更新体验一下吧</string>
+    <string name="update_new_version">您有新版本</string>
+    <string name="update_install">安装</string>
+    <string name="update_download_failed">下载失败</string>
+    <string name="update_download_failed_msg">下载失败，请检查网络连接或 SD卡存储空间</string>
+    <string name="update_download_start">开始下载</string>
+    <string name="update_download_processing">正在下载</string>
+    <string name="update_download_finish">下载完成</string>
+    <string name="update_download_tip">提示</string>
+    <string name="no_new_version_title">已是最新版</string>
+    <string name="no_new_version_msg">您当前已经是最新版本，无需更新。</string>
+    <string name="confirm">确定</string>
+    <string name="tian_qian">天前</string>
+    <string name="dian_zan">点赞</string>
+
+    <!--引导页-->
+    <string name="welcom_head_01">来架构师的成长之路学习吧</string>
+    <string name="welcom_content_01">来架构师的成长之路你可以学到任何你想学的知识.</string>
+    <string name="welcom_head_02">学会分享</string>
+    <string name="welcom_content_02">分享即可以帮助他人,也可以提升自己,何乐而不为.</string>
+    <string name="welcom_head_03">学会利用网络</string>
+    <string name="welcom_content_03">通过互联网,可以学到任何我们想学的知识,所以你要利用好.</string>
+    <string name="welcom_head_04">提高效率,少熬夜</string>
+    <string name="welcom_content_04">设法提高我们的工作效率,而不是延长我们的工作时间.</string>
+
+    <!-- nfc相关 -->
+    <string name="menu_clear">Clear</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_about">About</string>
+    <string name="btn_copy">Copy</string>
+    <string name="btn_nfc">Setting</string>
+    <string name="btn_exit">Exit</string>
+    <string name="tip_nfc_notfound">no nfc hardware!</string>
+    <string name="tip_nfc_disabled">nfc disabled</string>
+    <string name="tip_nfc_enabled">nfc enabled</string>
+    <string name="msg_reading">Reading Card...</string>
+    <string name="msg_nonfc">No NFC hardware found, Program will NOT work.</string>
+    <string name="msg_nfcdisabled">NFC hardware has been disabled, Please enable it first. (using the \'Setting\' button to turn it on or off)</string>
+    <string name="msg_nocard">No Card been read, Please take the card near to the back cover of phone and try again</string>
+    <string name="msg_copied">Card information has been copied to clipboard
+	</string>
+    <string name="lab_id">ID:</string>
+    <string name="lab_pmm">PMm:</string>
+    <string name="lab_serl">SEL:</string>
+    <string name="lab_ver">VER:</string>
+    <string name="lab_date">DAT:</string>
+    <string name="lab_op">USE:</string>
+    <string name="lab_log">Log:</string>
+    <string name="lab_balance">Balance:</string>
+    <string name="lab_cur_cny">CNY</string>
+    <string name="lab_cur_hkd">HKD</string>
+    <string name="lab_op_time">Time(s)</string>
+    <string name="lab_user_id">Card SN:</string>
+    <string name="lab_bktg_sn">Book ID:</string>
+    <string name="lab_bkcat">Category:</string>
+
+    <string name="name_bkcat_soc">Natural sciences</string>
+    <string name="name_bkcat_sci">Social sciences</string>
+    <string name="name_bkcat_ltr">Literature</string>
+    <string name="name_octopuscard">Octopus Card (Hong Kong)</string>
+    <string name="name_szt">Shenzhen Tong</string>
+    <string name="name_szt_f">Shenzhen Tong (Old version)</string>
+    <string name="name_lnt">Yangcheng Tong</string>
+    <string name="name_wht">Wuhan City Smart Card</string>
+    <string name="name_cac">Changan Card</string>
+    <string name="name_bj">Beijing Municipal Card</string>
+    <string name="name_bj_m">Beijing Municipal Card (Old version)</string>
+    <string name="name_unknowntag">Unknown Tag</string>
+    <string name="name_szlib_center">Shenzhen Library (Center)</string>
+    <string name="name_szlib_nanshan">Shenzhen Library (Nanshan)</string>
+    <string name="name_lib_readercard">Reader\'s Card</string>
+    <string name="name_lib_booktag">Book\'s eTag</string>
+
+    <string name="info_help">
+	<![CDATA[
+	<div>Make sure that the NFC sensor is enaled before read card. You can click \'setting\' button to open system configure dialog to confirm.</div>
+	<div>When reading card, please take your card close to NFC sensor of phone (normally, it is at back cover of the phone) and hold a few seconds so that program can read data out.</div><p />
+	<div>phone\'s NFC hardware and os performance is not as good as expect currently, so it may need repeatedly read for whese kind of cards. (In case of always fail, You can try to disable NFC sensor and then re-enable it.)</div><p />
+	<div>So far we\'ve confirmed the following can be read: ShenzhenTong Card (newer version) of Shenzhen, Octopus Card of Hongkong, Reader Card of Shenzhen Library, Beijing Municipal Card (newer version), Changan Card of Shaanxi,Xi\'an, Wuhan City Smart Card. This is an open source application, welcome everyone participation in development,extends it to read more types of card, Also welcome provide test cards.</div>
+	]]>
+	</string>
+
+    <string name="info_about">
+	<![CDATA[
+	<div><img src="icon_main,16,16" /><big>&nbsp;NFCard&nbsp;</big><version>v</version></div><p />
+	<div>NFCard can read contactless IC card use NFC sensor.</div>
+	<div>Supporte a range of iso7816-3 / iso15693 / felicia compliant e-wallet / RFID cards, and can be extended to support many specific data protocol, e.g. pboc2.0 of china.</div>
+	<div>NFCard can read information like balance of account, transaction log, etc. from these cards </div><p />
+	<div>This is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version. see <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</div><p />
+	<div>Newest version and source code can be found at <a href="http://code.google.com/p/nfcard/">code.google.com/p/nfcard</a></div><p /><p />
+	<div>By <a href="mailto:sinpowei@gmail.com">sinpo</a>, 2011.</div>
+	]]>
+	</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <color name="color_333333">#333333</color>
+    <color name="color_cccccc">#cccccc</color>
+    <color name="color_fed952">#fed952</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_cdcdcd">#cdcdcd</color>
+    <color name="color_efefef">#efefef</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_5a79b7">#5a79b7</color>
+    <color name="color_00ffffff">#00ffffff</color>
+    <color name="color_efeff4">#efeff4</color>
+    <color name="color_c0c4ce">#efeff4</color>
+    <color name="color_bfbfbf">#bfbfbf</color>
+    <color name="color_e3e3e3">#e3e3e3</color>
+    <color name="color_cc0000">#cc0000</color>
+    <color name="color_d0d0d0">#d0d0d0</color>
+    <color name="color_ffff4444">#ffff4444</color>
+    <color name="color_ff33b5e5">#ff33b5e5</color>
+    <color name="color_dddddd">#dddddd</color>
+    <color name="color_fd4634">#fd4634</color>
+
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+
+    <!-- QR_Code -->
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="result_image_border">#ffffffff</color>
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c000ff00</color>
+    <color name="system_bar_color">#fed952</color>
+</resources>
