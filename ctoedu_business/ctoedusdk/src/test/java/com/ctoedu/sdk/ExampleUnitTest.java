@@ -1,5 +1,10 @@
 package com.ctoedu.sdk;
 
+import com.ctoedu.sdk.okhttp.CommonOkHttpClient;
+import com.ctoedu.sdk.okhttp.listener.DisposeDataHandle;
+import com.ctoedu.sdk.okhttp.listener.DisposeDataListener;
+import com.ctoedu.sdk.okhttp.request.CommonRequest;
+
 import org.junit.Test;
 
 import java.io.IOException;
@@ -26,7 +31,7 @@ public class ExampleUnitTest {
     @Test
     public void testCommonHttp() throws InterruptedException {
 
-        /*CommonOkHttpClient.get(CommonRequest.createGetRequest("http://localhost:3000/mock/7/info", null),
+        /*CommonOkHttpClient.get(CommonRequest.createGetRequest("http://172.16.1.179:3000/mock/7/info", null),
                 new DisposeDataHandle(
                         new DisposeDataListener() {
                             @Override
@@ -38,9 +43,7 @@ public class ExampleUnitTest {
                             public void onFailure(Object reasonObj) {
                                 System.out.println(reasonObj);
                             }
-                        }));
-
-        Thread.sleep(500000L);*/
+                        }));*/
     }
 
     @Test
