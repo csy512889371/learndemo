@@ -1,22 +1,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/color_cccccc"
-              android:orientation="vertical"
->
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_cccccc"
+    android:orientation="vertical">
+    <!-- title bar -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/color_fed952"
-        android:padding="8dp"
-    >
+        android:padding="8dp">
+
         <TextView
             android:id="@+id/qrcode_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:background="@drawable/bar_code_scan_icon"
-        />
+            android:background="@drawable/bar_code_scan_icon" />
 
         <TextView
             android:id="@+id/category_view"
@@ -24,8 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/category"
-        />
+            android:background="@drawable/category" />
+
         <TextView
             android:id="@+id/search_view"
             android:layout_width="match_parent"
@@ -39,18 +38,19 @@
             android:padding="6dp"
             android:text="@string/home_edittext_hint"
             android:textColor="@color/color_cdcdcd"
-            android:textSize="16sp"
-        />
+            android:textSize="16sp" />
     </RelativeLayout>
 
+    <!-- 加载数据时的loading view -->
     <ImageView
         android:id="@+id/loading_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
         android:scaleType="center"
-        android:src="@drawable/loading_data_anim"
-        />
+        android:src="@drawable/loading_data_anim" />
+
+    <!-- 显示首页数据的列表 -->
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"
@@ -58,6 +58,6 @@
         android:alwaysDrawnWithCache="false"
         android:divider="@color/color_cccccc"
         android:dividerHeight="10dp"
-        android:visibility="gone"
-    />
+        android:visibility="gone" />
+
 </LinearLayout>

@@ -13,7 +13,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ctoedu.business.R;
+import com.ctoedu.business.adapter.CourseAdapter;
+import com.ctoedu.business.module.recommand.BaseRecommandModel;
+import com.ctoedu.business.module.recommand.RecommandBodyValue;
+import com.ctoedu.business.network.http.RequestCenter;
 import com.ctoedu.business.view.fragment.BaseFragment;
+import com.ctoedu.sdk.okhttp.listener.DisposeDataListener;
 
 public class HomeFragment extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener {
 
@@ -27,6 +32,12 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     private TextView mSearchView;
     private ImageView mLoadingView;
 
+    /**
+     * data
+     */
+    private CourseAdapter mAdapter;
+    private BaseRecommandModel mRecommandData;
+
     public HomeFragment() {
 
     }
@@ -34,6 +45,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestRecommandData();
     }
 
     @Nullable
@@ -56,6 +68,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         mListView = (ListView) mContentView.findViewById(R.id.list_view);
         mListView.setOnItemClickListener(this);
         mLoadingView = (ImageView) mContentView.findViewById(R.id.loading_view);
+
+        //启动loading view 动画
         AnimationDrawable anim = (AnimationDrawable) mLoadingView.getDrawable();
         anim.start();
     }
@@ -63,11 +77,81 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.qrcode_view:
+/*                if (hasPermission(Constant.HARDWEAR_CAMERA_PERMISSION)) {
+                    doOpenCamera();
+                } else {
+                    requestPermission(Constant.HARDWEAR_CAMERA_CODE, Constant.HARDWEAR_CAMERA_PERMISSION);
+                }*/
+                break;
+            case R.id.category_view:
+                //与我交谈
+/*                Intent intent2 = new Intent(Intent.ACTION_VIEW, Util.createQQUrl("277451977"));
+                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent2);*/
+                break;
+            case R.id.search_view:
+/*                Intent searchIntent = new Intent(mContext, SearchActivity.class);
+                mContext.startActivity(searchIntent);*/
+                break;
+        }
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        RecommandBodyValue value = (RecommandBodyValue) mAdapter.getItem(position - mListView.getHeaderViewsCount());
+        if (value.type != 0) {
+/*            Intent intent = new Intent(mContext, PhotoViewActivity.class);
+            intent.putStringArrayListExtra(PhotoViewActivity.PHOTO_LIST, value.url);
+            startActivity(intent);*/
+        }
+    }
 
+    //首页列表数据请求:推荐产品
+    private void requestRecommandData() {
+        RequestCenter.requestRecommandData(new DisposeDataListener() {
+            @Override
+            public void onSuccess(Object responseObj) {
+                mRecommandData = (BaseRecommandModel) responseObj;
+                //更新UI
+                //showSuccessView();
+                System.out.println(mRecommandData);
+            }
+
+            @Override
+            public void onFailure(Object reasonObj) {
+                //显示请求失败View
+                //showErrorView();
+            }
+        });
+    }
+
+    //显示请求成功UI
+    private void showSuccessView() {
+        /*if (mRecommandData.data.list != null && mRecommandData.data.list.size() > 0) {
+            mLoadingView.setVisibility(View.GONE);
+            mListView.setVisibility(View.VISIBLE);
+            //为listview添加头
+            mListView.addHeaderView(new HomeHeaderLayout(mContext, mRecommandData.data.head));
+
+           mAdapter = new CourseAdapter(mContext, mRecommandData.data.list);
+            mListView.setAdapter(mAdapter);
+            mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+                @Override
+                public void onScrollStateChanged(AbsListView view, int scrollState) {
+                }
+
+                @Override
+                public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                    mAdapter.updateAdInScrollView();
+                }
+            });
+        } else {
+            showErrorView();
+        }*/
+    }
+
+    private void showErrorView() {
     }
 }
