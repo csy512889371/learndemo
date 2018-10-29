@@ -115,8 +115,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             public void onSuccess(Object responseObj) {
                 mRecommandData = (BaseRecommandModel) responseObj;
                 //更新UI
-                //showSuccessView();
-                System.out.println(mRecommandData);
+                showSuccessView();
             }
 
             @Override
@@ -129,27 +128,28 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
     //显示请求成功UI
     private void showSuccessView() {
-        /*if (mRecommandData.data.list != null && mRecommandData.data.list.size() > 0) {
+        if (mRecommandData.data.list != null && mRecommandData.data.list.size() > 0) {
             mLoadingView.setVisibility(View.GONE);
             mListView.setVisibility(View.VISIBLE);
             //为listview添加头
-            mListView.addHeaderView(new HomeHeaderLayout(mContext, mRecommandData.data.head));
+            //mListView.addHeaderView(new HomeHeaderLayout(mContext, mRecommandData.data.head));
 
-           mAdapter = new CourseAdapter(mContext, mRecommandData.data.list);
+            mAdapter = new CourseAdapter(mContext, mRecommandData.data.list);
             mListView.setAdapter(mAdapter);
-            mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+
+            /*mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
                 @Override
                 public void onScrollStateChanged(AbsListView view, int scrollState) {
                 }
 
                 @Override
                 public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                    mAdapter.updateAdInScrollView();
+                    //mAdapter.updateAdInScrollView();
                 }
-            });
+            });*/
         } else {
             showErrorView();
-        }*/
+        }
     }
 
     private void showErrorView() {
