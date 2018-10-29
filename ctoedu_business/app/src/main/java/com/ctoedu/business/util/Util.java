@@ -49,7 +49,25 @@ public class Util {
         return Uri.parse(result);
     }
 
-    //为ViewPager结构化数据
+    /**
+     * 为ViewPager结构化数据
+     * example:
+     *
+     * ｛｛｛
+     * <p>
+     * {
+     * "type": 3,
+     * "title": "111@2222@333",
+     * "price": "111@2222@333",
+     * "info": "111@2222@333",
+     * "text": "111@2222@333",
+     * "url": [...]
+     * }
+     * ｝｝｝
+     *
+     * @param value 源数据
+     * @return 转换后的数据结构
+     */
     public static ArrayList<RecommandBodyValue> handleData(RecommandBodyValue value) {
         ArrayList<RecommandBodyValue> values = new ArrayList<>();
         String[] titles = value.title.split("@");

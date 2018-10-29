@@ -20,12 +20,12 @@
         android:id="@+id/item_title_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/item_logo_view"
-        android:layout_toRightOf="@id/item_logo_view"
+        android:layout_alignTop="@+id/item_logo_view"
+        android:layout_toEndOf="@+id/item_logo_view"
         android:text="微微一笑很优酷"
         android:textColor="@color/color_333333"
         android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/item_price_view"
@@ -80,7 +80,7 @@
         android:lines="2"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:text="杨洋郑爽“聊”破次元盛,甜蜜演绎《微微一笑很优酷》优酷独家热播中"
+        android:text="《微微一笑很优酷》优酷独家热播中"
         android:textColor="@color/color_333333"
         android:textSize="16sp"/>
 

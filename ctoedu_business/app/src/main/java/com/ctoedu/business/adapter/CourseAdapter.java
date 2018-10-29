@@ -16,6 +16,7 @@ import com.ctoedu.business.R;
 import com.ctoedu.business.activity.PhotoViewActivity;
 import com.ctoedu.business.module.recommand.RecommandBodyValue;
 import com.ctoedu.business.util.ImageLoaderManager;
+import com.ctoedu.business.util.Util;
 import com.ctoedu.sdk.adutil.Utils;
 
 import java.util.ArrayList;
@@ -44,17 +45,17 @@ public class CourseAdapter extends BaseAdapter {
     /**
      * 单一图片的Item
      */
-    private static final int CARD_TYPE_ONE = 0x01;
+    private static final int CARD_SINGLE_PIC = 0x02;
 
     /**
      * 多图片类型的Item
      */
-    private static final int CARD_TYPE_TWO = 0x02;
+    private static final int CARD_MULTI_PIC = 0x01;
 
     /**
      * ViewPager 类型的Item
      */
-    private static final int CARD_TYPE_THREE = 0x03;
+    private static final int CARD_VIEW_PAGER = 0x03;
 
     private LayoutInflater mInflate;
     private Context mContext;
@@ -113,7 +114,19 @@ public class CourseAdapter extends BaseAdapter {
         //为空时表明当前没有使用的缓存View
         if (convertView == null) {
             switch (type) {
-                case CARD_TYPE_ONE:
+                case CARD_SINGLE_PIC:
+                    mViewHolder = new ViewHolder();
+                    convertView = mInflate.inflate(R.layout.item_product_card_two_layout, parent, false);
+                    mViewHolder.mLogoView = convertView.findViewById(R.id.item_logo_view);
+                    mViewHolder.mTitleView = (TextView) convertView.findViewById(R.id.item_title_view);
+                    mViewHolder.mInfoView = (TextView) convertView.findViewById(R.id.item_info_view);
+                    mViewHolder.mFooterView = (TextView) convertView.findViewById(R.id.item_footer_view);
+                    mViewHolder.mProductView = (ImageView) convertView.findViewById(R.id.product_photo_view);
+                    mViewHolder.mPriceView = (TextView) convertView.findViewById(R.id.item_price_view);
+                    mViewHolder.mFromView = (TextView) convertView.findViewById(R.id.item_from_view);
+                    mViewHolder.mZanView = (TextView) convertView.findViewById(R.id.item_zan_view);
+                    break;
+                case CARD_MULTI_PIC:
                     mViewHolder = new ViewHolder();
                     convertView = mInflate.inflate(R.layout.item_product_card_one_layout, parent, false);
                     //初始化 viewHolder 中所用到的组件
@@ -126,6 +139,20 @@ public class CourseAdapter extends BaseAdapter {
                     mViewHolder.mZanView = (TextView) convertView.findViewById(R.id.item_zan_view);
                     mViewHolder.mProductLayout = (LinearLayout) convertView.findViewById(R.id.product_photo_layout);
                     break;
+                case CARD_VIEW_PAGER:
+                    mViewHolder = new ViewHolder();
+                    convertView = mInflate.inflate(R.layout.item_product_card_three_layout, null, false);
+                    mViewHolder.mViewPager = convertView.findViewById(R.id.pager);
+
+                    //将@分割的数据处理成ArrayList
+                    ArrayList<RecommandBodyValue> recommandList = Util.handleData(value);
+
+                    // 设置间隔
+                    mViewHolder.mViewPager.setPageMargin(Utils.dip2px(mContext, 12));
+                    mViewHolder.mViewPager.setAdapter(new HotSalePagerAdapter(mContext, recommandList));
+                    //一开始让pagerView 处在一个比较中间的Item 这样可以双向滑动
+                    mViewHolder.mViewPager.setCurrentItem(recommandList.size() * 100);
+                    break;
             }
             convertView.setTag(mViewHolder);
         }//有可用的ConvertView
@@ -134,7 +161,18 @@ public class CourseAdapter extends BaseAdapter {
         }
         //填充数据
         switch (type) {
-            case CARD_TYPE_ONE:
+            case CARD_SINGLE_PIC:
+                mImagerLoader.displayImage(mViewHolder.mLogoView, value.logo);
+                mViewHolder.mTitleView.setText(value.title);
+                mViewHolder.mInfoView.setText(value.info.concat(mContext.getString(R.string.tian_qian)));
+                mViewHolder.mFooterView.setText(value.text);
+                mViewHolder.mPriceView.setText(value.price);
+                mViewHolder.mFromView.setText(value.from);
+                mViewHolder.mZanView.setText(mContext.getString(R.string.dian_zan).concat(value.zan));
+                //为单个ImageView加载远程图片
+                mImagerLoader.displayImage(mViewHolder.mProductView, value.url.get(0));
+                break;
+            case CARD_MULTI_PIC:
                 mImagerLoader.displayImage(mViewHolder.mLogoView, value.logo);
                 mViewHolder.mTitleView.setText(value.title);
                 mViewHolder.mInfoView.setText(value.info.concat(mContext.getString(R.string.tian_qian)));
@@ -151,21 +189,28 @@ public class CourseAdapter extends BaseAdapter {
                     }
                 });
                 mViewHolder.mProductLayout.removeAllViews();
+
                 //动态添加多个imageview
                 for (String url : value.url) {
                     mViewHolder.mProductLayout.addView(createImageView(url));
                 }
                 break;
+            case CARD_VIEW_PAGER:
+                break;
         }
         return convertView;
     }
 
-    //自动播放方法
+    /**
+     * 自动播放方法
+     */
     public void updateAdInScrollView() {
 
     }
 
-    //动态添加ImageView
+    /**
+     * 动态添加ImageView
+     */
     private ImageView createImageView(String url) {
         ImageView photoView = new ImageView(mContext);
         LinearLayout.LayoutParams params = new LinearLayout.
