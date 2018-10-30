@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.ctoedu.business.R;
 import com.ctoedu.business.activity.PhotoViewActivity;
 import com.ctoedu.business.adapter.CourseAdapter;
+import com.ctoedu.business.constant.Constant;
 import com.ctoedu.business.module.recommand.BaseRecommandModel;
 import com.ctoedu.business.module.recommand.RecommandBodyValue;
 import com.ctoedu.business.network.http.RequestCenter;
@@ -83,11 +84,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.qrcode_view:
-/*                if (hasPermission(Constant.HARDWEAR_CAMERA_PERMISSION)) {
+                if (hasPermission(Constant.HARDWEAR_CAMERA_PERMISSION)) {
                     doOpenCamera();
                 } else {
                     requestPermission(Constant.HARDWEAR_CAMERA_CODE, Constant.HARDWEAR_CAMERA_PERMISSION);
-                }*/
+                }
                 break;
             case R.id.category_view:
                 //与我交谈
