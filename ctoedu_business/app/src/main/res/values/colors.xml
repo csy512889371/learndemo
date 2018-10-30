@@ -29,7 +29,7 @@
     <color name="white">#ffffffff</color>
     <color name="black">#ff000000</color>
 
-    <!-- QR_Code -->
+    <!-- QR_Code 扫码 -->
     <color name="viewfinder_mask">#60000000</color>
     <color name="result_view">#b0000000</color>
     <color name="possible_result_points">#c0ffff00</color>

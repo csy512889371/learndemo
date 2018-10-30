@@ -1,23 +1,27 @@
 package com.ctoedu.business.view.fragment.home;
 
 
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ctoedu.business.R;
+import com.ctoedu.business.activity.PhotoViewActivity;
 import com.ctoedu.business.adapter.CourseAdapter;
 import com.ctoedu.business.module.recommand.BaseRecommandModel;
 import com.ctoedu.business.module.recommand.RecommandBodyValue;
 import com.ctoedu.business.network.http.RequestCenter;
 import com.ctoedu.business.view.fragment.BaseFragment;
+import com.ctoedu.business.view.home.HomeHeaderLayout;
 import com.ctoedu.sdk.okhttp.listener.DisposeDataListener;
 
 public class HomeFragment extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener {
@@ -102,9 +106,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         RecommandBodyValue value = (RecommandBodyValue) mAdapter.getItem(position - mListView.getHeaderViewsCount());
         if (value.type != 0) {
-/*            Intent intent = new Intent(mContext, PhotoViewActivity.class);
+            Intent intent = new Intent(mContext, PhotoViewActivity.class);
             intent.putStringArrayListExtra(PhotoViewActivity.PHOTO_LIST, value.url);
-            startActivity(intent);*/
+            startActivity(intent);
         }
     }
 
@@ -132,12 +136,12 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             mLoadingView.setVisibility(View.GONE);
             mListView.setVisibility(View.VISIBLE);
             //为listview添加头
-            //mListView.addHeaderView(new HomeHeaderLayout(mContext, mRecommandData.data.head));
+            mListView.addHeaderView(new HomeHeaderLayout(mContext, mRecommandData.data.head));
 
             mAdapter = new CourseAdapter(mContext, mRecommandData.data.list);
             mListView.setAdapter(mAdapter);
 
-            /*mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
                 @Override
                 public void onScrollStateChanged(AbsListView view, int scrollState) {
                 }
@@ -146,7 +150,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                 public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
                     //mAdapter.updateAdInScrollView();
                 }
-            });*/
+            });
         } else {
             showErrorView();
         }

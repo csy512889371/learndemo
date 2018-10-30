@@ -159,7 +159,7 @@ image::https://github.com/csy512889371/learnDoc/blob/master/image/2018/fz/44.png
 * okhttp 分装
 * universeimageloader 图片异步加载
 * CircleImageView \ Adapter \ Fragment \ 动态创建View
-* 
+* zxing 扫描二维码
 
 
 

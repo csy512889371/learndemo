@@ -1,13 +1,20 @@
 package com.ctoedu.business.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 
+import com.ctoedu.business.activity.CourseDetailActivity;
 import com.ctoedu.business.util.ImageLoaderManager;
 
 import java.util.ArrayList;
+
+import uk.co.senab.photoview.PhotoView;
 
 
 public class PhotoPagerAdapter extends PagerAdapter {
@@ -32,7 +39,7 @@ public class PhotoPagerAdapter extends PagerAdapter {
 
     @Override
     public View instantiateItem(ViewGroup container, int position) {
-        /*ImageView photoView;
+        ImageView photoView;
         if (mIsMatch) {
             photoView = new ImageView(mContext);
             photoView.setScaleType(ScaleType.FIT_XY);
@@ -50,9 +57,7 @@ public class PhotoPagerAdapter extends PagerAdapter {
         mLoader.displayImage(photoView, mData.get(position));
         container.addView(photoView, LayoutParams.MATCH_PARENT,
                 LayoutParams.MATCH_PARENT);
-        return photoView;*/
-
-        return null;
+        return photoView;
     }
 
     @Override

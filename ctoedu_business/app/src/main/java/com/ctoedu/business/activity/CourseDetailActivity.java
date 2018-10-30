@@ -13,10 +13,13 @@ import android.widget.TextView;
 
 import com.ctoedu.business.R;
 import com.ctoedu.business.activity.base.BaseActivity;
+import com.ctoedu.business.adapter.CourseCommentAdapter;
 import com.ctoedu.business.module.course.BaseCourseModel;
 import com.ctoedu.business.module.course.CourseCommentValue;
 import com.ctoedu.business.network.http.RequestCenter;
 import com.ctoedu.business.util.Util;
+import com.ctoedu.business.view.scourse.CourseDetailFooterView;
+import com.ctoedu.business.view.scourse.CourseDetailHeaderView;
 import com.ctoedu.sdk.okhttp.listener.DisposeDataListener;
 
 
@@ -37,7 +40,9 @@ public class CourseDetailActivity extends BaseActivity implements View.OnClickLi
     private ImageView mJianPanView;
     private EditText mInputEditView;
     private TextView mSendView;
-
+    private CourseDetailHeaderView headerView;
+    private CourseDetailFooterView footerView;
+    private CourseCommentAdapter mAdapter;
     /**
      * Data
      */
@@ -110,12 +115,46 @@ public class CourseDetailActivity extends BaseActivity implements View.OnClickLi
 
     //根据数据填充UI
     private void updateUI() {
+        mLoadingView.setVisibility(View.GONE);
+        mListView.setVisibility(View.VISIBLE);
+        mAdapter = new CourseCommentAdapter(this, mData.data.body);
+        mListView.setAdapter(mAdapter);
 
+        if (headerView != null) {
+            mListView.removeHeaderView(headerView);
+        }
+        headerView = new CourseDetailHeaderView(this, mData.data.head);
+        mListView.addHeaderView(headerView);
+        if (footerView != null) {
+            mListView.removeFooterView(footerView);
+        }
+        footerView = new CourseDetailFooterView(this, mData.data.footer);
+        mListView.addFooterView(footerView);
+
+        mBottomLayout.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        /*int cursor = position - mListView.getHeaderViewsCount();
+        if (cursor >= 0 && cursor < mAdapter.getCommentCount()) {
+            if (UserManager.getInstance().hasLogined()) {
+                CourseCommentValue value = (CourseCommentValue) mAdapter.getItem(
+                        position - mListView.getHeaderViewsCount());
+                if (value.userId.equals(UserManager.getInstance().getUser().data.userId)) {
+                    //自己的评论不能回复
+                    intoEmptyState();
+                    Toast.makeText(this, "不能回复自己!", Toast.LENGTH_SHORT).show();
+                } else {
+                    //不是自己的评论，可以回复
+                    tempHint = getString(R.string.comment_hint_head).concat(value.name).
+                            concat(getString(R.string.comment_hint_footer));
+                    intoEditState(tempHint);
+                }
+            } else {
+                startActivity(new Intent(this, LoginActivity.class));
+            }
+        }*/
     }
 
     /**
@@ -141,6 +180,16 @@ public class CourseDetailActivity extends BaseActivity implements View.OnClickLi
                 finish();
                 break;
             case R.id.send_view:
+               /* String comment = mInputEditView.getText().toString().trim();
+                if (UserManager.getInstance().hasLogined()) {
+                    if (!TextUtils.isEmpty(comment)) {
+                        mAdapter.addComment(assembleCommentValue(comment));
+                        intoEmptyState();
+                    }
+                } else {
+                    startActivity(new Intent(this, LoginActivity.class));
+                }*/
+
                 break;
             case R.id.jianpan_view:
                 mInputEditView.requestFocus();
@@ -155,7 +204,14 @@ public class CourseDetailActivity extends BaseActivity implements View.OnClickLi
      * @return
      */
     private CourseCommentValue assembleCommentValue(String comment) {
-
+/*        User user = UserManager.getInstance().getUser();
+        CourseCommentValue value = new CourseCommentValue();
+        value.name = user.data.name;
+        value.logo = user.data.photoUrl;
+        value.userId = user.data.userId;
+        value.type = 1;
+        value.text = tempHint + comment;
+        return value;*/
         return null;
     }
 }

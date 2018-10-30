@@ -8,7 +8,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
 import com.ctoedu.business.R;
 import com.ctoedu.business.adapter.PhotoPagerAdapter;
 import com.ctoedu.business.module.recommand.RecommandFooterValue;

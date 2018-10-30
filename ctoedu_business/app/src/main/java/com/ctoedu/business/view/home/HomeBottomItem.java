@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.ctoedu.business.R;
 import com.ctoedu.business.module.recommand.RecommandFooterValue;
+import com.ctoedu.sdk.activity.AdBrowserActivity;
 import com.ctoedu.sdk.imageloader.ImageLoaderUtil;
 
 
@@ -53,14 +54,14 @@ public class HomeBottomItem extends RelativeLayout {
         mInterestingView = (TextView) mRootView.findViewById(R.id.interesting_view);
         mImageOneView = (ImageView) mRootView.findViewById(R.id.icon_1);
         mImageTwoView = (ImageView) mRootView.findViewById(R.id.icon_2);
-/*        mRootView.setOnClickListener(new OnClickListener() {
+        mRootView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, AdBrowserActivity.class);
                 intent.putExtra(AdBrowserActivity.KEY_URL, mData.destationUrl);
                 mContext.startActivity(intent);
             }
-        });*/
+        });
         mTitleView.setText(mData.title);
         mInfoView.setText(mData.info);
         mInterestingView.setText(mData.from);
