@@ -42,4 +42,10 @@ dependencies {
     //阿里热修复andfix
     compile project(path: ':ctoedusdk')
     implementation files('libs/zxing.jar')
+    implementation files('libs/ShareSDK-Core-2.7.5.jar')
+    implementation files('libs/ShareSDK-QQ-2.7.5.jar')
+    implementation files('libs/ShareSDK-QZone-2.7.5.jar')
+    implementation files('libs/ShareSDK-Wechat-2.7.5.jar')
+    implementation files('libs/ShareSDK-Wechat-Core-2.7.5.jar')
+    implementation files('libs/ShareSDK-Wechat-Moments-2.7.5.jar')
 }

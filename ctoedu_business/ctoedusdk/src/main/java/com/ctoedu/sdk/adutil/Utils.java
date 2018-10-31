@@ -1,11 +1,14 @@
 package com.ctoedu.sdk.adutil;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Base64;
@@ -14,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.ctoedu.sdk.constant.SDKConstant;
 import com.ctoedu.sdk.module.AdValue;
 
 import java.io.ByteArrayInputStream;
@@ -51,8 +55,38 @@ public class Utils {
 
     //is wifi connected
     public static boolean isWifiConnected(Context context) {
-
+        if (context.checkCallingOrSelfPermission(Manifest.permission.ACCESS_WIFI_STATE)
+                != PackageManager.PERMISSION_GRANTED) {
+            return false;
+        }
+        ConnectivityManager connectivityManager = (ConnectivityManager)
+                context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = connectivityManager.getActiveNetworkInfo();
+        if (info != null && info.isConnected() && info.getType() == ConnectivityManager.TYPE_WIFI) {
+            return true;
+        }
         return false;
+    }
+
+    //decide can autoplay the ad
+    public static boolean canAutoPlay(Context context, SDKConstant.AutoPlaySetting setting) {
+        boolean result = true;
+        switch (setting) {
+            case AUTO_PLAY_3G_4G_WIFI:
+                result = true;
+                break;
+            case AUTO_PLAY_ONLY_WIFI:
+                if (isWifiConnected(context)) {
+                    result = true;
+                } else {
+                    result = false;
+                }
+                break;
+            case AUTO_PLAY_NEVER:
+                result = false;
+                break;
+        }
+        return result;
     }
 
     /**
