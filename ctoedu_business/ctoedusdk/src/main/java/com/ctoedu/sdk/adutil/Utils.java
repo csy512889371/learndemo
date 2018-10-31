@@ -41,6 +41,7 @@ public class Utils {
             DisplayMetrics displayMetrics = pView.getContext().getResources().getDisplayMetrics();
             int displayWidth = displayMetrics.widthPixels;
             Rect rect = new Rect();
+            //获取到当前view在屏幕中出现的一个矩形
             pView.getGlobalVisibleRect(rect);
             if ((rect.top > 0) && (rect.left < displayWidth)) {
                 double areaVisible = rect.width() * rect.height();

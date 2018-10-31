@@ -42,11 +42,18 @@ public class VideoFullDialog extends Dialog implements ADVideoPlayerListener {
     private int mPosition;
     private FullToSmallListener mListener;
     private boolean isFirst = true;
-    //动画要执行的平移值
+
+    /**
+     * 动画要执行的平移值
+     */
     private int deltaY;
     private AdSDKSlotListener mSlotListener;
     private Bundle mStartBundle;
-    private Bundle mEndBundle; //用于Dialog出入场动画
+
+    /**
+     * 用于Dialog出入场动画
+     */
+    private Bundle mEndBundle;
 
     public VideoFullDialog(Context context, CustomVideoView mraidView, AdValue instance,
                            int position) {
@@ -115,6 +122,9 @@ public class VideoFullDialog extends Dialog implements ADVideoPlayerListener {
         });
     }
 
+    /**
+     * 焦点状态改时的回调
+     */
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         LogUtils.i(TAG, "onWindowFocusChanged");
@@ -132,6 +142,9 @@ public class VideoFullDialog extends Dialog implements ADVideoPlayerListener {
         isFirst = false;
     }
 
+    /**
+     * dialog 销毁的时候调用
+     */
     @Override
     public void dismiss() {
         LogUtils.e(TAG, "dismiss");
@@ -184,7 +197,9 @@ public class VideoFullDialog extends Dialog implements ADVideoPlayerListener {
         runExitAnimator();
     }
 
-    //准备动画所需数据
+    /**
+     * 准备动画所需数据
+     */
     private void prepareScene() {
         mEndBundle = Utils.getViewProperty(mVideoView);
         /**
@@ -195,7 +210,9 @@ public class VideoFullDialog extends Dialog implements ADVideoPlayerListener {
         mVideoView.setTranslationY(deltaY);
     }
 
-    //准备入场动画
+    /**
+     * 准备入场动画
+     */
     private void runEnterAnimation() {
         mVideoView.animate()
                 .setDuration(200)
@@ -210,7 +227,9 @@ public class VideoFullDialog extends Dialog implements ADVideoPlayerListener {
                 .start();
     }
 
-    //准备出场动画
+    /**
+     * 准备出场动画
+     */
     private void runExitAnimator() {
         mVideoView.animate()
                 .setDuration(200)
@@ -275,9 +294,16 @@ public class VideoFullDialog extends Dialog implements ADVideoPlayerListener {
 
     }
 
+    /**
+     * 全屏切换到小屏监听器
+     */
     public interface FullToSmallListener {
+
         void getCurrentPlayPosition(int position);
 
-        void playComplete();//全屏播放结束时回调
+        /**
+         * 全屏播放结束时回调
+         */
+        void playComplete();
     }
 }

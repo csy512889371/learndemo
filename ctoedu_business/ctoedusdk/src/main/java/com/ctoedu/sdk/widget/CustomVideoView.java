@@ -102,6 +102,7 @@ public class CustomVideoView extends RelativeLayout implements View.OnClickListe
      * 监听屏幕是否锁屏广播
      */
     private ScreenEventReceiver mScreenReceiver;
+
     private Handler mHandler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(Message msg) {
@@ -698,8 +699,14 @@ public class CustomVideoView extends RelativeLayout implements View.OnClickListe
      */
     public interface ADVideoPlayerListener {
 
+        /**
+         * 视频播放到第几秒
+         */
         public void onBufferUpdate(int time);
 
+        /**
+         * 跳转全屏播放的事件监听
+         */
         public void onClickFullScreenBtn();
 
         public void onClickVideo();

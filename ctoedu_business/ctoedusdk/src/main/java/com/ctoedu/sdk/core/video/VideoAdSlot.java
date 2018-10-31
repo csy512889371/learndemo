@@ -21,7 +21,7 @@ import com.ctoedu.sdk.widget.VideoFullDialog.FullToSmallListener;
 
 
 /**
- * 广告业务逻辑层
+ * 视频播放小屏
  */
 public class VideoAdSlot implements ADVideoPlayerListener {
 
@@ -55,6 +55,9 @@ public class VideoAdSlot implements ADVideoPlayerListener {
         initVideoView(frameLoadListener);
     }
 
+    /**
+     * 初始化视频View
+     */
     private void initVideoView(CustomVideoView.ADFrameImageLoadListener frameImageLoadListener) {
         mVideoView = new CustomVideoView(mContext, mParentView);
         if (mXAdInstance != null) {
@@ -108,7 +111,9 @@ public class VideoAdSlot implements ADVideoPlayerListener {
         }
     }
 
-    //resume the video
+    /**
+     * resume the video
+     */
     private void resumeVideo() {
         if (mVideoView != null) {
             mVideoView.resume();
@@ -118,6 +123,10 @@ public class VideoAdSlot implements ADVideoPlayerListener {
         }
     }
 
+    /**
+     * 实现滑入播放,滑出暂停功能
+     * 露出屏幕百分比决定是否播放
+     */
     public void updateAdInScrollView() {
         int currentArea = Utils.getVisiblePercent(mParentView);
         //小于0表示未出现在屏幕上，不做任何处理
@@ -151,6 +160,7 @@ public class VideoAdSlot implements ADVideoPlayerListener {
         if (Utils.canAutoPlay(mContext, AdParameters.getCurrentSetting())
                 || isPlaying()) {
             lastArea = currentArea;
+            //真正去播放视频
             resumeVideo();
             canPause = true;
             mVideoView.setIsRealPause(false);
@@ -160,6 +170,9 @@ public class VideoAdSlot implements ADVideoPlayerListener {
         }
     }
 
+    /**
+     * 销毁视频
+     */
     public void destroy() {
         mVideoView.destroy();
         mVideoView = null;
@@ -169,6 +182,7 @@ public class VideoAdSlot implements ADVideoPlayerListener {
 
     /**
      * 实现play层接口
+     * 小屏切换到大屏 功能接口
      */
     @Override
     public void onClickFullScreenBtn() {
@@ -180,36 +194,44 @@ public class VideoAdSlot implements ADVideoPlayerListener {
         //获取videoview在当前界面的属性
         Bundle bundle = Utils.getViewProperty(mParentView);
         mParentView.removeView(mVideoView);
-        VideoFullDialog dialog = new VideoFullDialog(mContext, mVideoView, mXAdInstance,
-                mVideoView.getCurrentPosition());
+        VideoFullDialog dialog = new VideoFullDialog(mContext, mVideoView, mXAdInstance, mVideoView.getCurrentPosition());
         dialog.setListener(new FullToSmallListener() {
             @Override
             public void getCurrentPlayPosition(int position) {
+                //在全屏视频播放的时候点击了返回
                 backToSmallMode(position);
             }
 
             @Override
             public void playComplete() {
+                //全屏播放完成以后的事件回调
                 bigPlayComplete();
             }
         });
         dialog.setViewBundle(bundle); //为Dialog设置播放器数据Bundle对象
         dialog.setSlotListener(mSlotListener);
-        dialog.show();
+        dialog.show();//显示全屏Dialog
     }
 
+    /**
+     * 大屏切换回小屏
+     */
     private void backToSmallMode(int position) {
         if (mVideoView.getParent() == null) {
             mParentView.addView(mVideoView);
         }
-        mVideoView.setTranslationY(0); //防止动画导致偏离父容器
+
+        mVideoView.setTranslationY(0);//防止动画导致偏离父容器
         mVideoView.isShowFullBtn(true);
-        mVideoView.mute(true);
-        mVideoView.setListener(this);
-        mVideoView.seekAndResume(position);
+        mVideoView.mute(true);//小屏静音播放
+        mVideoView.setListener(this);//重新设置监听为业务逻辑层
+        mVideoView.seekAndResume(position);//使播放器跳到指定位置并且播放
         canPause = true; // 标为可自动暂停
     }
 
+    /**
+     * 全屏播放完成以后的事件回调
+     */
     private void bigPlayComplete() {
         if (mVideoView.getParent() == null) {
             mParentView.addView(mVideoView);
@@ -298,6 +320,9 @@ public class VideoAdSlot implements ADVideoPlayerListener {
         }
     }
 
+    /**
+     * 获取播放当前秒数
+     */
     private int getPosition() {
         return mVideoView.getCurrentPosition() / SDKConstant.MILLION_UNIT;
     }

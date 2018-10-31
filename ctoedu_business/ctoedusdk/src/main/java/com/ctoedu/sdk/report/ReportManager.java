@@ -22,15 +22,15 @@ public class ReportManager {
      * 默认的事件回调处理
      */
     private static DisposeDataHandle handle = new DisposeDataHandle(
-        new DisposeDataListener() {
-            @Override
-            public void onSuccess(Object responseObj) {
-            }
+            new DisposeDataListener() {
+                @Override
+                public void onSuccess(Object responseObj) {
+                }
 
-            @Override
-            public void onFailure(Object reasonObj) {
-            }
-        });
+                @Override
+                public void onFailure(Object reasonObj) {
+                }
+            });
 
     /**
      * send the sus monitor
@@ -46,13 +46,14 @@ public class ReportManager {
                     }
                 }
                 CommonOkHttpClient.get(
-                    CommonRequest.createMonitorRequest(monitor.url, params), handle);
+                        CommonRequest.createMonitorRequest(monitor.url, params), handle);
             }
         }
     }
 
     /**
      * send the sueReoprt
+     * 发送视频播放完成监控
      */
     public static void sueReport(ArrayList<Monitor> monitors, boolean isFull, long playTime) {
         if (monitors != null && monitors.size() > 0) {
@@ -64,8 +65,12 @@ public class ReportManager {
                     }
                     params.put("ve", String.valueOf(playTime));
                 }
+
+                /**
+                 * 调用分装好的网络组件发送检测请求
+                 */
                 CommonOkHttpClient.get(
-                    CommonRequest.createMonitorRequest(monitor.url, params), handle);
+                        CommonRequest.createMonitorRequest(monitor.url, params), handle);
             }
         }
     }
@@ -82,7 +87,7 @@ public class ReportManager {
                         params.put("ve", String.valueOf(playTime));
                     }
                     CommonOkHttpClient.get(
-                        CommonRequest.createMonitorRequest(monitor.url, params), handle);
+                            CommonRequest.createMonitorRequest(monitor.url, params), handle);
                 }
             }
         }
@@ -102,7 +107,7 @@ public class ReportManager {
                     params.put("ve", String.valueOf(playTime));
                 }
                 CommonOkHttpClient.get(
-                    CommonRequest.createMonitorRequest(monitor.url, params), handle);
+                        CommonRequest.createMonitorRequest(monitor.url, params), handle);
             }
         }
     }
@@ -121,7 +126,7 @@ public class ReportManager {
                     params.put("ve", String.valueOf(playTime));
                 }
                 CommonOkHttpClient.get(
-                    CommonRequest.createMonitorRequest(monitor.url, params), handle);
+                        CommonRequest.createMonitorRequest(monitor.url, params), handle);
             }
         }
     }
@@ -141,7 +146,7 @@ public class ReportManager {
                     params.put("ve", String.valueOf(playTime));
                 }
                 CommonOkHttpClient.get(
-                    CommonRequest.createMonitorRequest(monitor.url, params), handle);
+                        CommonRequest.createMonitorRequest(monitor.url, params), handle);
             }
         }
     }
@@ -162,7 +167,7 @@ public class ReportManager {
             params.put(Params.bt_phone.getKey(), Params.bt_phone.getValue());
         }
         params.put(step.getKey(),
-            step.getValue());
+                step.getValue());
         params.put(HttpConstant.STEP_CD, result);
         params.put(HttpConstant.SID, sid);
         params.put(HttpConstant.IE, ie);
