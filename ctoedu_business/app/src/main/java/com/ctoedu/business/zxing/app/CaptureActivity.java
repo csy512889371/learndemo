@@ -573,6 +573,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
             // 需要引入core包
             QRCodeWriter writer = new QRCodeWriter();
             String text = Util.getIMEI(this);
+
             if (text == null || "".equals(text) || text.length() < 1) {
                 return null;
             }

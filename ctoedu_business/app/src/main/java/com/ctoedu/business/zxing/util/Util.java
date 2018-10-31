@@ -1,10 +1,13 @@
 package com.ctoedu.business.zxing.util;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -15,7 +18,7 @@ public class Util {
 
 	/**
 	 * 获得屏幕宽度
-	 * 
+	 *
 	 * @return
 	 */
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
@@ -38,7 +41,7 @@ public class Util {
 
 	/**
 	 * 获得屏幕高度
-	 * 
+	 *
 	 * @return
 	 */
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
@@ -59,12 +62,15 @@ public class Util {
 		return height;
 	}
 
-	public static String getIMEI(Context context)
-	{
-		try
-		{
-			TelephonyManager tm= (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-			String imeiCode= tm.getDeviceId();
+	public static String getIMEI(Context context) {
+		try {
+			TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+			if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+				return null;
+			}
+
+			String imeiCode = tm.getDeviceId();
+
 			return imeiCode;
 		}
 		catch (Exception e)

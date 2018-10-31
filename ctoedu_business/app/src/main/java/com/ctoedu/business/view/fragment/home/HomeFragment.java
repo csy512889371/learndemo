@@ -1,6 +1,7 @@
 package com.ctoedu.business.view.fragment.home;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ctoedu.business.R;
 import com.ctoedu.business.activity.PhotoViewActivity;
@@ -23,9 +25,17 @@ import com.ctoedu.business.module.recommand.RecommandBodyValue;
 import com.ctoedu.business.network.http.RequestCenter;
 import com.ctoedu.business.view.fragment.BaseFragment;
 import com.ctoedu.business.view.home.HomeHeaderLayout;
+import com.ctoedu.sdk.activity.AdBrowserActivity;
 import com.ctoedu.sdk.okhttp.listener.DisposeDataListener;
 
 public class HomeFragment extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener {
+
+
+    /**
+     * 扫码处理逻辑
+     */
+    private static final int REQUEST_QRCODE = 0x01;
+
 
     /**
      * UI
@@ -158,5 +168,26 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     }
 
     private void showErrorView() {
+    }
+
+    /**
+     * 扫描二维码后的回调
+     */
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case REQUEST_QRCODE:
+                if (resultCode == Activity.RESULT_OK) {
+                    String code = data.getStringExtra("SCAN_RESULT");
+                    if (code.contains("http") || code.contains("https")) {
+                        Intent intent = new Intent(mContext, AdBrowserActivity.class);
+                        intent.putExtra(AdBrowserActivity.KEY_URL, code);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(mContext, code, Toast.LENGTH_SHORT).show();
+                    }
+                }
+                break;
+        }
     }
 }
