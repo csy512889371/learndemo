@@ -27,8 +27,8 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 import cn.sharesdk.framework.Platform;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 /**
@@ -173,8 +173,7 @@ public class CourseAdapter extends BaseAdapter {
                     mViewHolder.mFooterView = (TextView) convertView.findViewById(R.id.item_footer_view);
                     mViewHolder.mShareView = (ImageView) convertView.findViewById(R.id.item_share_view);
                     //为对应布局创建播放器
-                    mAdsdkContext = new VideoAdContext(mViewHolder.mVieoContentLayout,
-                            new Gson().toJson(value), null);
+                    mAdsdkContext = new VideoAdContext(mViewHolder.mVieoContentLayout, new Gson().toJson(value), null);
                     mAdsdkContext.setAdResultListener(new AdContextInterface() {
                         @Override
                         public void onAdSuccess() {

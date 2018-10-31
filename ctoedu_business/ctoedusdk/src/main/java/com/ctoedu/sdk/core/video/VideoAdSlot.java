@@ -36,8 +36,16 @@ public class VideoAdSlot implements ADVideoPlayerListener {
      */
     private AdValue mXAdInstance;
     private AdSDKSlotListener mSlotListener;
-    private boolean canPause = false; //是否可自动暂停标志位
-    private int lastArea = 0; //防止将要滑入滑出时播放器的状态改变
+
+    /**
+     * 是否可自动暂停标志位
+     */
+    private boolean canPause = false;
+
+    /**
+     * 防止将要滑入滑出时播放器的状态改变
+     */
+    private int lastArea = 0;
 
     public VideoAdSlot(AdValue adInstance, AdSDKSlotListener slotLitener, ADFrameImageLoadListener frameLoadListener) {
         mXAdInstance = adInstance;
