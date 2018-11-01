@@ -9,7 +9,7 @@ import com.ctoedu.business.application.CtoeduApplication;
 
 
 /**
- * 配置文件工具类
+ * SharedPreferences Manager 配置文件工具类
  */
 public class SPManager {
 
@@ -19,10 +19,10 @@ public class SPManager {
     /**
      * Preference文件名
      */
-    private static final String SHARE_PREFREENCE_NAME = "imooc.pre";
+    private static final String SHARE_PREFREENCE_NAME = "ctoedu.pre";
 
     /**
-     * 上次基金更新时间
+     * 上次更新时间
      */
     public static final String LAST_UPDATE_PRODUCT = "last_update_product";
     public static final String VIDEO_PLAY_SETTING = "video_play_setting";

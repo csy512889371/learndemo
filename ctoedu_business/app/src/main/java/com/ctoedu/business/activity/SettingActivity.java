@@ -33,6 +33,9 @@ public class SettingActivity extends AppCompatActivity implements OnClickListene
         initView();
     }
 
+    /**
+     * 初始化用到的所有组件
+     */
     private void initView() {
         mBackView = (ImageView) findViewById(R.id.back_view);
         mWifiLayout = (RelativeLayout) findViewById(R.id.wifi_layout);

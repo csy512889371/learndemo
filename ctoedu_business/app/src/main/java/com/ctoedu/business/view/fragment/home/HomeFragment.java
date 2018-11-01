@@ -18,11 +18,13 @@ import android.widget.Toast;
 
 import com.ctoedu.business.R;
 import com.ctoedu.business.activity.PhotoViewActivity;
+import com.ctoedu.business.activity.SearchActivity;
 import com.ctoedu.business.adapter.CourseAdapter;
 import com.ctoedu.business.constant.Constant;
 import com.ctoedu.business.module.recommand.BaseRecommandModel;
 import com.ctoedu.business.module.recommand.RecommandBodyValue;
 import com.ctoedu.business.network.http.RequestCenter;
+import com.ctoedu.business.util.Util;
 import com.ctoedu.business.view.fragment.BaseFragment;
 import com.ctoedu.business.view.home.HomeHeaderLayout;
 import com.ctoedu.sdk.activity.AdBrowserActivity;
@@ -102,13 +104,13 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                 break;
             case R.id.category_view:
                 //与我交谈
-/*                Intent intent2 = new Intent(Intent.ACTION_VIEW, Util.createQQUrl("277451977"));
+                Intent intent2 = new Intent(Intent.ACTION_VIEW, Util.createQQUrl("512889371"));
                 intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent2);*/
+                startActivity(intent2);
                 break;
             case R.id.search_view:
-/*                Intent searchIntent = new Intent(mContext, SearchActivity.class);
-                mContext.startActivity(searchIntent);*/
+                Intent searchIntent = new Intent(mContext, SearchActivity.class);
+                mContext.startActivity(searchIntent);
                 break;
         }
     }

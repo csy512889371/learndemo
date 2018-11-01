@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="recommend_mailbox">
+        <item>\&#064;gmail.com</item>
+        <item>\&#064;hotmail.com</item>
+        <item>\&#064;yahoo.com</item>
+        <item>\&#064;outlook.com</item>
+        <item>\&#064;aol.com</item>
+        <item>\&#064;hotmail.co.uk</item>
+        <item>\&#064;yahoo.co.uk</item>
+        <item>\&#064;mail.ru</item>
+        <item>\&#064;rediffmail.com</item>
+        <item>\&#064;live.com</item>
+        <item>\&#064;msn.com</item>
+    </string-array>
+</resources>
