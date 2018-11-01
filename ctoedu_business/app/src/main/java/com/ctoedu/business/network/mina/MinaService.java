@@ -50,7 +50,7 @@ public class MinaService extends Service {
         ConnectThread(String name, Context context) {
             super(name);
             ConnectionConfig config = new ConnectionConfig.Builder(context)
-                    .setIP("192.168.1.103")
+                    .setIP("172.16.1.179")
                     .setPort(9124)
                     .setReadBufferSize(10240)
                     .builder();

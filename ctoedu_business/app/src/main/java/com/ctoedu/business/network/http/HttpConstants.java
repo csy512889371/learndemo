@@ -10,7 +10,7 @@ public class HttpConstants {
     /**
      * 请求本地产品列表
      */
-    public static String PRODUCT_LIST = ROOT_URL + "/fund/search.php";
+    public static String PRODUCT_LIST = ROOT_URL + "/fund/search";
 
     /**
      * 本地产品列表更新时间措请求

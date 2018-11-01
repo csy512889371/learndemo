@@ -12,7 +12,9 @@ import com.ctoedu.business.manager.UserManager;
 import com.ctoedu.business.util.Util;
 import com.ctoedu.sdk.adutil.Utils;
 
-
+/**
+ * 已登陆根据用户ID生成二维码
+ */
 public class MyQrCodeDialog extends Dialog {
 
     private Context mContext;

@@ -28,6 +28,7 @@ import com.ctoedu.business.util.Util;
 import com.ctoedu.business.view.CommonDialog;
 import com.ctoedu.business.view.MyQrCodeDialog;
 import com.ctoedu.business.view.fragment.BaseFragment;
+import com.ctoedu.sdk.imageloader.ImageLoaderUtil;
 import com.ctoedu.sdk.okhttp.listener.DisposeDataListener;
 
 import cn.sharesdk.framework.Platform;
@@ -55,8 +56,7 @@ public class MineFragment extends BaseFragment implements OnClickListener {
     private TextView mUpdateView;
 
     //自定义了一个广播接收器
-    private LoginBroadcastReceiver receiver =
-            new LoginBroadcastReceiver();
+    private LoginBroadcastReceiver receiver = new LoginBroadcastReceiver();
 
     public MineFragment() {
     }
@@ -171,14 +171,14 @@ public class MineFragment extends BaseFragment implements OnClickListener {
     }
 
     /**
-     * 分享慕课网给好友
+     * 分享架构师成长之路给好友
      */
     private void shareFriend() {
         ShareDialog dialog = new ShareDialog(mContext, false);
         dialog.setShareType(Platform.SHARE_IMAGE);
-        dialog.setShareTitle("慕课网");
+        dialog.setShareTitle("架构师成长之路");
         dialog.setShareTitleUrl("http://www.ctoedu.com");
-        dialog.setShareText("慕课网");
+        dialog.setShareText("架构师成长之路");
         dialog.setShareSite("ctoedu");
         dialog.setShareSiteUrl("http://www.ctoedu.com");
         dialog.setImagePhoto(Environment.getExternalStorageDirectory() + "/test2.jpg");
@@ -189,8 +189,7 @@ public class MineFragment extends BaseFragment implements OnClickListener {
 
         IntentFilter filter =
                 new IntentFilter(LoginActivity.LOGIN_ACTION);
-        LocalBroadcastManager.getInstance(mContext)
-                .registerReceiver(receiver, filter);
+        LocalBroadcastManager.getInstance(mContext).registerReceiver(receiver, filter);
     }
 
     private void unregisterBroadcast() {
@@ -234,7 +233,7 @@ public class MineFragment extends BaseFragment implements OnClickListener {
     private class LoginBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            /*if (UserManager.getInstance().hasLogined()) {
+            if (UserManager.getInstance().hasLogined()) {
                 //更新我们的fragment
                 if (mLoginedLayout.getVisibility() == View.GONE) {
                     mLoginLayout.setVisibility(View.GONE);
@@ -243,7 +242,7 @@ public class MineFragment extends BaseFragment implements OnClickListener {
                     mTickView.setText(UserManager.getInstance().getUser().data.tick);
                     ImageLoaderUtil.getInstance(mContext).displayImage(mPhotoView, UserManager.getInstance().getUser().data.photoUrl);
                 }
-            }*/
+            }
         }
     }
 }

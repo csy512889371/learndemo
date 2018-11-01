@@ -39,21 +39,33 @@ import com.ctoedu.business.share.ShareManager.PlatofrmType;
  */
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
-    //自定义登陆广播Action
+    /**
+     * 自定义登陆广播Action
+     */
     public static final String LOGIN_ACTION = "com.ctoedu.action.LOGIN_ACTION";
+
     /**
      * UI
      */
     private MailBoxAssociateView mUserNameAssociateView;
     private EditText mPasswordView;
     private TextView mLoginView;
-    private ImageView mQQLoginView; //用来实现QQ登陆
 
     /**
+     * 用来实现QQ登陆
+     */
+    private ImageView mQQLoginView;
+
+    /**
+     * 推送过来的消息
      * data
      */
-    private PushMessage mPushMessage; // 推送过来的消息
-    private boolean fromPush; // 是否从推送到此页面
+    private PushMessage mPushMessage;
+
+    /**
+     * 是否从推送到此页面
+     */
+    private boolean fromPush;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,6 +180,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
         DialogManager.getInstnce().showProgressDialog(this);
 
+        //发送登录请求
         RequestCenter.login(userName, password, new DisposeDataListener() {
             @Override
             public void onSuccess(Object responseObj) {
@@ -177,7 +190,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                  * 这部分可以封装起来，封装为到一个登陆流程类中
                  */
                 User user = (User) responseObj;
-                UserManager.getInstance().setUser(user);//保存当前用户单例对象
+
+                /**
+                 * 保存当前用户单例对象
+                 */
+                UserManager.getInstance().setUser(user);
                 connectToSever();
                 sendLoginBroadcast();
                 /**
@@ -192,7 +209,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     intent.putExtra("pushMessage", mPushMessage);
                     startActivity(intent);
                 }
-                finish();//销毁当前登陆页面
+
+                /**
+                 * 销毁当前登陆页面
+                 */
+                finish();
             }
 
             @Override
