@@ -3,6 +3,7 @@ package com.ctoedu.business.activity;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -10,16 +11,19 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ctoedu.business.R;
 import com.ctoedu.business.activity.base.BaseActivity;
 import com.ctoedu.business.adapter.CourseCommentAdapter;
+import com.ctoedu.business.manager.UserManager;
 import com.ctoedu.business.module.course.BaseCourseModel;
 import com.ctoedu.business.module.course.CourseCommentValue;
+import com.ctoedu.business.module.user.User;
 import com.ctoedu.business.network.http.RequestCenter;
 import com.ctoedu.business.util.Util;
-import com.ctoedu.business.view.scourse.CourseDetailFooterView;
-import com.ctoedu.business.view.scourse.CourseDetailHeaderView;
+import com.ctoedu.business.view.course.CourseDetailFooterView;
+import com.ctoedu.business.view.course.CourseDetailHeaderView;
 import com.ctoedu.sdk.okhttp.listener.DisposeDataListener;
 
 
@@ -59,6 +63,9 @@ public class CourseDetailActivity extends BaseActivity implements View.OnClickLi
         requestDeatil();
     }
 
+    /**
+     * 复用Activity时走的生命周期回调
+     */
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
@@ -113,13 +120,16 @@ public class CourseDetailActivity extends BaseActivity implements View.OnClickLi
         });
     }
 
-    //根据数据填充UI
+    /**
+     * 根据数据填充UI
+     */
     private void updateUI() {
         mLoadingView.setVisibility(View.GONE);
         mListView.setVisibility(View.VISIBLE);
         mAdapter = new CourseCommentAdapter(this, mData.data.body);
         mListView.setAdapter(mAdapter);
 
+        //防止headerView多次加载
         if (headerView != null) {
             mListView.removeHeaderView(headerView);
         }
@@ -136,7 +146,7 @@ public class CourseDetailActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        /*int cursor = position - mListView.getHeaderViewsCount();
+        int cursor = position - mListView.getHeaderViewsCount();
         if (cursor >= 0 && cursor < mAdapter.getCommentCount()) {
             if (UserManager.getInstance().hasLogined()) {
                 CourseCommentValue value = (CourseCommentValue) mAdapter.getItem(
@@ -154,7 +164,7 @@ public class CourseDetailActivity extends BaseActivity implements View.OnClickLi
             } else {
                 startActivity(new Intent(this, LoginActivity.class));
             }
-        }*/
+        }
     }
 
     /**
@@ -180,7 +190,7 @@ public class CourseDetailActivity extends BaseActivity implements View.OnClickLi
                 finish();
                 break;
             case R.id.send_view:
-               /* String comment = mInputEditView.getText().toString().trim();
+                String comment = mInputEditView.getText().toString().trim();
                 if (UserManager.getInstance().hasLogined()) {
                     if (!TextUtils.isEmpty(comment)) {
                         mAdapter.addComment(assembleCommentValue(comment));
@@ -188,7 +198,7 @@ public class CourseDetailActivity extends BaseActivity implements View.OnClickLi
                     }
                 } else {
                     startActivity(new Intent(this, LoginActivity.class));
-                }*/
+                }
 
                 break;
             case R.id.jianpan_view:
@@ -204,14 +214,13 @@ public class CourseDetailActivity extends BaseActivity implements View.OnClickLi
      * @return
      */
     private CourseCommentValue assembleCommentValue(String comment) {
-/*        User user = UserManager.getInstance().getUser();
+        User user = UserManager.getInstance().getUser();
         CourseCommentValue value = new CourseCommentValue();
         value.name = user.data.name;
         value.logo = user.data.photoUrl;
         value.userId = user.data.userId;
         value.type = 1;
         value.text = tempHint + comment;
-        return value;*/
-        return null;
+        return value;
     }
 }

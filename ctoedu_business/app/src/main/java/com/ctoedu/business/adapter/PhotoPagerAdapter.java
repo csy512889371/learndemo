@@ -37,6 +37,7 @@ public class PhotoPagerAdapter extends PagerAdapter {
         return mData.size();
     }
 
+    //构建ViewPager的每一项
     @Override
     public View instantiateItem(ViewGroup container, int position) {
         ImageView photoView;
@@ -54,9 +55,12 @@ public class PhotoPagerAdapter extends PagerAdapter {
         } else {
             photoView = new PhotoView(mContext);
         }
+
+        //使用图片加载组件为PhotoView
         mLoader.displayImage(photoView, mData.get(position));
-        container.addView(photoView, LayoutParams.MATCH_PARENT,
-                LayoutParams.MATCH_PARENT);
+        container.addView(photoView, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+
+
         return photoView;
     }
 

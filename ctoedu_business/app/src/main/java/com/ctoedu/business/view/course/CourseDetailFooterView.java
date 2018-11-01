@@ -1,4 +1,4 @@
-package com.ctoedu.business.view.scourse;
+package com.ctoedu.business.view.course;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,11 +11,22 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+
 import com.ctoedu.business.R;
 import com.ctoedu.business.activity.CourseDetailActivity;
+import com.ctoedu.business.module.course.CourseFooterDateValue;
 import com.ctoedu.business.module.course.CourseFooterRecommandValue;
 import com.ctoedu.business.module.course.CourseFooterValue;
+import com.ctoedu.business.util.DateFormatHelper;
 import com.ctoedu.sdk.imageloader.ImageLoaderUtil;
+
+import java.util.ArrayList;
 
 
 public class CourseDetailFooterView extends RelativeLayout {
@@ -29,7 +40,7 @@ public class CourseDetailFooterView extends RelativeLayout {
      * 图表相关UI
      */
     private LinearLayout contentLayout;
-    //private LineChart lineView;
+    private LineChart lineView;
     private Resources resource;
     private float yAxisMax = -1.0f;
     private float yAxisMin = 100.0f;
@@ -111,7 +122,7 @@ public class CourseDetailFooterView extends RelativeLayout {
      * 绘制图表
      */
     private void addLineChartView() {
-        /*lineView = new LineChart(mContext);
+        lineView = new LineChart(mContext);
         lineView.setDescription("");
         lineView.setScaleEnabled(false);
         lineView.getAxisRight().setEnabled(true);
@@ -133,9 +144,10 @@ public class CourseDetailFooterView extends RelativeLayout {
                 initMaxMin(Float.parseFloat(value.count));
             }
         }
-        *//**
+
+        /**
          * x轴样式设置
-         *//*
+         */
         XAxis xAxis = lineView.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);// 设置x轴在底部显示
         xAxis.setAvoidFirstLastClipping(true);
@@ -144,9 +156,10 @@ public class CourseDetailFooterView extends RelativeLayout {
         xAxis.setAxisLineColor(resource.getColor(R.color.color_dddddd));
         xAxis.setDrawGridLines(true);
         xAxis.setGridColor(resource.getColor(R.color.color_dddddd));
-        *//**
+
+        /**
          * y轴样式设置
-         *//*
+         */
         YAxis leftAxis = lineView.getAxisLeft();
         leftAxis.resetAxisMinValue();
         leftAxis.setLabelCount(yAxislabelNum, true);
@@ -164,9 +177,9 @@ public class CourseDetailFooterView extends RelativeLayout {
         rightAxis.setAxisLineColor(resource.getColor(R.color.color_dddddd));
 
 
-        *//**
+        /**
          * 曲线样式设置
-         *//*
+         */
         LineDataSet set = new LineDataSet(yRawData, "");
         set.setDrawCubic(true);
         set.setCubicIntensity(0.2f);
@@ -184,6 +197,6 @@ public class CourseDetailFooterView extends RelativeLayout {
         lineView.invalidate();
 
         LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-        contentLayout.addView(lineView, params);*/
+        contentLayout.addView(lineView, params);
     }
 }

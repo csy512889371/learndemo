@@ -105,7 +105,9 @@ public class JPushReceiver extends BroadcastReceiver {
         }
     }
 
-    // 打印所有的 intent extra 数据
+    /**
+     * 打印所有的 intent extra 数据
+     */
     private static String printBundle(Bundle bundle) {
         StringBuilder sb = new StringBuilder();
         for (String key : bundle.keySet()) {
@@ -145,7 +147,6 @@ public class JPushReceiver extends BroadcastReceiver {
     /**
      * 这个是真正的获取指定包名的应用程序是否在运行(无论前台还是后台)
      *
-     * @return
      */
     private boolean getCurrentTask(Context context) {
 

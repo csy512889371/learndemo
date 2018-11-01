@@ -23,6 +23,8 @@ import com.ctoedu.sdk.module.AdValue;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 
+import com.ctoedu.sdk.constant.SDKConstant.AutoPlaySetting;
+
 
 public class Utils {
 
@@ -70,7 +72,7 @@ public class Utils {
     }
 
     //decide can autoplay the ad
-    public static boolean canAutoPlay(Context context, SDKConstant.AutoPlaySetting setting) {
+    public static boolean canAutoPlay(Context context, AutoPlaySetting setting) {
         boolean result = true;
         switch (setting) {
             case AUTO_PLAY_3G_4G_WIFI:

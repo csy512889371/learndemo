@@ -92,38 +92,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     }
 
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.qrcode_view:
-                if (hasPermission(Constant.HARDWEAR_CAMERA_PERMISSION)) {
-                    doOpenCamera();
-                } else {
-                    requestPermission(Constant.HARDWEAR_CAMERA_CODE, Constant.HARDWEAR_CAMERA_PERMISSION);
-                }
-                break;
-            case R.id.category_view:
-                //与我交谈
-                Intent intent2 = new Intent(Intent.ACTION_VIEW, Util.createQQUrl("512889371"));
-                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent2);
-                break;
-            case R.id.search_view:
-                Intent searchIntent = new Intent(mContext, SearchActivity.class);
-                mContext.startActivity(searchIntent);
-                break;
-        }
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        RecommandBodyValue value = (RecommandBodyValue) mAdapter.getItem(position - mListView.getHeaderViewsCount());
-        if (value.type != 0) {
-            Intent intent = new Intent(mContext, PhotoViewActivity.class);
-            intent.putStringArrayListExtra(PhotoViewActivity.PHOTO_LIST, value.url);
-            startActivity(intent);
-        }
-    }
+   
 
     //首页列表数据请求:推荐产品
     private void requestRecommandData() {
@@ -172,6 +141,38 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     private void showErrorView() {
     }
 
+ @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.qrcode_view:
+                if (hasPermission(Constant.HARDWEAR_CAMERA_PERMISSION)) {
+                    doOpenCamera();
+                } else {
+                    requestPermission(Constant.HARDWEAR_CAMERA_CODE, Constant.HARDWEAR_CAMERA_PERMISSION);
+                }
+                break;
+            case R.id.category_view:
+                //与我交谈
+                Intent intent2 = new Intent(Intent.ACTION_VIEW, Util.createQQUrl("512889371"));
+                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent2);
+                break;
+            case R.id.search_view:
+                Intent searchIntent = new Intent(mContext, SearchActivity.class);
+                mContext.startActivity(searchIntent);
+                break;
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        RecommandBodyValue value = (RecommandBodyValue) mAdapter.getItem(position - mListView.getHeaderViewsCount());
+        if (value.type != 0) {
+            Intent intent = new Intent(mContext, PhotoViewActivity.class);
+            intent.putStringArrayListExtra(PhotoViewActivity.PHOTO_LIST, value.url);
+            startActivity(intent);
+        }
+    }
     /**
      * 扫描二维码后的回调
      */

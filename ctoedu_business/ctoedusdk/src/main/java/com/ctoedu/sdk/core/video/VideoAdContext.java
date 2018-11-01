@@ -92,7 +92,7 @@ public class VideoAdContext implements VideoAdSlot.AdSDKSlotListener {
         if (mListener != null) {
             mListener.onAdFailed();
         }
-        sendAnalizeReport(HttpConstant.Params.ad_load, HttpConstant.AD_PLAY_FAILED);
+        sendAnalizeReport(Params.ad_load, HttpConstant.AD_PLAY_FAILED);
     }
 
     @Override

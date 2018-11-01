@@ -1,4 +1,4 @@
-package com.ctoedu.business.view.scourse;
+package com.ctoedu.business.view.course;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,7 +17,9 @@ import com.ctoedu.business.R;
 import com.ctoedu.business.activity.PhotoViewActivity;
 import com.ctoedu.business.module.course.CourseHeaderValue;
 import com.ctoedu.sdk.adutil.Utils;
+import com.ctoedu.sdk.core.video.VideoAdContext;
 import com.ctoedu.sdk.imageloader.ImageLoaderUtil;
+import com.google.gson.Gson;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -98,13 +100,16 @@ public class CourseDetailHeaderView extends RelativeLayout {
             mContentLayout.addView(createItem(url));
         }
         if (!TextUtils.isEmpty(mData.video.resource)) {
-/*            new VideoAdContext(mVideoLayout,
-                    new Gson().toJson(mData.video), null);*/
+            //调用封装好的视频播放
+            new VideoAdContext(mVideoLayout,
+                    new Gson().toJson(mData.video), null);
         }
     }
 
     private ImageView createItem(String url) {
+        //实例化View对象
         ImageView imageView = new ImageView(mContext);
+        //为对应的view创建布局参数
         LinearLayout.LayoutParams params = new LinearLayout.
                 LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.dip2px(mContext, 150));
         params.topMargin = Utils.dip2px(mContext, 10);

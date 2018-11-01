@@ -30,12 +30,13 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
-    compile 'com.squareup.okhttp3:okhttp:3.7.0'
-    //okttp依赖
+
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     //添加友盟统计
     compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    //okttp依赖
+    compile 'com.squareup.okhttp3:okhttp:3.7.0'
     compile('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
         exclude module: 'support-v4'
     }
@@ -44,6 +45,8 @@ dependencies {
     compile 'com.alipay.euler:andfix:0.5.0@aar'
     //阿里热修复andfix
     compile project(path: ':ctoedusdk')
+
+
     implementation files('libs/zxing.jar')
     implementation files('libs/ShareSDK-Core-2.7.5.jar')
     implementation files('libs/ShareSDK-QQ-2.7.5.jar')

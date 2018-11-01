@@ -89,6 +89,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         mHomeView.setBackgroundResource(R.drawable.comui_tab_home_selected);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
     /**
      * 用来隐藏具体的fragment
      */

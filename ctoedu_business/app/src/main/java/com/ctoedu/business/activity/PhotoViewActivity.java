@@ -10,10 +10,13 @@ import android.widget.TextView;
 import com.ctoedu.business.R;
 import com.ctoedu.business.activity.base.BaseActivity;
 import com.ctoedu.business.adapter.PhotoPagerAdapter;
+import com.ctoedu.business.share.ShareDialog;
 import com.ctoedu.business.util.Util;
 import com.ctoedu.sdk.adutil.Utils;
 
 import java.util.ArrayList;
+
+import cn.sharesdk.framework.Platform;
 
 
 /**
@@ -45,6 +48,7 @@ public class PhotoViewActivity extends BaseActivity implements View.OnClickListe
         initView();
     }
 
+    //初始化要显示的图片地址列表
     private void initData() {
         Intent intent = getIntent();
         mPhotoLists = intent.getStringArrayListExtra(PHOTO_LIST);
@@ -85,7 +89,17 @@ public class PhotoViewActivity extends BaseActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.share_view:
-
+                ShareDialog dialog = new ShareDialog(this, true);
+                dialog.setShareType(Platform.SHARE_IMAGE);
+                dialog.setShareTitle(getString(R.string.ctoedu));
+                dialog.setShareTitleUrl(getString(R.string.ctoedu_site));
+                dialog.setShareText(getString(R.string.ctoedu));
+                dialog.setShareSite(getString(R.string.ctoedu));
+                dialog.setShareTitle(getString(R.string.ctoedu));
+                dialog.setImagePhoto(mPhotoLists.get(currentPos));
+                dialog.setUrl(mPhotoLists.get(currentPos));
+                dialog.setResourceUrl(mPhotoLists.get(currentPos));
+                dialog.show();
                 break;
         }
     }

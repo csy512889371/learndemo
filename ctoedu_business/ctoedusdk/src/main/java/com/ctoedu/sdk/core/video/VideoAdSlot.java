@@ -19,6 +19,8 @@ import com.ctoedu.sdk.widget.CustomVideoView.ADVideoPlayerListener;
 import com.ctoedu.sdk.widget.VideoFullDialog;
 import com.ctoedu.sdk.widget.VideoFullDialog.FullToSmallListener;
 
+import com.ctoedu.sdk.widget.CustomVideoView.ADFrameImageLoadListener;
+
 
 /**
  * 视频播放小屏
@@ -58,7 +60,7 @@ public class VideoAdSlot implements ADVideoPlayerListener {
     /**
      * 初始化视频View
      */
-    private void initVideoView(CustomVideoView.ADFrameImageLoadListener frameImageLoadListener) {
+    private void initVideoView(ADFrameImageLoadListener frameImageLoadListener) {
         mVideoView = new CustomVideoView(mContext, mParentView);
         if (mXAdInstance != null) {
             mVideoView.setDataSource(mXAdInstance.resource);
