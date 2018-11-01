@@ -1,5 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ctoedu.sdk" >
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        >
+        <activity android:name="com.ctoedu.sdk.activity.AdBrowserActivity"/>
+    </application>
+
 </manifest>
