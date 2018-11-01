@@ -30,7 +30,7 @@
     <string name="auto_player_only_wifi">仅Wifi</string>
     <string name="auto_player_never">关闭</string>
     <string name="video_setting">视频播放环境条件</string>
-    <string name="share_imooc">分享给朋友</string>
+    <string name="share_ctoedu">分享给朋友</string>
     <string name="my_qrcode">我的二维码</string>
     <string name="please_wait">加载中...</string>
     <string name="personal_info">的个人主页</string>
@@ -39,8 +39,8 @@
     <string name="unread_message_info">还没有收到留言.</string>
     <string name="zan_message">收到的赞</string>
     <string name="zan_message_info">还没有收到的赞.</string>
-    <string name="imooc_message">架构师的成长之路</string>
-    <string name="imooc_message_info">再不学习.</string>
+    <string name="ctoedu_message">架构师的成长之路</string>
+    <string name="ctoedu_message_info">再不学习.</string>
     <string name="update_info">版本更新</string>
     <string name="jpush_message_type">消息类型:</string>
     <string name="jpush_message_content">消息内容:</string>
@@ -54,8 +54,8 @@
     <string name="download">下载</string>
     <string name="download_success">下载成功</string>
     <string name="download_failed">下载失败</string>
-    <string name="imooc">架构师的成长之路</string>
-    <string name="imooc_site">http://www.ctoedu.com</string>
+    <string name="ctoedu">架构师的成长之路</string>
+    <string name="ctoedu_site">http://www.ctoedu.com</string>
     <string name="today_zuixing">------------&#062;&#062;今日最新&#060;&#060;------------</string>
     <string name="course_detail">课程详情</string>
     <string name="danbao_trade">担保交易</string>

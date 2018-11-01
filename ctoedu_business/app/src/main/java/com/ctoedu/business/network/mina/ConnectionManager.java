@@ -19,7 +19,7 @@ import java.net.InetSocketAddress;
  */
 public class ConnectionManager {
 
-    public static String BROADCAST_ACTION = "com.imooc.mina.broadcast";
+    public static String BROADCAST_ACTION = "com.ctoedu.mina.broadcast";
     public static String MESSAGE = "message";
 
     private ConnectionConfig mConfig;

@@ -16,6 +16,6 @@
         android:gravity="center"
         android:id="@+id/foreground_layer"
         android:width="40dp" android:height="40dp"
-        android:drawable="@drawable/icon_imooc"
+        android:drawable="@drawable/icon_ctoedu"
     />
 </layer-list>

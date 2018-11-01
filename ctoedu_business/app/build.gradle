@@ -32,6 +32,8 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.7.0'
     //okttp依赖
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    //添加友盟统计
+    compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
         exclude module: 'support-v4'
@@ -53,4 +55,6 @@ dependencies {
     implementation files('libs/MobCommons-2016.0811.1207.jar')
     implementation files('libs/mpchart.jar')
     implementation files('libs/slf4j-android-1.6.1-RC1.jar')
+    implementation files('libs/nineoldandroids-2.4.0.jar')
+    implementation files('libs/MobTools-2016.0811.1207.jar')
 }

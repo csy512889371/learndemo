@@ -138,7 +138,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             @Override
             public void onFailure(Object reasonObj) {
                 //显示请求失败View
-                //showErrorView();
+                showErrorView();
             }
         });
     }

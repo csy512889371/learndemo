@@ -40,7 +40,7 @@ import com.ctoedu.business.share.ShareManager.PlatofrmType;
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     //自定义登陆广播Action
-    public static final String LOGIN_ACTION = "com.imooc.action.LOGIN_ACTION";
+    public static final String LOGIN_ACTION = "com.ctoedu.action.LOGIN_ACTION";
     /**
      * UI
      */

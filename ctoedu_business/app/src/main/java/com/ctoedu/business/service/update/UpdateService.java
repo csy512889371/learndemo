@@ -20,7 +20,7 @@ public class UpdateService extends Service {
     /**
      * 服务器固定地址
      */
-    private static final String APK_URL_TITLE = "http://www.imooc.com/mobile/mukewang.apk";
+    private static final String APK_URL_TITLE = "http://www.ctoedu.com/mobile/ctoedu.apk";
     /**
      * 文件存放路经
      */
@@ -36,7 +36,7 @@ public class UpdateService extends Service {
     @Override
     public void onCreate() {
         notificationManager = (NotificationManager) getSystemService(android.content.Context.NOTIFICATION_SERVICE);
-        filePath = Environment.getExternalStorageDirectory() + "/imooc/imooc.apk";
+        filePath = Environment.getExternalStorageDirectory() + "/ctoedu/ctoedu.apk";
     }
 
     @Override
@@ -101,8 +101,8 @@ public class UpdateService extends Service {
 
     private void notifyThatExceedLv21(String tickerMsg, String message, int progress) {
         NotificationCompat.Builder notification = new NotificationCompat.Builder(this);
-        notification.setSmallIcon(R.drawable.bg_message_imooc);
-        notification.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.bg_message_imooc));
+        notification.setSmallIcon(R.drawable.bg_message_ctoedu);
+        notification.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.bg_message_ctoedu));
         notification.setContentTitle(getString(R.string.app_name));
         if (progress > 0 && progress < 100) {
             notification.setProgress(100, progress, false);

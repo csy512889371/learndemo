@@ -142,24 +142,24 @@
         />
 
     <RelativeLayout
-        android:id="@+id/imooc_layout"
+        android:id="@+id/ctoedu_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
         >
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imooc_view"
+            android:id="@+id/ctoedu_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/bg_message_imooc"
+            android:src="@drawable/bg_message_ctoedu"
             />
 
         <TextView
             android:id="@+id/tip_view"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_toLeftOf="@+id/imooc_message_view"
+            android:layout_toLeftOf="@+id/ctoedu_message_view"
             android:background="@drawable/bg_message_tip"
             android:gravity="center"
             android:textColor="@color/white"
@@ -167,27 +167,27 @@
             android:visibility="gone"/>
 
         <TextView
-            android:id="@+id/imooc_message_view"
+            android:id="@+id/ctoedu_message_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@id/imooc_view"
+            android:layout_alignTop="@id/ctoedu_view"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/imooc_view"
-            android:text="@string/imooc_message"
+            android:layout_toRightOf="@id/ctoedu_view"
+            android:text="@string/ctoedu_message"
             android:textColor="@color/black"
             android:textSize="18sp"
             />
 
         <TextView
-            android:id="@+id/tip_imooc_view"
+            android:id="@+id/tip_ctoedu_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/imooc_view"
-            android:layout_alignLeft="@id/imooc_message_view"
+            android:layout_alignBottom="@id/ctoedu_view"
+            android:layout_alignLeft="@id/ctoedu_message_view"
             android:layout_marginBottom="5dp"
-            android:layout_toRightOf="@id/imooc_view"
-            android:text="@string/imooc_message_info"
+            android:layout_toRightOf="@id/ctoedu_view"
+            android:text="@string/ctoedu_message_info"
             android:textColor="@color/color_333333"
             android:textSize="14sp"
             />

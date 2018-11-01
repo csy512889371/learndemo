@@ -24,7 +24,7 @@ public class MessageFragment extends BaseFragment implements View.OnClickListene
     private View mContentView;
     private RelativeLayout mMessageLayout;
     private RelativeLayout mZanLayout;
-    private RelativeLayout mImoocLayout;
+    private RelativeLayout mCtoeduLayout;
     private TextView mTipView;
     private TextView mTipZanView;
     private TextView mTipMsgView;
@@ -56,13 +56,13 @@ public class MessageFragment extends BaseFragment implements View.OnClickListene
 
     private void initView() {
         mMessageLayout = (RelativeLayout) mContentView.findViewById(R.id.message_layout);
-        mImoocLayout = (RelativeLayout) mContentView.findViewById(R.id.imooc_layout);
+        mCtoeduLayout = (RelativeLayout) mContentView.findViewById(R.id.ctoedu_layout);
         mZanLayout = (RelativeLayout) mContentView.findViewById(R.id.zan_layout);
         mTipView = (TextView) mContentView.findViewById(R.id.tip_view);
         mTipZanView = (TextView) mContentView.findViewById(R.id.zan_tip_view);
         mTipMsgView = (TextView) mContentView.findViewById(R.id.unread_tip_view);
 
-        mImoocLayout.setOnClickListener(this);
+        mCtoeduLayout.setOnClickListener(this);
         mZanLayout.setOnClickListener(this);
         mMessageLayout.setOnClickListener(this);
     }

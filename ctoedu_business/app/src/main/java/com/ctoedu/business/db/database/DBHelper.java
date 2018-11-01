@@ -16,7 +16,7 @@ public final class DBHelper extends SQLiteOpenHelper {
 
     private static Context mContext;
     private static DBHelper helper = null;
-    private static final String DATABASE_NAME = "imooc.db";
+    private static final String DATABASE_NAME = "ctoedu.db";
     private static final int DATABASE_VERSION = 1;
     /**
      * 字段公共类型

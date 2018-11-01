@@ -88,7 +88,7 @@ public class MineFragment extends BaseFragment implements OnClickListener {
         mLoginView.setOnClickListener(this);
         mVideoPlayerView = (TextView) mContentView.findViewById(R.id.video_setting_view);
         mVideoPlayerView.setOnClickListener(this);
-        mShareView = (TextView) mContentView.findViewById(R.id.share_imooc_view);
+        mShareView = (TextView) mContentView.findViewById(R.id.share_ctoedu_view);
         mShareView.setOnClickListener(this);
         mQrCodeView = (TextView) mContentView.findViewById(R.id.my_qrcode_view);
         mQrCodeView.setOnClickListener(this);
@@ -123,8 +123,8 @@ public class MineFragment extends BaseFragment implements OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.share_imooc_view:
-                //分享Imooc课网址
+            case R.id.share_ctoedu_view:
+                //分享Ctoedu课网址
                 shareFriend();
                 break;
             case R.id.login_layout:
@@ -177,10 +177,10 @@ public class MineFragment extends BaseFragment implements OnClickListener {
         ShareDialog dialog = new ShareDialog(mContext, false);
         dialog.setShareType(Platform.SHARE_IMAGE);
         dialog.setShareTitle("慕课网");
-        dialog.setShareTitleUrl("http://www.imooc.com");
+        dialog.setShareTitleUrl("http://www.ctoedu.com");
         dialog.setShareText("慕课网");
-        dialog.setShareSite("imooc");
-        dialog.setShareSiteUrl("http://www.imooc.com");
+        dialog.setShareSite("ctoedu");
+        dialog.setShareSiteUrl("http://www.ctoedu.com");
         dialog.setImagePhoto(Environment.getExternalStorageDirectory() + "/test2.jpg");
         dialog.show();
     }

@@ -132,7 +132,7 @@
     />
 
     <TextView
-        android:id="@+id/share_imooc_view"
+        android:id="@+id/share_ctoedu_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableRight="@drawable/arrow_right"
@@ -140,7 +140,7 @@
         android:paddingLeft="20dp"
         android:paddingRight="15dp"
         android:paddingTop="15dp"
-        android:text="@string/share_imooc"
+        android:text="@string/share_ctoedu"
         android:textColor="@color/color_333333"
         android:textSize="15sp"
     />

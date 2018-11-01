@@ -53,7 +53,7 @@ public class CommonOkHttpClient {
             public Response intercept(Chain chain) throws IOException {
                 Request request = chain.request()
                         .newBuilder()
-                        .addHeader("User-Agent", "Imooc-Mobile") // 标明发送本次请求的客户端
+                        .addHeader("User-Agent", "Ctoedu-Mobile") // 标明发送本次请求的客户端
                         .build();
                 return chain.proceed(request);
             }
