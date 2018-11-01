@@ -48,4 +48,9 @@ dependencies {
     implementation files('libs/ShareSDK-Wechat-2.7.5.jar')
     implementation files('libs/ShareSDK-Wechat-Core-2.7.5.jar')
     implementation files('libs/ShareSDK-Wechat-Moments-2.7.5.jar')
+    implementation files('libs/jpush-android-2.1.0.jar')
+    implementation files('libs/mina-core-2.0.13.jar')
+    implementation files('libs/MobCommons-2016.0811.1207.jar')
+    implementation files('libs/mpchart.jar')
+    implementation files('libs/slf4j-android-1.6.1-RC1.jar')
 }
